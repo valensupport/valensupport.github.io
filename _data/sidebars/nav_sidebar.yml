@@ -1,0 +1,25 @@
+# This is your sidebar TOC. The sidebar code loops through sections here and provides the appropriate formatting.
+
+
+entries:
+- title: Sidebar
+  product: Important Links
+  version: 1.0
+  folders:
+
+  - title:
+    output: web
+    type: frontmatter
+    folderitems:
+    - title: Docs Home
+      url: /index
+      output: web
+      type: frontmatter
+    - title: Valen
+      url: http://www.valen.com
+      output: web
+      type: frontmatter
+    - title: Support Blog
+      url: /Blog
+      output: web
+      type: frontmatter

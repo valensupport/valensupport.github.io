@@ -1,0 +1,10 @@
+original_policy_term_number: Policy identifier that is used to associate a quoted or bound policy with the score. Uniquely identifies the policy when used in conjunction with the term_effective_date value
+term_effective_date: Prospective policy term
+audit_method_code: Constrained to the following list - If not submitted with input the system will default the value to ‘P’. Maximum of 1 character
+underwriter: Underwriter identifier that may be used for reporting purposes
+agency: Agency identifier that may be used for reporting purposes
+policy_state_code:  Governing state is defined as the state associated with the location of the primary risk. This value is cross-referneced with the state associated with the highest exposure on the policy and is also verified against the ZIP code included in the policy_zip_code value.
+policy_zip_code: Zip code for the location of the primary risk. ZIP Code must be related to policy_state_code
+available_history: Maximum of one character. This field answers the question - Is there history available for claims in the prior term? If this value is 'N' the models evaluate claim history to be 'unavailable.'
+non_zero_claim_count: This field is related to the count of all known positive dollar claims in the prior term.
+class_code_req: At least one class code must be specified
