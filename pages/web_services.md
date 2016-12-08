@@ -59,8 +59,7 @@ Submitting data that is invalid or improperly formatted will return an error mes
 Requests to the PWS are designed as RESTful requests. Responses are
 provided for all models supported, i.e.*,* risk, misclassification and
 premium impact. The user cannot select independent models to be scored
-and or partial responses to be returned. Requests for scoring must be
-made to an URL specific to a given customer, solution and submission.
+and or partial responses to be returned.
 
 Web service requests are submitted as a POST request to the following
 URL:
