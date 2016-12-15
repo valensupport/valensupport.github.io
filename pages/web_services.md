@@ -305,7 +305,7 @@ There will be a section or sections similar to the following. If there are more 
 ### Appendix A - RESTful Request / Response Example
 
 <span id="_Toc412556468" class="anchor"></span>We use cURL or Postman to
-test our response content. See [Appendix E](#_Appendix_E_–) for some
+test our response content. See [Appendix E](#_Appendix_E_) for some
 examples.
 
 ##### Predict RESTful Request Example: 
@@ -605,7 +605,7 @@ policy, the percent contribution for a variable is that variables
 importance value divided by the sum of the absolute value of importance
 values on that policy.
 
-### <a name="appendixC"></a>Appendix C – Error Handling
+### <a name="appendixC">Appendix C – Error Handling</a>
 
 If the Content Type of the request is not application/json,
 application/xml, or text/xml an Unsupported Media Type (HTTP415) status
