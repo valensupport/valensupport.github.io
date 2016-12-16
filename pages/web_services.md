@@ -81,7 +81,7 @@ Two headers are required for successful request.
 -   Content-Type – this can be either application/xml or text/xml
 -   Authorization – username and password
 
-The body of the request must conform to the standards defined in the [Data Dictionary Requirements](#_Data_Dictionary_Requirements_1) section of this document. This section describes the input data names, types, and constraints. The *Field Name* is used as a unique identifier when sending input data. The web-service WSDL also defines the input data names and constraints.
+The body of the request must conform to the standards defined in the [Data Dictionary Requirements](#data-dictionary) section of this document. This section describes the input data names, types, and constraints. The *Field Name* is used as a unique identifier when sending input data. The web-service WSDL also defines the input data names and constraints.
 
 If the XML is a well-formed, UTF-8 request, the request will be
 validated.
@@ -299,10 +299,10 @@ There will be a section or sections similar to the following. If there are more 
     <percentOfPremiumImpact>[double]</percentOfPremiumImpact> 
   </class>
 ```
-  
-### Building a Predict Web Service Batch Request
 
-### Appendix A - RESTful Request / Response Example
+### Appendix A 
+
+#### RESTful Request/Response Examples
 
 <span id="_Toc412556468" class="anchor"></span>We use cURL or Postman to
 test our response content. See [Appendix E](#_Appendix_E_) for some
@@ -605,7 +605,9 @@ policy, the percent contribution for a variable is that variables
 importance value divided by the sum of the absolute value of importance
 values on that policy.
 
-### <a name="appendixC">Appendix C – Error Handling</a>
+<a name="appendixC" id="appendixC"></a>
+
+### Appendix C – Error Handling
 
 If the Content Type of the request is not application/json,
 application/xml, or text/xml an Unsupported Media Type (HTTP415) status
@@ -642,6 +644,7 @@ If the request XML is not well-formed a Bad Request (HTTP 400) status
 code containing an illFormedRequest body will be returned including the
 ill-formed request:
 
+```xml
 &lt;response&gt;
 
 &lt;info&gt;
@@ -667,9 +670,11 @@ ill-formed request:
 &lt;/illFormedRequest&gt;
 
 &lt;/response&gt;
+```
 
 ##### Constraint Violation
 
+```xml
 &lt;response&gt;
 
 &lt;info&gt;
@@ -735,11 +740,11 @@ which is not the specified type: 'integer'&lt;/description&gt;
 
 &lt;/errors&gt;
 
-&lt;/response&gt;
+&lt;/response&gt;```
 
 ##### Duplicate Class Code
 
-&lt;response&gt;
+```&lt;response&gt;
 
 &lt;info&gt;
 
@@ -786,9 +791,11 @@ times&lt;/description&gt;
 &lt;/errors&gt;
 
 &lt;/response&gt;
+```
 
 ##### Required Field Violation
 
+```xml
 &lt;response&gt;
 
 &lt;info&gt;
@@ -962,11 +969,14 @@ provided&lt;/description&gt;
 &lt;/errors&gt;
 
 &lt;/response&gt;
+```
 
 ##### Credential Violation
 
+```xml
 &lt;data contentType="null"
 contentLength="16"&gt;&lt;!\[CDATA\[401:Unauthorized\]\]&gt;&lt;/data&gt;
+```
 
 ### Appendix D – *Predict* Report Download
 
