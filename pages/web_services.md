@@ -1,7 +1,7 @@
 ---
 layout: page
 title: InsureRight® Predict Web Services
-permalink: webservices_guide.html
+permalink: webservices_guide_old.html
 sidebar: nav_sidebar
 last_updated: November, 2016
 summary: The webservices guide for the 3.0 platform.
