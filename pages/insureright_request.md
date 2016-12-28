@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Building an InsureRight Request
-permalink: insureright_submit.html
+permalink: insureright_request.html
 sidebar: nav_sidebar
 last_updated: December, 2016
 summary: Building requests specifically for the InsureRight solution
@@ -22,6 +22,7 @@ Authorization: username/password in base64
 The PWS Application requires data in a minimum of 2 nodes, **insured** and **class**. Those are nested inside the **input node**. In order to handle multiple classes, the class information is further nested inside the **input_child** node. The sequence of field names defined in the input files are not important, providing the field names defined in the columns match Valen’s field names. A full example is provided in [Appendix A](#appendixA). More information about the fields is provided in the [Data Dictionary](#dataDict). The basic layout for Request and Response packets is this:
 
 ##### Request Requirements
+
 ```xml
 <inputs>
 	<insured></insured>
@@ -29,6 +30,12 @@ The PWS Application requires data in a minimum of 2 nodes, **insured** and **cla
 		<class></class>
 	</inputChildren>
 </inputs>
+```
+
+##### Response Structure
+
+```xml
+
 ```
 
 ### Data Dictionary
@@ -152,7 +159,7 @@ Importance=*a numeric indicator of the importance of this variable in the overal
 |-----|-----------|
 |exposure_shift_prediction|Up to 5 descriptions and measures, associated with the explain nodes, providing information on the relative importance of reasons for a misclassification score|
 |loss_ratio_relativity_prediction|Up to 5 descriptions and measures, associated with the explain nodes, providing information on the relative importance of reasons for a risk score|
-|pi_score|Up to 5 descriptions and measures, associated with the explain nodes, providing information on the relative importance of reasons for a premium impact score|
+|pi_score                    |Up to 5 descriptions and measures, associated with the explain nodes, providing information on the relative importance of reasons for a premium impact score|
 
 **Report Data**
 
@@ -181,3 +188,16 @@ There will be a section or sections similar to the following. If there are more 
     <percentOfPremiumImpact>[double]</percentOfPremiumImpact> 
   </class>
 ```
+
+
+### Test Plan
+
+Here is a test plan for integration of Valen's InsureRight Scoring API. Each required test must pass for the integration to be completed. Data and Authentication will need to be provided for each request, sampled here in cURL.
+
+{:.tests}
+|Test|Request|Expected Response|
+|----|-------|-----------------|
+|Basic Scoring|`curl --request POST --url 'https://insureright.valen.com/solutions/insureright/scoring' –u [username]:[password] --header "content-type: application/xml" --data [data here]`| 200 OK: Scoring Response here|
+|Retrieve Without Params|`curl --request POST --url 'https://insureright.valen.com/solutions/scores/query/insureright/scoring' –u [username]:[password] --header 'content-type: text/plain'`|200 OK: Response will be a list of scored records. Max is 1000 records long|
+|<a href="#" data-toggle="tooltip" data-original-title="{{ site.data.glossary.retrieve_with_params }}">Retrieve With Params</a>|`curl --request POST --url 'https://insureright.valen.com/solutions/scores/query/insureright/scoring?element=insured%2Cpolicy_state_code%2Cvalue%2Ccontains%2CKY' –u [username]:[password] --header 'content-type: text/plain'`|200 OK: Response will be a list of scored records limited according to query param|
+|Retrieve PDF|`curl --request POST --url 'https://insureright.valen.com/solutions/insureright/scoring/104557?format=pdf' –u [username]:[password] --header 'content-type: application/xml'`| 200 OK: PDF contents will be returned in Base 64 format|

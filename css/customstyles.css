@@ -129,6 +129,7 @@ th {
     text-align: left;
 }
 table {
+    table-layout: fixed
     max-width: 90%;
     margin-bottom: 20px;
     border: 1px solid #dedede;
@@ -194,6 +195,8 @@ table tr td {
     hyphens: auto;
 }
 
+.tests {
+}
 
 p.external a {
     text-align:right;

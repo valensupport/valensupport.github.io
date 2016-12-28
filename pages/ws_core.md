@@ -2,7 +2,7 @@
 layout: page
 title: InsureRight® Predict Web Services
 permalink: webservices_core.html
-sidebar: nav_sidebar
+sidebar: mydoc_sidebar
 last_updated: December, 2016
 summary: Intro to Valen Webservices integration
 ---

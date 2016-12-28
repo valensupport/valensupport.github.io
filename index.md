@@ -8,6 +8,7 @@ permalink: index.html
 
 [WebServices Guide](webservices_guide.html)
 
+[WebCore](webservices_core.html)
 
 For more information about Valen, please visit us on the web:
 [Valen](http://www.valen.com)

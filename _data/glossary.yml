@@ -8,3 +8,4 @@ policy_zip_code: Zip code for the location of the primary risk. ZIP Code must be
 available_history: Maximum of one character. This field answers the question - Is there history available for claims in the prior term? If this value is 'N' the models evaluate claim history to be 'unavailable.'
 non_zero_claim_count: This field is related to the count of all known positive dollar claims in the prior term.
 class_code_req: At least one class code must be specified
+retrieve_with_params: Example shows a search by state. It's possible to search by most of the fields found in the data dictionary.
