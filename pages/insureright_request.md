@@ -2,24 +2,27 @@
 layout: page
 title: Building an InsureRight Request
 permalink: insureright_request.html
-sidebar: nav_sidebar
+sidebar: home_sidebar
 last_updated: December, 2016
 summary: Building requests specifically for the InsureRight solution
 ---
 
-### Building a Predict Web Service Scoring Request
+### API Overview
+
+The API for the InsureRight includes a Create, Retrieve, and Update options. These take the form of the submission part of `[server]/solutions/[solution]/[submission]`.
+
+|Request Type|Submission|Parameters|
+|------------|----------|----------|
+|POST|/scoring|None|
+|GET|/scoring|?scoreID&format=pdf|
+
+### Building an InsureRight Web Service Scoring Request
 
 PWS Requests are **POST** requests to the URL constructed above.
 
-The example a reminder - `https://insureright.valen.com/solutions/insureright/scoring`
+The example from the previous page as a reminder - `https://insureright.valen.com/solutions/insureright/scoring`
 
-Two headers are required:
-```http
-Content-Type: Application/xml
-Authorization: username/password in base64
-```
-
-The PWS Application requires data in a minimum of 2 nodes, **insured** and **class**. Those are nested inside the **input node**. In order to handle multiple classes, the class information is further nested inside the **input_child** node. The sequence of field names defined in the input files are not important, providing the field names defined in the columns match Valen’s field names. A full example is provided in [Appendix A](#appendixA). More information about the fields is provided in the [Data Dictionary](#dataDict). The basic layout for Request and Response packets is this:
+The PWS Application requires data in a minimum of 2 nodes, **insured** and **class**. Those are nested inside the **input node**. In order to handle multiple classes, the class information is further nested inside the **input_child** node. The sequence of field names defined in the input files are not important, providing the field names defined in the columns match Valen’s field names. More information about the fields is provided in the [Data Dictionary](#dataDict). The basic layout for Request and Response packets is this:
 
 ##### Request Requirements
 
@@ -35,14 +38,31 @@ The PWS Application requires data in a minimum of 2 nodes, **insured** and **cla
 ##### Response Structure
 
 ```xml
-
+<response xmlns="http://www.valentech.com/2013/11/prediction/response">
+    <score version="1.0">
+        <info>
+            <scoreKey></scoreKey>
+            <scoreId></scoreId>
+        </info>
+        <inputs xmlns="http://www.valentech.com/2013/11/prediction/inputs" level="insured">
+            <inputChildren level="class">
+                <class xmlns="http://www.valentech.com/2013/11/prediction/class">
+                </class>
+            </inputChildren>
+        </inputs>
+        <outputs xmlns="http://www.valentech.com/2013/11/prediction/outputs" level="insured">
+        </outputs>
+        <explanations level="insured">
+        </explanations>
+        <reportData level="insured">
+        </reportData>
+    </score>
+</response>
 ```
 
 ### Data Dictionary
 
 ##### Input Data Specification
-
-<!-- Create tooltip for values of audit method. Need explainer for P/T/M/I/W/E/N-->
 
 **Insured Node**
 
@@ -50,7 +70,7 @@ The PWS Application requires data in a minimum of 2 nodes, **insured** and **cla
 |----------|---------|--------|------------| 
 |<a href="#" data-toggle="tooltip" data-original-title="{{ site.data.glossary.original_policy_term_number }}">original_policy_term_number</a>|char (key)|Yes|Maximum of 50 alphanumeric and special characters.|
 |<a href="#" data-toggle="tooltip" data-original-title="{{ site.data.glossary.term_effective_date }}">term_effective_date</a>|date (key)|Yes|YYYY-MM-DD|
-|<a href="#" data-toggle="tooltip" data-original-title="{{ site.data.glossary.audit_method_code }}">audit_method_code</a>|char|No|P/T/M/I/W/E/N|
+|<a href="#" data-toggle="tooltip" data-original-title="{{ site.data.glossary.audit_method_code }}">audit_method_code</a>|char|No|<a href="#" data-toggle="tooltip" data-original-title="{{ site.data.glossary.audit_codes }}">P/T/M/I/W/E/N</a>|
 |<a href="#" data-toggle="tooltip" data-original-title="{{ site.data.glossary.underwriter }}">underwriter</a>|char|No|Maximum of 100 alphanumeric and special characters, including spaces.|
 |<a href="#" data-toggle="tooltip" data-original-title="{{ site.data.glossary.agency }}">agency</a>|char|No|Maximum of 100 alphanumeric and special characters, including spaces.|
 |insured_name|char|No|Maximum of 100 alphanumeric and special characters, including spaces.|
@@ -192,12 +212,10 @@ There will be a section or sections similar to the following. If there are more 
 
 ### Test Plan
 
-Here is a test plan for integration of Valen's InsureRight Scoring API. Each required test must pass for the integration to be completed. Data and Authentication will need to be provided for each request, sampled here in cURL.
+Here is a test plan for integration of Valen's InsureRight Scoring API. Each required test must pass for the integration to be completed. Data and Authentication will need to be provided for each request, sampled here in cURL. Values that need to be provided are called out in square brackets
 
 {:.tests}
 |Test|Request|Expected Response|
 |----|-------|-----------------|
-|Basic Scoring|`curl --request POST --url 'https://insureright.valen.com/solutions/insureright/scoring' –u [username]:[password] --header "content-type: application/xml" --data [data here]`| 200 OK: Scoring Response here|
-|Retrieve Without Params|`curl --request POST --url 'https://insureright.valen.com/solutions/scores/query/insureright/scoring' –u [username]:[password] --header 'content-type: text/plain'`|200 OK: Response will be a list of scored records. Max is 1000 records long|
-|<a href="#" data-toggle="tooltip" data-original-title="{{ site.data.glossary.retrieve_with_params }}">Retrieve With Params</a>|`curl --request POST --url 'https://insureright.valen.com/solutions/scores/query/insureright/scoring?element=insured%2Cpolicy_state_code%2Cvalue%2Ccontains%2CKY' –u [username]:[password] --header 'content-type: text/plain'`|200 OK: Response will be a list of scored records limited according to query param|
-|Retrieve PDF|`curl --request POST --url 'https://insureright.valen.com/solutions/insureright/scoring/104557?format=pdf' –u [username]:[password] --header 'content-type: application/xml'`| 200 OK: PDF contents will be returned in Base 64 format|
+|Basic Scoring|`curl --request POST --url 'https://insureright.valen.com/solutions/insureright/scoring' –u **[username]:[password]** --header "content-type: application/xml" --data [data here]`| 200 OK: Scoring Response here|
+|Retrieve PDF|`curl --request GET --url 'https://insureright.valen.com/solutions/insureright/scoring/[scoreID]?format=pdf' –u [username]:[password] --header 'content-type: application/xml'`| 200 OK: PDF contents will be returned in Base 64 format which will require conversion|

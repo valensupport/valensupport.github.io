@@ -37,27 +37,25 @@ Use of this guide assumes you are familiar with the following:
 -   A programming language for consuming a web service and any related
     tool
 
-### PWS Application 
+### Web Services Application 
 
-The PWS addresses interoperability concerns by giving clients a way to
-easily send their data to the InsureRight production system and receive
+Valen's web services address interoperability concerns by giving clients a way to easily send their data to the InsureRight production system and receive
 scores and predictions generated using their data via HTTP.
 
-#### PWS Application Flow
+#### Web Services Application Flow
 
-When valid data is submitted, the PWS works as follows:
-1.  The client sends a PWS request to a given application containing
+When valid data is submitted, the Web Services works as follows:
+1.  The client sends a request to a given solution containing
     input data to score.
-2.  Predict production system validates the input data.
-3.  Predict production system scores the input data.
-4.  Predict production system returns the scores and additional
-    information explaining the scores.
+2.  System validates the input data.
+3.  System scores the input data.
+4.  System returns the scores and additional information explaining the scores.
 
-Submitting data that is invalid or improperly formatted will return an error message. A list of common errors is provided below. For detailed responses, see [APPENDIX C: Error Handling](#appendixC). The errors in a failed scoring request will need to be addressed and the request will have to be resubmitted for scoring.
+Submitting data that is invalid or improperly formatted will return an error message. A list of common errors is provided below. For detailed responses, see [Common Errors](#common-errors). The errors in a failed scoring request will need to be addressed and the request will have to be resubmitted for scoring.
 
-#### PWS Application Processing Requirements
-Requests to the PWS are designed as RESTful requests. Responses are
-provided for all models supported, i.e.*,* risk, misclassification and
+#### Application Processing Requirements
+Requests to the Web Services are designed as RESTful requests. Responses are
+provided for all models supported, e.g., risk, misclassification and
 premium impact. The user cannot select independent models to be scored
 and or partial responses to be returned.
 
@@ -82,19 +80,22 @@ The third example is a batch request. This would be used to upload a group of fi
 
 Two headers are required for successful request.
 
--   Content-Type – this can be either application/xml or text/xml
--   Authorization – username and password
+Two headers are required:
+```http
+Content-Type: Application/xml
+Authorization: username/password in base64
+```
 
-The body of the request must conform to the standards defined in the [Data Dictionary Requirements](#data-dictionary) section of this document. This section describes the input data names, types, and constraints. The *Field Name* is used as a unique identifier when sending input data. The web-service WSDL also defines the input data names and constraints.
+The body of the request must conform to the standards defined in the Data Dictionary found in the solution specific subsections. These dictionaries describe the input data names, types, and constraints for a given solution. The *Field Name* is used as a unique identifier when sending input data. The web-service WSDL also defines the input data names and constraints but we discourage its use due to the brittle nature of WSDL development.
 
 If the XML is a well-formed, UTF-8 request, the request will be
 validated.
 
 #### Web Service Style
 
-The PWS uses HTTPS and supports RESTful requests.
+The web service uses HTTPS and supports RESTful requests.
 
-The PWS processes requests and returns results synchronously. The
+The web service processes requests and returns results synchronously. The
 formatting and encoding style are document and literal, respectively.
 All requests must be secure requests.
 
@@ -492,8 +493,7 @@ Postman is an app for Chrome or Mac and can be found at
 
 ##### Curl
 
-Given a valid xml file (see the example request in [Appendix
-A](#_Appendix_A_-)), this is a sample request.
+Given a valid xml file (see the example request above), this is a sample request.
 
 curl –u \[username\]:\[password\] -X POST -d @valid-request.xml -H
 'Content-Type: application/xml'
@@ -513,8 +513,6 @@ follow these steps.
 2.  Hit Update Request
 
 3.  Click the “Body” tab
-
-![](media/image5.png){width="6.5in" height="2.7708333333333335in"}
 
 While on the “Body” Tab, enter valid values into the xml (you may need
 to select the “Raw” radio tab to see the xml).
