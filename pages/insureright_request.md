@@ -7,7 +7,7 @@ last_updated: December, 2016
 summary: Building requests specifically for the InsureRight solution
 ---
 
-### API Overview
+### Overview
 
 The API for the InsureRight includes a Create, Retrieve, and Update options. These take the form of the submission part of `[server]/solutions/[solution]/[submission]`.
 
@@ -15,6 +15,8 @@ The API for the InsureRight includes a Create, Retrieve, and Update options. The
 |------------|----------|----------|
 |POST|/scoring|None|
 |GET|/scoring|?scoreID&format=pdf|
+
+The update is the same as the create method and functions in the form of an upsert. If a scoring request is sent with the same data as a previously uploaded record, the system will look for differences in the data and update accordingly.
 
 ### Building an InsureRight Web Service Scoring Request
 
@@ -179,7 +181,7 @@ Importance=*a numeric indicator of the importance of this variable in the overal
 |-----|-----------|
 |exposure_shift_prediction|Up to 5 descriptions and measures, associated with the explain nodes, providing information on the relative importance of reasons for a misclassification score|
 |loss_ratio_relativity_prediction|Up to 5 descriptions and measures, associated with the explain nodes, providing information on the relative importance of reasons for a risk score|
-|pi_score                    |Up to 5 descriptions and measures, associated with the explain nodes, providing information on the relative importance of reasons for a premium impact score|
+|pi_score|Up to 5 descriptions and measures, associated with the explain nodes, providing information on the relative importance of reasons for a premium impact score|
 
 **Report Data**
 
