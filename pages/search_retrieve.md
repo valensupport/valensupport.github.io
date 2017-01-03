@@ -13,7 +13,11 @@ The search and retrieve APIs are not solution specific. The solution is still sp
 
 `[server]/solutions/[solution]/[submission]`
 
-A sample search looks like this:
+Instead of being a single value, the solution for the query looks like this:
+
+`/scores/query/insureright`
+
+That means a sample search looks like this:
 
 `https://insureright.valen.com/solutions/scores/query/insureright/scoring`
 
@@ -22,6 +26,12 @@ This particulary query is directed to the InsureRight solution, searching submit
 ### Building a Search Request
 
 The query parameter of the search request can be blank, which will pull back a maximum of 1000 rows, or can be set to match any of the fields found in a given solution's data dictionary.
+
+##### Request Requiremen6ts
+
+##### Response Structure
+
+### Test Plan
 
 {:.tests}
 |Test|Request|Expected Response|
