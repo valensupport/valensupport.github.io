@@ -62,7 +62,7 @@ The PWS Application requires data in a minimum of 2 nodes, **insured** and **cla
 </response>
 ```
 
-### Data Dictionary
+<!-- ### Data Dictionary
 
 ##### Input Data Specification
 
@@ -210,7 +210,7 @@ There will be a section or sections similar to the following. If there are more 
     <percentOfPremiumImpact>[double]</percentOfPremiumImpact> 
   </class>
 ```
-
+ -->
 
 ### Test Plan
 
