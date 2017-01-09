@@ -14,15 +14,15 @@ entries:
       url: /insureright_request.html
       output: web
       type: frontmatter
-    - title: Batch Uploads and Profiling
-      url: /batch_request.html
-      output: web
-      type: frontmatter
-    - title: Search and Retrieve
-      url: /search_retrieve.html
-      output: web
-      type: frontmatter
-    - title: Commercial Auto
-      url: /ca_request.html
-      output: web
-      type: frontmatter
+    # - title: Batch Uploads and Profiling
+    #   url: /batch_request.html
+    #   output: web
+    #   type: frontmatter
+    # - title: Search and Retrieve
+    #   url: /search_retrieve.html
+    #   output: web
+    #   type: frontmatter
+    # - title: Commercial Auto
+    #   url: /ca_request.html
+    #   output: web
+    #   type: frontmatter
