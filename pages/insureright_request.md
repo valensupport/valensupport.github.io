@@ -67,8 +67,6 @@ Inside these nodes are required fields:
 
 ##### Response Structure
 
-The errors node will only appear if there are errors. The only child nodes in the errors node will be those that relate to the error or errors.
-
 ```xml
 <response xmlns="http://www.valentech.com/2013/11/prediction/response">
     <score version="1.0">
@@ -76,10 +74,6 @@ The errors node will only appear if there are errors. The only child nodes in th
             <scoreKey></scoreKey>
             <scoreId></scoreId>
         </info>
-        <errors count="x">
-            <illFormedRequest></illFormedRequest>
-            <validationError></validationError>
-        </errors>
         <inputs xmlns="http://www.valentech.com/2013/11/prediction/inputs" level="insured">
             <inputChildren level="class">
                 <class xmlns="http://www.valentech.com/2013/11/prediction/class">

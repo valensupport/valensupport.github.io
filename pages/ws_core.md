@@ -185,48 +185,8 @@ ill-formed request:
     <invalidRequest>
         <request>
         <![CDATA[
-            <?xml version='1.0' encoding='UTF-8'?>
-            <score version="1.0">
-                <info>
-                    <customer>fwci</customer>
-                    <solution>insureright</solution>
-                    <submission>scoring</submission>
-                    <scoreKey>56ab2352-b9ba-49c8-be28-0f3b2e484d79</scoreKey></info>
-                <inputs level="insured">
-                    <agency>111777</agency>
-                    <underwriter>UNDER WRITER</underwriter>
-                    <audit_method_code>P</audit_method_code>
-                    <available_history_1>Y</available_history_1>
-                    <available_history_2>Y</available_history_2>
-                    <available_history_3>Y</available_history_3>
-                    <experience_mod_factor_initial>2.43</experience_mod_factor_initial>
-                    <insured_name>Test</insured_name>
-                    <new_renew_flag>R</new_renew_flag>
-                    <non_zero_claim_count_1>9</non_zero_claim_count_1>
-                    <non_zero_claim_count_2>9</non_zero_claim_count_2>
-                    <non_zero_claim_count_3>8</non_zero_claim_count_3>
-                    <original_policy_term_number>test 3.0</original_policy_term_number>
-                    <policy_state_code>HI</policy_state_code>
-                    <policy_zip_code>96817</policy_zip_code>
-                    <term_effective_date>2014-01-01</term_effective_date>
-                    <inputChildren level="class">
-                        <class>
-                            <term_effective_date>2014-01-01</term_effective_date>
-                            <original_policy_term_number>test 3.0</original_policy_term_number>
-                            <class_code>2587</class_code>
-                            <payroll_amount_initial>35858</payroll_amount_initial>
-                            <state_code>HI</state_code>
-                        </class>
-                        <class>
-                            <term_effective_date>2014-01-01</term_effective_date>
-                            <original_policy_term_number>test 3.0</original_policy_term_number>
-                            <class_code>8810</class_code>
-                            <payroll_amount_initial>10000</payroll_amount_initial>
-                            <state_code>KY</state_code>
-                        </class>
-                    </inputChildren>
-                </inputs>
-            </score>]]>
+            <!-- literal request -->
+            ]]>
         </request>
     </invalidRequest>
     <errors count="1">
@@ -258,75 +218,14 @@ ill-formed request:
     <invalidRequest>
         <request>
         <![CDATA[
-            <?xml version='1.0' encoding='UTF-8'?>
-            <score version="1.0">
-                <info>
-                    <customer>fwci</customer>
-                    <solution>insureright</solution>
-                    <submission>scoring</submission>
-                    <scoreKey>74785202-1851-4350-bc30-23e132611f60</scoreKey></info>
-                <inputs level="insured">
-                    <agency>111777</agency>
-                    <underwriter>LUMIERE CLARE</underwriter>
-                    <audit_method_code>P</audit_method_code>
-                    <available_history_1>Y</available_history_1>
-                    <available_history_2>Y</available_history_2>
-                    <available_history_3>Y</available_history_3>
-                    <available_history_4>Y</available_history_4>
-                    <available_history_indemnity_1>Y</available_history_indemnity_1>
-                    <available_history_indemnity_2>Y</available_history_indemnity_2>
-                    <available_history_indemnity_3>Y</available_history_indemnity_3>
-                    <available_history_indemnity_4>Y</available_history_indemnity_4>
-                    <claim_amount_total_incurred_1>9</claim_amount_total_incurred_1>
-                    <claim_amount_total_incurred_2>9</claim_amount_total_incurred_2>
-                    <claim_amount_total_incurred_3>8</claim_amount_total_incurred_3>
-                    <claim_amount_total_incurred_4>0</claim_amount_total_incurred_4>
-                    <experience_mod_factor_initial>2.43</experience_mod_factor_initial>
-                    <insured_name>Risk 9 Misclass 6 PI 8</insured_name>
-                    <new_renew_flag>R</new_renew_flag>
-                    <non_zero_claim_count_1>9</non_zero_claim_count_1>
-                    <non_zero_claim_count_2>9</non_zero_claim_count_2>
-                    <non_zero_claim_count_3>8</non_zero_claim_count_3>
-                    <non_zero_claim_count_4>0</non_zero_claim_count_4>
-                    <non_zero_claim_count_indemnity_1>9</non_zero_claim_count_indemnity_1>
-                    <non_zero_claim_count_indemnity_2>9</non_zero_claim_count_indemnity_2>
-                    <non_zero_claim_count_indemnity_3>8</non_zero_claim_count_indemnity_3>
-                    <non_zero_claim_count_indemnity_4>0</non_zero_claim_count_indemnity_4>
-                    <original_policy_term_number>lr_2.55-plrr_adj 2.30-plrr_adj_flr 2.30</original_policy_term_number>
-                    <policy_state_code>KY</policy_state_code>
-                    <policy_zip_code>40143</policy_zip_code>
-                    <term_effective_date>2014-01-01</term_effective_date>
-                    <inputChildren level="class">
-                        <class>
-                            <term_effective_date>2014-01-01</term_effective_date>
-                            <original_policy_term_number>lr_2.55-plrr_adj 2.30-plrr_adj_flr 2.30</original_policy_term_number>
-                            <class_code>2587</class_code>
-                            <payroll_amount_initial>35858</payroll_amount_initial>
-                            <state_code>KY</state_code>
-                        </class>
-                        <class>
-                            <term_effective_date>2014-01-01</term_effective_date>
-                            <original_policy_term_number>lr_2.55-plrr_adj 2.30-plrr_adj_flr 2.30</original_policy_term_number>
-                            <class_code>8810</class_code>
-                            <payroll_amount_initial>10000</payroll_amount_initial>
-                            <state_code>KY</state_code>
-                        </class>
-                        <class>
-                            <term_effective_date>2014-01-01</term_effective_date>
-                            <original_policy_term_number>lr_2.55-plrr_adj 2.30-plrr_adj_flr 2.30</original_policy_term_number>
-                            <class_code>8810</class_code>
-                            <payroll_amount_initial>10000</payroll_amount_initial>
-                            <state_code>KY</state_code>
-                        </class>
-                    </inputChildren>
-                </inputs>
-            </score>]]>
+        <!-- literal request -->
+           ]]>
         </request>
     </invalidRequest>
     <errors count="1">
         <validationError>
             <name>uniqueKey</name>
-            <description>keys are repeated multiple(0) times</description>
+            <description>keys are repeated multiple(x) times</description>
             <field/>
             <value/>
         </validationError>
@@ -344,62 +243,8 @@ ill-formed request:
     </info>
     <invalidRequest>
         <request><![CDATA[
-            <?xml version='1.0' encoding='UTF-8'?>
-            <score version="1.0">
-                <info>
-                    <customer>fwci</customer>
-                    <solution>insureright</solution>
-                    <submission>scoring</submission>
-                    <scoreKey>746c4a66-f1cf-4bc4-9064-0bd877a8001d</scoreKey></info>
-                <inputs level="insured">
-                    <agency>111777</agency>
-                    <underwriter>LUMIERE CLARE</underwriter>
-                    <audit_method_code>P</audit_method_code>
-                    <available_history_1>Y</available_history_1>
-                    <available_history_2>Y</available_history_2>
-                    <available_history_3>Y</available_history_3>
-                    <available_history_4>Y</available_history_4>
-                    <available_history_indemnity_1>Y</available_history_indemnity_1>
-                    <available_history_indemnity_2>Y</available_history_indemnity_2>
-                    <available_history_indemnity_3>Y</available_history_indemnity_3>
-                    <available_history_indemnity_4>Y</available_history_indemnity_4>
-                    <claim_amount_total_incurred_1>9</claim_amount_total_incurred_1>
-                    <claim_amount_total_incurred_2>9</claim_amount_total_incurred_2>
-                    <claim_amount_total_incurred_3>8</claim_amount_total_incurred_3>
-                    <claim_amount_total_incurred_4>0</claim_amount_total_incurred_4>
-                    <experience_mod_factor_initial>2.43</experience_mod_factor_initial>
-                    <insured_name>Risk 9 Misclass 6 PI 8</insured_name>
-                    <new_renew_flag>R</new_renew_flag>
-                    <non_zero_claim_count_1>9</non_zero_claim_count_1>
-                    <non_zero_claim_count_2>9</non_zero_claim_count_2>
-                    <non_zero_claim_count_3>8</non_zero_claim_count_3>
-                    <non_zero_claim_count_4>0</non_zero_claim_count_4>
-                    <non_zero_claim_count_indemnity_1>9</non_zero_claim_count_indemnity_1>
-                    <non_zero_claim_count_indemnity_2>9</non_zero_claim_count_indemnity_2>
-                    <non_zero_claim_count_indemnity_3>8</non_zero_claim_count_indemnity_3>
-                    <non_zero_claim_count_indemnity_4>0</non_zero_claim_count_indemnity_4>
-                    <original_policy_term_number>lr_2.55-plrr_adj 2.30-plrr_adj_flr 2.30</original_policy_term_number>
-                    <policy_state_code>KY</policy_state_code>
-                    <policy_zip_code>40143</policy_zip_code>
-                    <term_effective_date/>
-                    <inputChildren level="class">
-                        <class>
-                            <term_effective_date/>
-                            <original_policy_term_number>lr_2.55-plrr_adj 2.30-plrr_adj_flr 2.30</original_policy_term_number>
-                            <class_code>2587</class_code>
-                            <payroll_amount_initial>35858</payroll_amount_initial>
-                            <state_code>KY</state_code>
-                        </class>
-                        <class>
-                            <term_effective_date/>
-                            <original_policy_term_number>lr_2.55-plrr_adj 2.30-plrr_adj_flr 2.30</original_policy_term_number>
-                            <class_code>8810</class_code>
-                            <payroll_amount_initial>10000</payroll_amount_initial>
-                            <state_code>KY</state_code>
-                        </class>
-                    </inputChildren>
-                </inputs>
-            </score>]]></request>
+            <!-- literal request -->
+            ]]></request>
     </invalidRequest>
     <errors count="3">
         <validationError>
