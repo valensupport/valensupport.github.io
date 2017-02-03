@@ -20,7 +20,7 @@ A sample batch request might look like this:
 
 And a sample profile might look like this:
 
-`https://insureright.valentech.com/solutions/batch/version/profile`
+`https://insureright.valen.com/solutions/batch/version/profile`
 
 ### Building a Batch Request
 

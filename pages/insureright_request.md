@@ -24,9 +24,13 @@ PWS Requests are **POST** requests to the URL constructed above.
 
 The example from the previous page as a reminder - `https://insureright.valen.com/solutions/insureright/scoring`
 
-The PWS Application requires data in a minimum of 2 nodes, **insured** and **class**. Those are nested inside the **input node**. In order to handle multiple classes, the class information is further nested inside the **input_child** node. The sequence of field names defined in the input files are not important, providing the field names defined in the columns match Valen’s field names. More information about the fields is provided in the [Data Dictionary](#dataDict). The basic layout for Request and Response packets is this:
+The PWS Application requires data in an **input node**. Inside the input node are two required nodes, **insured** and **class**. In order to handle multiple classes, the class information is nested inside an **input_child** node. Each node has specific fields that contain the necessary data.
 
-##### Request Requirements
+The sequence of field names defined in the input files are not important, providing the field names defined in the columns match Valen’s field names. More information about the fields is provided in the Data Dictionary. The basic layout for Request and Response packets is this:
+
+#### Request Requirements
+
+##### Data Structure
 
 ```xml
 <inputs>
@@ -37,7 +41,33 @@ The PWS Application requires data in a minimum of 2 nodes, **insured** and **cla
 </inputs>
 ```
 
+
+Inside these nodes are required fields:
+##### Insured
+- original_policy_term_number
+- term_effective_date
+- new_renew_flag
+- experience_mod_factor_initial
+- policy_state_code
+- policy_zip_code
+- available_history_1
+-- non_zero_claim_count_1 ~ this needs to have a value if available_history is Y. Otherwise, it can be left off the request. The value can be 0 if Y, but not if history is N.
+- available_history_2
+-- non_zero_claim_count_2
+- available_history_3 
+-- non_zero_claim_count_3
+
+
+##### Input-Child
+
+###### Class
+- class_code
+- state_code
+- payroll_amount_initial
+
 ##### Response Structure
+
+The errors node will only appear if there are errors. The only child nodes in the errors node will be those that relate to the error or errors.
 
 ```xml
 <response xmlns="http://www.valentech.com/2013/11/prediction/response">
@@ -46,6 +76,10 @@ The PWS Application requires data in a minimum of 2 nodes, **insured** and **cla
             <scoreKey></scoreKey>
             <scoreId></scoreId>
         </info>
+        <errors count="x">
+            <illFormedRequest></illFormedRequest>
+            <validationError></validationError>
+        </errors>
         <inputs xmlns="http://www.valentech.com/2013/11/prediction/inputs" level="insured">
             <inputChildren level="class">
                 <class xmlns="http://www.valentech.com/2013/11/prediction/class">
@@ -61,6 +95,9 @@ The PWS Application requires data in a minimum of 2 nodes, **insured** and **cla
     </score>
 </response>
 ```
+
+
+
 
 <!-- ### Data Dictionary
 
