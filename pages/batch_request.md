@@ -8,25 +8,23 @@ summary: A guide for building requests take advantage of Valen's batch processin
 ---
 
 ### Overview
+The batch API allows integrations to process batch files containing many rows of data instead of running each individual record. 
 
-The batch and profiling APIs are not solution specific. The solution is still required for batch purposes, but not for profiling. 
+The batch API accepts a zip file as a payload. What the zip file contains depends for which solution the integration is written. _need some sort of information here_
 
-For batch uploads, the **solution** looks like this:
-`/batch/insureright`
-
-A sample batch request might look like this:
-
-`https://insureright.valen.com/solutions/batch/insureright/scoring`
-
-And a sample profile might look like this:
-
-`https://insureright.valen.com/solutions/batch/version/profile`
 
 ### Building a Batch Request
 
 Batch and Profile requests are POSTs using multi-part form data.
 
-*need better description of building the URI*
+Constructing the URI is similar to the scoring URI with a few key differences.
+
+First we start with our base URL, `https://insureright.valen.com/solutions/`. We append the action, version, and solution, for example: `batch/5/ca` or `batch/5/insureright`
+
+A sample batch request might look like this:
+
+`https://insureright.valen.com/solutions/batch/5/insureright/scoring`
+
 
 *need bit about creating a GUID and a subscription to get profile/batch finished events. POST can contain GUID to allow that to happen.*
 
@@ -34,7 +32,12 @@ Batch and Profile requests are POSTs using multi-part form data.
 
 ##### Request Requirements
 
+A batch request requires a username and password, a content-type:multipart/form-data header, and a zip file as a form target.
+
 ##### Response Structure
+
+### Batch Workflow
+
 
 ### Test Plan
 
@@ -47,7 +50,7 @@ Batch and Profile requests are POSTs using multi-part form data.
 
 
 create subscription for preliminary profile broad cast 
-LOONG POLL GET
+LONG POLL GET
 http://localhost:8080/solutions/longpoll/subscribe?filter=name,preliminaryProfile,batchKey,ac5b3d51-50f8-40d1-e378-18f8db2fabc9
  
 NOTE have to make a guid IFF you want notification that the profile is complete
