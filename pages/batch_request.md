@@ -37,7 +37,7 @@ Please note that the files within the .zip file may be delivered in .csv, .psv, 
 
  
 #### Input Data File Examples
-Here is a sample for commercial auto. The importance of these examples is in the headers and the structure. The data is randomly generated. The exact headers:
+Here is a sample for commercial auto. The importance of these examples is in the headers and the structure. The data is randomly generated. The exact headers will differ depending on solution. Check the data dictionary for exact column names:
 
 ##### Term
 
