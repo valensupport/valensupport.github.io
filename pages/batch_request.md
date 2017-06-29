@@ -66,42 +66,33 @@ Batch and Profile requests are POSTs using multi-part form data.
 
 Constructing the URI is similar to the scoring URI with a few key differences.
 
-First we start with our base URL, `https://insureright.valen.com/solutions/`. We append the action, version, and solution, for example: `batch/5/ca` or `batch/5/insureright`
+First we start with our base URL, `https://insureright.valen.com/api/`. We append the version, the action, and solution, for example: `2/batch/ca` or `2/batch/insureright`
 
 A sample batch url might look like this:
 
-`https://insureright.valen.com/solutions/batch/5/insureright/scoring`
+`https://insureright.valentech.com/api/2/batch/insureright/scoring`
 
 ##### Request Requirements
 
-A batch request requires a username and password, a content-type:multipart/form-data header, and a zip file as a form target.
+A batch request requires a username and password, a content-type:multipart/form-data header, and a zip file as a form target. 
+The zip file cannot be password protected and cannot contain subdirectories. The files contained in the zip must be psv, csv, or tsv format.
 
 ##### Response Structure
+The response will contain a GUID. This is a unique identifier for the submitted batch and can be used to retrieve the batch.
 
 ### Batch Workflow
-Submitting a batch requires a little prep work if you want to know when the batch finishes processing. The first step is to create an identification number. We use GUIDs because there's a reasonable expectation any generated GUID will be unique. More information can be found at `https://en.wikipedia.org/wiki/Universally_unique_identifier`
+POST `https://insureright.valen.com/api/2/batch/ca/scoring`
+A GUID will be returned in the response.
+GET `https://insureright.valen.com/api/2/batch/ca/scoring/<GUID>`
+The GET will return a 404, a zip file containing results, or an error code. See the error section for more information about what those mean.
+The 404 response is expected and means the batch is still processing. If a 404 is recieved, the request will have to be remade. We suggest an interval of 5 minutes between requests. Large batches can take quite a while to finish processing.
 
-Once you've created a GUID, send a long polling request to Valen, using the GUID as a batch key.
-
-`https://insureright.valen.com/solutions/longpoll/subscribe?filter=name,preliminaryProfile,batchKey,xxxxxxxx-50f8-40d1-e378-18f8db2fabc9`
-
-_preliminaryProfile argument is probably wrong_
-
-Next, post the batch file, again using the GUID as a batch key
-
-`https://insureright.valen.com/solutions/batch/version/insureright/scoring?batchKey=xxxxxxxx-50f8-40d1-e378-18f8db2fabc9`
-
-Using the GUID in this fashion will link the polling request to the batch processing job.
-
-_how to retrieve response from polling?_
-
-_how to retrieve batch results_
 
 ### Test Plan
 
 {:.tests}
 |Test|Request|Expected Response|
 |----|-------|-----------------|
-|Basic Batch to Scoring|curl --request POST --url https://insureright.valen.com/solutions/batch/version/insureright/scoring –u [username]:[password] --header 'content-type: multipart/form-data; --form 'file=@[object Object]'|200 OK|
-|Basic profile|curl --request POST --url https://insureright.valentech.com/solutions/batch/5/profile –u [username]:[password] --header 'content-type: multipart/form-data --form 'batch-file=@[object Object]'|200 OK: GUID|
+|Basic Batch to Scoring|curl --request POST --url https://insureright.valen.com/solutions/batch/version/insureright/scoring –u [username]:[password] --header 'content-type: multipart/form-data; --form 'file=@[object Object]'|200 OK GUID|
+|Basic Batch Retrieve|
 |Retrieve Profile|
