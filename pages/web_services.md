@@ -1,10 +1,10 @@
 ---
 layout: page
 title: InsureRight® Predict Web Services
-permalink: webservices_guide_old.html
+permalink: web_services.html
 sidebar: nav_sidebar
 last_updated: November, 2016
-summary: The webservices guide for the 3.0 platform.
+summary: The webservices guide for making scoring requests to the the 3.0 platform.
 ---
 
 # Valen WebServices Implementation Guide
