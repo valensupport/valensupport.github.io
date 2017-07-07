@@ -38,18 +38,17 @@ unit.[csv, psv, txt]
 Please note that the files within the .zip file may be delivered in .csv, .psv, or .txt formats. The only constraint is that the formats be the same in each .zip instance.
 
 #### Input Data File Examples
-Here is a sample for commercial auto. The importance of these examples is in the headers and the structure. The data is randomly generated. The exact headers will differ depending on solution. Check the data dictionary for exact column names:
+Here is a sample for commercial auto, a sample for workers compensation is included later in the document. The importance of these examples is in the headers and the structure. The exact headers will differ depending on solution. Login to access the data dictionary for exact column names. This text can be pasted into files `term.csv` and `unit.csv`. A zip file containing these two files will be a valid file for testing purposes:
 
 ##### Term
 
->total_discretion_factor,units_total_1,claim_count_liab_3,underwriter,new_renew_flag,policy_number,term_effective_date,available_units_total_1yr,mailing_address,claim_count_liab_1,agency,mailing_city,available_history_liab_2,dot_number,available_history_liab_1,vehicle_business_primary,available_history_1,vehicle_size_primary,claim_count_liab_2,claim_count_1,mailing_state_code,available_history_liab_3,insured_name,mailing_zip_code
-,,,,R,pmmvbtjtksbnegxy,11/23/2013,N,,,,,Y,,N,,Y,,,48390,,N,qltqdrrfrjolxckbcfcfeggtvxcidwauawcpwnrepbrwl,
-1673.886548,,89043,wdkwrtmscjobgqpwkpkmobkwghgsmswatkjfgdstxexxqppwrqeetryovtftyfwdiyksfkrmjmageemfnbsqptnaxdqbe,R,lyualmjrntwcwcwmihtis,11/23/2013,Y,plunrdqseusmguwgfnrtkrkhxvxrhfgxirjukxpypouwaelpehsuslbmijivvjt,76804,,,Y,,N,q
+>units_total_1,underwriter,new_renew_flag,policy_number,term_effective_date,mailing_address,claim_count_liab_1,available_history_liab_1,agency,mailing_city,available_history_liab_2,claim_count_liab_2,dot_number,vehicle_business_primary,available_units_total_1yr,available_history_1,claim_count_1,vehicle_size_primary,mailing_state_code,available_history_liab_3,claim_count_liab_3,insured_name,mailing_zip_code
+>1,Test Person,R,test123,6/14/2016,"1234 Test Street, Anytown CO 80309",1,Y,,Anytown,Y,0,98765432,Anytown,Y,Y,3,L,CO,Y,0,CU Buffs,80309
 
 ##### Unit
 
 >unit_vin,policy_number,term_effective_date,unit_premium_initial_total,unit_classification,unit_premium_initial_liab,unit_reference,garage_zip_code,unit_model_year
-bvtnvusbqtvdvt,pmmvbtjtksbnegxy,11/23/2013,64710.59521,qkdco,,ekvjpoplcfcrcdp,40150,,pmmvbtjtksbnegxy,11/23/2013,56551.61986,hcdt,96360.59676,fayebeetqbunmehrffuhlrqvrbqkeodw,40150,
+>1ABCD23EFG567890,test123,6/14/2016,12345,truck,1234,1234ABCD,80309,1987
 
 ## Batch API
 
@@ -139,5 +138,24 @@ Status codes returned from a batch results retrieval request may include
 
 |Test|Request|Expected Response|
 |----|-------|-----------------|
-|Basic Batch Submit|curl --request POST --url 'https://insureright.valen.com/api/2/batch/insureright/scoring' –u [username]:[password] --header 'content-type: multipart/form-data; --form 'file=@[object Object]'|200 OK GUID|
-|Basic Batch Retrieve|curl -X GET --url 'https://insureright.valentech.com/api/2/batch/ca/scoring/[GUID]' -u [username]:[password]|404 or 200 OK and Zip File|
+|Basic Batch Submit|curl -X POST -u "[username]":"[password]" -H "content-type: multipart/form-data" --form "batch-file=@[filename]" --url "https://insureright.valen.com/api/2/batch/insureright/scoring"|200 OK GUID|
+|Basic Batch Retrieve|curl -X GET --url 'https://insureright.valentech.com/api/2/batch/insureright/scoring/[GUID]' -u "[username]":"[password]"|404 or 200 OK and Zip File|
+
+### Sample Files
+
+The Commercial Auto files can found above. Here are other samples.
+
+#### Workers Comp
+
+The data is presented in pipe delimted (`.psv`) format to accomodate commas in the address (also useful if commas are in the insured name). The files in this case would be `insured.psv` and `class.psv`. Again, this data can be used as valid test data.
+
+##### Insured
+
+>original_policy_term_number|term_effective_date|experience_mod_factor_initial|new_renew_flag|insured_name|policy_address|policy_city_name|policy_state_code|policy_zip_code|available_history_1|available_history_2|available_history_3|non_zero_claim_count_1|non_zero_claim_count_2|non_zero_claim_count_3|underwriter
+>1234Test|7/7/2017|1|N|Test Submit|1234 Anystreet, Anytown, CO|Anytown|CO|80309|Y|N|Y|0||3|Test Person
+
+##### Class
+
+>original_policy_term_number|term_effective_date|state_code|class_code|payroll_amount_initial
+>1234Test|7/7/2017|CO|4771|12345
+>1234Test|7/8/2017|CO|8810|349
