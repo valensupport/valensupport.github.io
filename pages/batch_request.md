@@ -1,10 +1,10 @@
 ---
 layout: page
-title: Batch and Profiling requests
+title: Batch requests
 permalink: batch_request.html
 sidebar: nav_sidebar
-last_updated: December, 2016
-summary: A guide for building requests take advantage of Valen's batch processing APIs
+last_updated: July 2017
+summary: A guide for building requests to take advantage of Valen's batch processing APIs
 ---
 
 ## Batch Application Overview

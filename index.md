@@ -7,7 +7,9 @@ toc: false
 ---
 ### Documents
 
-[WebServices Guide](webservices_guide.html)
+[Scoring Submission Guide](webservices_guide.html)
+
+[Batch Submission Guide](batch_request.html)
 
 [Valen Test Plan](test_plans.html)
 

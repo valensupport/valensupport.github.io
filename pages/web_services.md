@@ -11,21 +11,13 @@ summary: The webservices guide for the 3.0 platform.
 
 ### Integrating webservices for Predict on InsureRight® Platform 3.0
 
-The InsureRight® Predict Web Service (PWS) allows clients to
-send input data, in the form of a prediction request, to the InsureRight platform for scoring with Valen’s models. Once received, the system validates the XML and data content of the transmission, scores the data, then returns a prediction response.
+The InsureRight® Predict Web Service (PWS) allows clients to send input data, in the form of a prediction request, to the InsureRight platform for scoring with Valen’s models. Once received, the system validates the XML and data content of the transmission, scores the data, then returns a prediction response.
 
-In addition to the score results the system also returns information to
-explain the predictions in terms of influential data elements and,
-optionally, Valen can incorporate custom business rules to provide
-support for automated decision making based on the prediction results.
+In addition to the score results the system also returns information to explain the predictions in terms of influential data elements and, optionally, Valen can incorporate custom business rules to provide support for automated decision making based on the prediction results.
 
 ##### Audience
 
-This guide is intended for use by developers who are building
-web-enabled applications that will use the PWS to invoke an application
-to score a set of input data. To use the PWS, clients are required to
-have a valid PWS account. Please contact <support@valen.com> to ensure
-that access is properly configured.
+This guide is intended for use by developers who are building web-enabled applications that will use the PWS to invoke an application to score a set of input data. To use the PWS, clients are required to have a valid PWS account. Please contact <support@valen.com> to ensure that access is properly configured.
 
 ##### Required Knowledge and Skills
 
@@ -39,9 +31,7 @@ Use of this guide assumes you are familiar with the following:
 
 ### PWS Application 
 
-The PWS addresses interoperability concerns by giving clients a way to
-easily send their data to the InsureRight production system and receive
-scores and predictions generated using their data via HTTP.
+The PWS addresses interoperability concerns by giving clients a way to easily send their data to the InsureRight production system and receive scores and predictions generated using their data via HTTP.
 
 #### PWS Application Flow
 
@@ -56,23 +46,16 @@ When valid data is submitted, the PWS works as follows:
 Submitting data that is invalid or improperly formatted will return an error message. A list of common errors is provided below. For detailed responses, see [APPENDIX C: Error Handling](#appendixC). The errors in a failed scoring request will need to be addressed and the request will have to be resubmitted for scoring.
 
 #### PWS Application Processing Requirements
-Requests to the PWS are designed as RESTful requests. Responses are
-provided for all models supported, i.e.*,* risk, misclassification and
-premium impact. The user cannot select independent models to be scored
-and or partial responses to be returned.
+Requests to the PWS are designed as RESTful requests. Responses are provided for all models supported, i.e.*,* risk, misclassification and premium impact. The user cannot select independent models to be scored and or partial responses to be returned.
 
-Web service requests are submitted as a POST request to the following
-URL:
+Web service requests are submitted as a POST request to the following URL:
 
 `[server]/solutions/[solution]/[submission]`
 
 For example:
 `https://insureright.valen.com/solutions/insureright/scoring`
 
-In this example the **solution** is InsureRight. A number of different
-types of submissions may be made to the InsureRight solution, but in
-this case we are making a **scoring** submission, which will score the
-inputs against all InsureRight Predict models.
+In this example the **solution** is InsureRight. A number of different types of submissions may be made to the InsureRight solution, but in this case we are making a **scoring** submission, which will score the inputs against all InsureRight Predict models.
 
 #### Request Contents
 
@@ -83,16 +66,13 @@ Two headers are required for successful request.
 
 The body of the request must conform to the standards defined in the [Data Dictionary Requirements](#data-dictionary) section of this document. This section describes the input data names, types, and constraints. The *Field Name* is used as a unique identifier when sending input data. The web-service WSDL also defines the input data names and constraints.
 
-If the XML is a well-formed, UTF-8 request, the request will be
-validated.
+If the XML is a well-formed, UTF-8 request, the request will be validated.
 
 #### Web Service Style
 
 The PWS uses HTTPS and supports RESTful requests.
 
-The PWS processes requests and returns results synchronously. The
-formatting and encoding style are document and literal, respectively.
-All requests must be secure requests.
+The PWS processes requests and returns results synchronously. The formatting and encoding style are document and literal, respectively. All requests must be secure requests.
 
 ### Common Errors
 
@@ -100,8 +80,7 @@ A list of responses to common errors. Detailed information about the response me
 
 ##### Bad Request
 
-This will return a status code of 400 with a body containing the
-request.
+This will return a status code of 400 with a body containing the request.
 
 ##### Constraint Violation
 
@@ -109,8 +88,7 @@ This will return a status code of 500 with an invalidInputValue tag.
 
 ##### Duplicate Class Code
 
-This will return a status code of 500 with an uniqueKey tag marked as a
-validation error.
+This will return a status code of 500 with an uniqueKey tag marked as a validation error.
 
 ##### Required Field Violation
 
@@ -363,9 +341,7 @@ The following example describes a valid Valen® PWS request.
 
 ##### Predict Valid Response Example
 
-If the request is well-formed, the input values can be converted to the
-required types and the data passes all constraints and exclusions, a
-response including all results is synchronously returned.
+If the request is well-formed, the input values can be converted to the required types and the data passes all constraints and exclusions, a response including all results is synchronously returned.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -542,10 +518,7 @@ response including all results is synchronously returned.
 
 ### Appendix B – Interpreting the “Importance” value
 
-The **Importance** value provides the underwriter information describing
-the relative influence of the model equation predictive variables on a
-specific policy’s prediction, given that policy’s specific predictive
-variable values. The importance values may be interpreted as follows:
+The **Importance** value provides the underwriter information describing the relative influence of the model equation predictive variables on a specific policy’s prediction, given that policy’s specific predictive variable values. The importance values may be interpreted as follows:
 
 **Sign:**
 
@@ -590,45 +563,27 @@ variable values. The importance values may be interpreted as follows:
     while the scoring value for X2 indicated that the policy is higher
     risk than average along X2’s predictive dimension.
 
-***Caution in regard to using importance values*:** Improper usage of
-the importance values is to judgmentally alter predictive model
-indications based on the values of importance values. For example, if an
-underwriter believes that a high value of an importance value for one
-variable is more meaningful than the same high value of an importance
-value for another variable, and judgmentally alters the prediction
-indication, that underwriter is implicitly reweighting the model
-variables, foregoing some of the benefit of empirically derived,
-statistically based predictions.
+***Caution in regard to using importance values*:** Improper usage of the importance values is to judgmentally alter predictive model indications based on the values of importance values. For example, if an underwriter believes that a high value of an importance value for one variable is more meaningful than the same high value of an importance value for another variable, and judgmentally alters the prediction indication, that underwriter is implicitly reweighting the model variables, foregoing some of the benefit of empirically derived, statistically based predictions.
 
-A refinement can be made to the magnitude interpretation: for a given
-policy, the percent contribution for a variable is that variables
-importance value divided by the sum of the absolute value of importance
-values on that policy.
+A refinement can be made to the magnitude interpretation: for a given policy, the percent contribution for a variable is that variables importance value divided by the sum of the absolute value of importance values on that policy.
 
 <a name="appendixC" id="appendixC"></a>
 
 ### Appendix C – Error Handling
 
-If the Content Type of the request is not application/json,
-application/xml, or text/xml an Unsupported Media Type (HTTP415) status
-code will be returned.
+If the Content Type of the request is not application/json, application/xml, or text/xml an Unsupported Media Type (HTTP415) status code will be returned.
 
-If credentials are invalid an Unauthorized (HTTP 401) status code will
-be returned.
+If credentials are invalid an Unauthorized (HTTP 401) status code will be returned.
 
-If the credentials are valid, but the user is not authorized to make a
-web service request for the specified customer, solution and submission,
-then a Forbidden (HTTP 403) status code will be returned.
+If the credentials are valid, but the user is not authorized to make a web service request for the specified customer, solution and submission, then a Forbidden (HTTP 403) status code will be returned.
 
-Authentication:
+##### Authentication:
 
-The request should contain a HTTP Basic Authentication header containing
-a user name and valid credentials. If credentials are invalid an
-Unauthorized (HTTP 401) status code will be returned.
+The request should contain a HTTP Basic Authentication header containing a user name and valid credentials. If credentials are invalid an Unauthorized (HTTP 401) status code will be returned.
 
-Special characters in XML: The following are special characters and how
-to address them in XML (note the Failed Examples will throw a **500:
-Internal Server Error**):
+##### Special characters in XML: 
+
+The following are special characters and how to address them in XML (note the Failed Examples will throw a **500: Internal Server Error**):
 
 |Special Character|Escape code|Failed example|Proper Example|
 |-----------------|-----------|--------------|--------------|
@@ -640,371 +595,354 @@ Internal Server Error**):
 
 ##### Bad Request
 
-If the request XML is not well-formed a Bad Request (HTTP 400) status
-code containing an illFormedRequest body will be returned including the
-ill-formed request:
+If the request XML is not well-formed a Bad Request (HTTP 400) status code containing an illFormedRequest body will be returned including the ill-formed request:
 
 ```xml
-&lt;response&gt;
-
-&lt;info&gt;
-
-&lt;scoreKey&gt;65497dc3-8064-46ce-9234-a1f0d9ee0f00&lt;/scoreKey&gt;
-
-&lt;/info&gt;
-
-&lt;illFormedRequest&gt;
-
-&lt;request&gt;&lt;!\[CDATA\[
-
-&lt;score&gt;
-
-&lt;!-- literal request --&gt;
-
-&lt;/score&gt;
-
-\]\]&gt;
-
-&lt;/request&gt;
-
-&lt;/illFormedRequest&gt;
-
-&lt;/response&gt;
+<response>
+    <info>
+        <scoreKey>65497dc3-8064-46ce-9234-a1f0d9ee0f00</scoreKey>
+    </info>
+    <illFormedRequest>
+        <request>
+            <![CDATA[
+            <score>
+                <!-- literal request -->
+            </score>
+            ]]>
+        </request>
+    </illFormedRequest>
+</response>
 ```
 
 ##### Constraint Violation
 
 ```xml
-&lt;response&gt;
-
-&lt;info&gt;
-
-&lt;scoreKey&gt;56ab2352-b9ba-49c8-be28-0f3b2e484d79&lt;/scoreKey&gt;
-
-&lt;/info&gt;
-
-&lt;invalidRequest&gt;
-
-&lt;request&gt;&lt;!\[CDATA\[&lt;?xml version='1.0'
-encoding='UTF-8'?&gt;&lt;score
-version="1.0"&gt;&lt;info&gt;&lt;customer&gt;fwci&lt;/customer&gt;&lt;solution&gt;insureright&lt;/solution&gt;&lt;submission&gt;scoring&lt;/submission&gt;&lt;scoreKey&gt;56ab2352-b9ba-49c8-be28-0f3b2e484d79&lt;/scoreKey&gt;&lt;/info&gt;&lt;inputs
-level="insured"&gt;&lt;agency&gt;111777&lt;/agency&gt;&lt;underwriter&gt;UNDER
-WRITER&lt;/underwriter&gt;&lt;audit\_method\_code&gt;P&lt;/audit\_method\_code&gt;&lt;available\_history\_1&gt;Y&lt;/available\_history\_1&gt;&lt;available\_history\_2&gt;Y&lt;/available\_history\_2&gt;&lt;available\_history\_3&gt;Y&lt;/available\_history\_3&gt;&lt;experience\_mod\_factor\_initial&gt;2.43&lt;/experience\_mod\_factor\_initial&gt;&lt;insured\_name&gt;Test&lt;/insured\_name&gt;&lt;new\_renew\_flag&gt;R&lt;/new\_renew\_flag&gt;&lt;non\_zero\_claim\_count\_1&gt;9&lt;/non\_zero\_claim\_count\_1&gt;&lt;non\_zero\_claim\_count\_2&gt;9&lt;/non\_zero\_claim\_count\_2&gt;&lt;non\_zero\_claim\_count\_3&gt;8&lt;/non\_zero\_claim\_count\_3&gt;&lt;original\_policy\_term\_number&gt;test
-3.0&lt;/original\_policy\_term\_number&gt;&lt;policy\_state\_code&gt;HI&lt;/policy\_state\_code&gt;&lt;policy\_zip\_code&gt;96817&lt;/policy\_zip\_code&gt;&lt;term\_effective\_date&gt;2014-01-01&lt;/term\_effective\_date&gt;&lt;inputChildren
-level="class"&gt;&lt;class&gt;&lt;term\_effective\_date&gt;2014-01-01&lt;/term\_effective\_date&gt;&lt;original\_policy\_term\_number&gt;test
-3.0&lt;/original\_policy\_term\_number&gt;&lt;class\_code&gt;2587&lt;/class\_code&gt;&lt;payroll\_amount\_initial&gt;35858&lt;/payroll\_amount\_initial&gt;&lt;state\_code&gt;HI&lt;/state\_code&gt;&lt;/class&gt;&lt;class&gt;&lt;term\_effective\_date&gt;2014-01-01&lt;/term\_effective\_date&gt;&lt;original\_policy\_term\_number&gt;test
-3.0&lt;/original\_policy\_term\_number&gt;&lt;class\_code&gt;8810&lt;/class\_code&gt;&lt;payroll\_amount\_initial&gt;10000&lt;/payroll\_amount\_initial&gt;&lt;state\_code&gt;KY&lt;/state\_code&gt;&lt;/class&gt;&lt;/inputChildren&gt;&lt;/inputs&gt;&lt;/score&gt;\]\]&gt;&lt;/request&gt;
-
-&lt;/invalidRequest&gt;
-
-&lt;errors count="1"&gt;
-
-&lt;validationError&gt;
-
-&lt;name&gt;invalidInputValue&lt;/name&gt;
-
-&lt;description&gt;The value for 'non\_zero\_claim\_count\_3' is 'Y'
-which is not the specified type: 'integer'&lt;/description&gt;
-
-&lt;level&gt;insured&lt;/level&gt;
-
-&lt;key&gt;
-
-&lt;vglItm&gt;
-
-&lt;vglItm&gt;
-
-&lt;vglItm&gt;:term\_effective\_date&lt;/vglItm&gt;
-
-&lt;vglItm&gt;2014-01-01&lt;/vglItm&gt;
-
-&lt;/vglItm&gt;
-
-&lt;vglItm&gt;
-
-&lt;vglItm&gt;:original\_policy\_term\_number&lt;/vglItm&gt;
-
-&lt;vglItm&gt;test 3.0&lt;/vglItm&gt;
-
-&lt;/vglItm&gt;
-
-&lt;/vglItm&gt;
-
-&lt;/key&gt;
-
-&lt;field&gt;nonZeroClaimCount3&lt;/field&gt;
-
-&lt;value&gt;Y&lt;/value&gt;
-
-&lt;/validationError&gt;
-
-&lt;/errors&gt;
-
-&lt;/response&gt;```
+<response>
+    <info>
+        <scoreKey>[guid goes here]</scoreKey>
+    </info>
+    <invalidRequest>
+        <request>
+            <![CDATA[<?xml version='1.0' encoding='UTF-8'?>
+            <score version="1.0">
+                <info>
+                    <customer>valen</customer>
+                    <solution>insureright</solution>
+                    <submission>scoring</submission>
+                    <scoreKey>[guid goes here]</scoreKey>
+                </info>
+                <inputs level="insured">
+                    <agency>Test123</agency>
+                    <underwriter>UNDER WRITER</underwriter>
+                    <audit_method_code>P</audit_method_code>
+                    <available_history_1>Y</available_history_1>
+                    <available_history_2>Y</available_history_2>
+                    <available_history_3>Y</available_history_3>
+                    <experience_mod_factor_initial>2.43</experience_mod_factor_initial>
+                    <insured_name>Test</insured_name>
+                    <new_renew_flag>R</new_renew_flag>
+                    <non_zero_claim_count_1>9</non_zero_claim_count_1>
+                    <non_zero_claim_count_2>9</non_zero_claim_count_2>
+                    <non_zero_claim_count_3>8</non_zero_claim_count_3>
+                    <original_policy_term_number>test 3.0</original_policy_term_number>
+                    <policy_state_code>HI</policy_state_code>
+                    <policy_zip_code>96817</policy_zip_code>
+                    <term_effective_date>2014-01-01</term_effective_date>
+                    <inputChildren level="class">
+                        <class>
+                            <term_effective_date>2014-01-01</term_effective_date>
+                            <original_policy_term_number>test 3.0</original_policy_term_number>
+                            <class_code>2587</class_code>
+                            <payroll_amount_initial>35858</payroll_amount_initial>
+                            <state_code>HI</state_code>
+                        </class>
+                        <class>
+                            <term_effective_date>2014-01-01</term_effective_date>
+                            <original_policy_term_number>test 3.0</original_policy_term_number>
+                            <class_code>8810</class_code>
+                            <payroll_amount_initial>10000</payroll_amount_initial>
+                            <state_code>KY</state_code>
+                        </class>
+                    </inputChildren>
+                </inputs>
+            </score>]]></request>
+    </invalidRequest>
+    <errors count="1">
+        <validationError>
+            <name>invalidInputValue</name>
+            <description>The value for 'non_zero_claim_count_3' is 'Y' which is not the specified type: 'integer'</description>
+            <level>insured</level>
+            <key>
+                <vglItm>
+                    <vglItm>
+                        <vglItm>:term_effective_date</vglItm>
+                        <vglItm>2014-01-01</vglItm>
+                    </vglItm>
+                    <vglItm>
+                        <vglItm>:original_policy_term_number</vglItm>
+                        <vglItm>test 3.0</vglItm>
+                    </vglItm>
+                </vglItm>
+            </key>
+            <field>nonZeroClaimCount3</field>
+            <value>Y</value>
+        </validationError>
+    </errors>
+</response>
+```
 
 ##### Duplicate Class Code
 
-```&lt;response&gt;
-
-&lt;info&gt;
-
-&lt;scoreKey&gt;74785202-1851-4350-bc30-23e132611f60&lt;/scoreKey&gt;
-
-&lt;/info&gt;
-
-&lt;invalidRequest&gt;
-
-&lt;request&gt;&lt;!\[CDATA\[&lt;?xml version='1.0'
-encoding='UTF-8'?&gt;&lt;score
-version="1.0"&gt;&lt;info&gt;&lt;customer&gt;fwci&lt;/customer&gt;&lt;solution&gt;insureright&lt;/solution&gt;&lt;submission&gt;scoring&lt;/submission&gt;&lt;scoreKey&gt;74785202-1851-4350-bc30-23e132611f60&lt;/scoreKey&gt;&lt;/info&gt;&lt;inputs
-level="insured"&gt;&lt;agency&gt;111777&lt;/agency&gt;&lt;underwriter&gt;LUMIERE
-CLARE&lt;/underwriter&gt;&lt;audit\_method\_code&gt;P&lt;/audit\_method\_code&gt;&lt;available\_history\_1&gt;Y&lt;/available\_history\_1&gt;&lt;available\_history\_2&gt;Y&lt;/available\_history\_2&gt;&lt;available\_history\_3&gt;Y&lt;/available\_history\_3&gt;&lt;available\_history\_4&gt;Y&lt;/available\_history\_4&gt;&lt;available\_history\_indemnity\_1&gt;Y&lt;/available\_history\_indemnity\_1&gt;&lt;available\_history\_indemnity\_2&gt;Y&lt;/available\_history\_indemnity\_2&gt;&lt;available\_history\_indemnity\_3&gt;Y&lt;/available\_history\_indemnity\_3&gt;&lt;available\_history\_indemnity\_4&gt;Y&lt;/available\_history\_indemnity\_4&gt;&lt;claim\_amount\_total\_incurred\_1&gt;9&lt;/claim\_amount\_total\_incurred\_1&gt;&lt;claim\_amount\_total\_incurred\_2&gt;9&lt;/claim\_amount\_total\_incurred\_2&gt;&lt;claim\_amount\_total\_incurred\_3&gt;8&lt;/claim\_amount\_total\_incurred\_3&gt;&lt;claim\_amount\_total\_incurred\_4&gt;0&lt;/claim\_amount\_total\_incurred\_4&gt;&lt;experience\_mod\_factor\_initial&gt;2.43&lt;/experience\_mod\_factor\_initial&gt;&lt;insured\_name&gt;Risk
-9 Misclass 6 PI
-8&lt;/insured\_name&gt;&lt;new\_renew\_flag&gt;R&lt;/new\_renew\_flag&gt;&lt;non\_zero\_claim\_count\_1&gt;9&lt;/non\_zero\_claim\_count\_1&gt;&lt;non\_zero\_claim\_count\_2&gt;9&lt;/non\_zero\_claim\_count\_2&gt;&lt;non\_zero\_claim\_count\_3&gt;8&lt;/non\_zero\_claim\_count\_3&gt;&lt;non\_zero\_claim\_count\_4&gt;0&lt;/non\_zero\_claim\_count\_4&gt;&lt;non\_zero\_claim\_count\_indemnity\_1&gt;9&lt;/non\_zero\_claim\_count\_indemnity\_1&gt;&lt;non\_zero\_claim\_count\_indemnity\_2&gt;9&lt;/non\_zero\_claim\_count\_indemnity\_2&gt;&lt;non\_zero\_claim\_count\_indemnity\_3&gt;8&lt;/non\_zero\_claim\_count\_indemnity\_3&gt;&lt;non\_zero\_claim\_count\_indemnity\_4&gt;0&lt;/non\_zero\_claim\_count\_indemnity\_4&gt;&lt;original\_policy\_term\_number&gt;lr\_2.55-plrr\_adj
-2.30-plrr\_adj\_flr
-2.30&lt;/original\_policy\_term\_number&gt;&lt;policy\_state\_code&gt;KY&lt;/policy\_state\_code&gt;&lt;policy\_zip\_code&gt;40143&lt;/policy\_zip\_code&gt;&lt;term\_effective\_date&gt;2014-01-01&lt;/term\_effective\_date&gt;&lt;inputChildren
-level="class"&gt;&lt;class&gt;&lt;term\_effective\_date&gt;2014-01-01&lt;/term\_effective\_date&gt;&lt;original\_policy\_term\_number&gt;lr\_2.55-plrr\_adj
-2.30-plrr\_adj\_flr
-2.30&lt;/original\_policy\_term\_number&gt;&lt;class\_code&gt;2587&lt;/class\_code&gt;&lt;payroll\_amount\_initial&gt;35858&lt;/payroll\_amount\_initial&gt;&lt;state\_code&gt;KY&lt;/state\_code&gt;&lt;/class&gt;&lt;class&gt;&lt;term\_effective\_date&gt;2014-01-01&lt;/term\_effective\_date&gt;&lt;original\_policy\_term\_number&gt;lr\_2.55-plrr\_adj
-2.30-plrr\_adj\_flr
-2.30&lt;/original\_policy\_term\_number&gt;&lt;class\_code&gt;8810&lt;/class\_code&gt;&lt;payroll\_amount\_initial&gt;10000&lt;/payroll\_amount\_initial&gt;&lt;state\_code&gt;KY&lt;/state\_code&gt;&lt;/class&gt;&lt;class&gt;&lt;term\_effective\_date&gt;2014-01-01&lt;/term\_effective\_date&gt;&lt;original\_policy\_term\_number&gt;lr\_2.55-plrr\_adj
-2.30-plrr\_adj\_flr
-2.30&lt;/original\_policy\_term\_number&gt;&lt;class\_code&gt;8810&lt;/class\_code&gt;&lt;payroll\_amount\_initial&gt;10000&lt;/payroll\_amount\_initial&gt;&lt;state\_code&gt;KY&lt;/state\_code&gt;&lt;/class&gt;&lt;/inputChildren&gt;&lt;/inputs&gt;&lt;/score&gt;\]\]&gt;&lt;/request&gt;
-
-&lt;/invalidRequest&gt;
-
-&lt;errors count="1"&gt;
-
-&lt;validationError&gt;
-
-&lt;name&gt;uniqueKey&lt;/name&gt;
-
-&lt;description&gt;keys are repeated multiple(0)
-times&lt;/description&gt;
-
-&lt;field/&gt;
-
-&lt;value/&gt;
-
-&lt;/validationError&gt;
-
-&lt;/errors&gt;
-
-&lt;/response&gt;
+```xml
+<response>
+    <info>
+        <scoreKey>[guid goes here]</scoreKey>
+    </info>
+    <invalidRequest>
+        <request>
+            <![CDATA[<?xml version='1.0' encoding='UTF-8'?>
+            <score version="1.0">
+                <info>
+                    <customer>valen</customer>
+                    <solution>insureright</solution>
+                    <submission>scoring</submission>
+                    <scoreKey>[guid goes here]</scoreKey>
+                </info>
+                <inputs level="insured">
+                    <agency>123456</agency>
+                    <underwriter>Underwriter</underwriter>
+                    <audit_method_code>P</audit_method_code>
+                    <available_history_1>Y</available_history_1>
+                    <available_history_2>Y</available_history_2>
+                    <available_history_3>Y</available_history_3>
+                    <available_history_4>Y</available_history_4>
+                    <available_history_indemnity_1>Y</available_history_indemnity_1>
+                    <available_history_indemnity_2>Y</available_history_indemnity_2>
+                    <available_history_indemnity_3>Y</available_history_indemnity_3>
+                    <available_history_indemnity_4>Y</available_history_indemnity_4>
+                    <claim_amount_total_incurred_1>9</claim_amount_total_incurred_1>
+                    <claim_amount_total_incurred_2>9</claim_amount_total_incurred_2>
+                    <claim_amount_total_incurred_3>8</claim_amount_total_incurred_3>
+                    <claim_amount_total_incurred_4>0</claim_amount_total_incurred_4>
+                    <experience_mod_factor_initial>2.43</experience_mod_factor_initial>
+                    <insured_name>example data</insured_name>
+                    <new_renew_flag>R</new_renew_flag>
+                    <non_zero_claim_count_1>9</non_zero_claim_count_1>
+                    <non_zero_claim_count_2>9</non_zero_claim_count_2>
+                    <non_zero_claim_count_3>8</non_zero_claim_count_3>
+                    <non_zero_claim_count_4>0</non_zero_claim_count_4>
+                    <non_zero_claim_count_indemnity_1>9</non_zero_claim_count_indemnity_1>
+                    <non_zero_claim_count_indemnity_2>9</non_zero_claim_count_indemnity_2>
+                    <non_zero_claim_count_indemnity_3>8</non_zero_claim_count_indemnity_3>
+                    <non_zero_claim_count_indemnity_4>0</non_zero_claim_count_indemnity_4>
+                    <original_policy_term_number>test123</original_policy_term_number>
+                    <policy_state_code>KY</policy_state_code>
+                    <policy_zip_code>40143</policy_zip_code>
+                    <term_effective_date>2014-01-01</term_effective_date>
+                    <inputChildren level="class">
+                        <class>
+                            <term_effective_date>2014-01-01</term_effective_date>
+                            <original_policy_term_number>Test123</original_policy_term_number>
+                            <class_code>2587</class_code>
+                            <payroll_amount_initial>35858</payroll_amount_initial>
+                            <state_code>KY</state_code>
+                        </class>
+                        <class>
+                            <term_effective_date>2014-01-01</term_effective_date>
+                            <original_policy_term_number>Test123</original_policy_term_number>
+                            <class_code>8810</class_code>
+                            <payroll_amount_initial>10000</payroll_amount_initial>
+                            <state_code>KY</state_code>
+                        </class>
+                        <class>
+                            <term_effective_date>2014-01-01</term_effective_date>
+                            <original_policy_term_number>Test123</original_policy_term_number>
+                            <class_code>8810</class_code>
+                            <payroll_amount_initial>10000</payroll_amount_initial>
+                            <state_code>KY</state_code>
+                        </class>
+                    </inputChildren>
+                </inputs>
+            </score>]]></request>
+    </invalidRequest>
+    <errors count="1">
+        <validationError>
+            <name>uniqueKey</name>
+            <description>keys are repeated multiple(0)times</description>
+            <field/>
+            <value/>
+        </validationError>
+    </errors>
+</response>
 ```
 
 ##### Required Field Violation
 
 ```xml
-&lt;response&gt;
-
-&lt;info&gt;
-
-&lt;scoreKey&gt;746c4a66-f1cf-4bc4-9064-0bd877a8001d&lt;/scoreKey&gt;
-
-&lt;/info&gt;
-
-&lt;invalidRequest&gt;
-
-&lt;request&gt;&lt;!\[CDATA\[&lt;?xml version='1.0'
-encoding='UTF-8'?&gt;&lt;score
-version="1.0"&gt;&lt;info&gt;&lt;customer&gt;fwci&lt;/customer&gt;&lt;solution&gt;insureright&lt;/solution&gt;&lt;submission&gt;scoring&lt;/submission&gt;&lt;scoreKey&gt;746c4a66-f1cf-4bc4-9064-0bd877a8001d&lt;/scoreKey&gt;&lt;/info&gt;&lt;inputs
-level="insured"&gt;&lt;agency&gt;111777&lt;/agency&gt;&lt;underwriter&gt;LUMIERE
-CLARE&lt;/underwriter&gt;&lt;audit\_method\_code&gt;P&lt;/audit\_method\_code&gt;&lt;available\_history\_1&gt;Y&lt;/available\_history\_1&gt;&lt;available\_history\_2&gt;Y&lt;/available\_history\_2&gt;&lt;available\_history\_3&gt;Y&lt;/available\_history\_3&gt;&lt;available\_history\_4&gt;Y&lt;/available\_history\_4&gt;&lt;available\_history\_indemnity\_1&gt;Y&lt;/available\_history\_indemnity\_1&gt;&lt;available\_history\_indemnity\_2&gt;Y&lt;/available\_history\_indemnity\_2&gt;&lt;available\_history\_indemnity\_3&gt;Y&lt;/available\_history\_indemnity\_3&gt;&lt;available\_history\_indemnity\_4&gt;Y&lt;/available\_history\_indemnity\_4&gt;&lt;claim\_amount\_total\_incurred\_1&gt;9&lt;/claim\_amount\_total\_incurred\_1&gt;&lt;claim\_amount\_total\_incurred\_2&gt;9&lt;/claim\_amount\_total\_incurred\_2&gt;&lt;claim\_amount\_total\_incurred\_3&gt;8&lt;/claim\_amount\_total\_incurred\_3&gt;&lt;claim\_amount\_total\_incurred\_4&gt;0&lt;/claim\_amount\_total\_incurred\_4&gt;&lt;experience\_mod\_factor\_initial&gt;2.43&lt;/experience\_mod\_factor\_initial&gt;&lt;insured\_name&gt;Risk
-9 Misclass 6 PI
-8&lt;/insured\_name&gt;&lt;new\_renew\_flag&gt;R&lt;/new\_renew\_flag&gt;&lt;non\_zero\_claim\_count\_1&gt;9&lt;/non\_zero\_claim\_count\_1&gt;&lt;non\_zero\_claim\_count\_2&gt;9&lt;/non\_zero\_claim\_count\_2&gt;&lt;non\_zero\_claim\_count\_3&gt;8&lt;/non\_zero\_claim\_count\_3&gt;&lt;non\_zero\_claim\_count\_4&gt;0&lt;/non\_zero\_claim\_count\_4&gt;&lt;non\_zero\_claim\_count\_indemnity\_1&gt;9&lt;/non\_zero\_claim\_count\_indemnity\_1&gt;&lt;non\_zero\_claim\_count\_indemnity\_2&gt;9&lt;/non\_zero\_claim\_count\_indemnity\_2&gt;&lt;non\_zero\_claim\_count\_indemnity\_3&gt;8&lt;/non\_zero\_claim\_count\_indemnity\_3&gt;&lt;non\_zero\_claim\_count\_indemnity\_4&gt;0&lt;/non\_zero\_claim\_count\_indemnity\_4&gt;&lt;original\_policy\_term\_number&gt;lr\_2.55-plrr\_adj
-2.30-plrr\_adj\_flr
-2.30&lt;/original\_policy\_term\_number&gt;&lt;policy\_state\_code&gt;KY&lt;/policy\_state\_code&gt;&lt;policy\_zip\_code&gt;40143&lt;/policy\_zip\_code&gt;&lt;term\_effective\_date&gt;&lt;/term\_effective\_date&gt;&lt;inputChildren
-level="class"&gt;&lt;class&gt;&lt;term\_effective\_date&gt;&lt;/term\_effective\_date&gt;&lt;original\_policy\_term\_number&gt;lr\_2.55-plrr\_adj
-2.30-plrr\_adj\_flr
-2.30&lt;/original\_policy\_term\_number&gt;&lt;class\_code&gt;2587&lt;/class\_code&gt;&lt;payroll\_amount\_initial&gt;35858&lt;/payroll\_amount\_initial&gt;&lt;state\_code&gt;KY&lt;/state\_code&gt;&lt;/class&gt;&lt;class&gt;&lt;term\_effective\_date&gt;&lt;/term\_effective\_date&gt;&lt;original\_policy\_term\_number&gt;lr\_2.55-plrr\_adj
-2.30-plrr\_adj\_flr
-2.30&lt;/original\_policy\_term\_number&gt;&lt;class\_code&gt;8810&lt;/class\_code&gt;&lt;payroll\_amount\_initial&gt;10000&lt;/payroll\_amount\_initial&gt;&lt;state\_code&gt;KY&lt;/state\_code&gt;&lt;/class&gt;&lt;/inputChildren&gt;&lt;/inputs&gt;&lt;/score&gt;\]\]&gt;&lt;/request&gt;
-
-&lt;/invalidRequest&gt;
-
-&lt;errors count="3"&gt;
-
-&lt;validationError&gt;
-
-&lt;name&gt;required&lt;/name&gt;
-
-&lt;description&gt;A required value for 'term\_effective\_date' was not
-provided&lt;/description&gt;
-
-&lt;level&gt;class&lt;/level&gt;
-
-&lt;key&gt;
-
-&lt;vglItm&gt;
-
-&lt;vglItm&gt;
-
-&lt;vglItm&gt;:original\_policy\_term\_number&lt;/vglItm&gt;
-
-&lt;vglItm&gt;lr\_2.55-plrr\_adj 2.30-plrr\_adj\_flr 2.30&lt;/vglItm&gt;
-
-&lt;/vglItm&gt;
-
-&lt;vglItm&gt;
-
-&lt;vglItm&gt;:original\_policy\_term\_number&lt;/vglItm&gt;
-
-&lt;vglItm&gt;lr\_2.55-plrr\_adj 2.30-plrr\_adj\_flr 2.30&lt;/vglItm&gt;
-
-&lt;/vglItm&gt;
-
-&lt;vglItm&gt;
-
-&lt;vglItm&gt;:class\_code&lt;/vglItm&gt;
-
-&lt;vglItm&gt;8810&lt;/vglItm&gt;
-
-&lt;/vglItm&gt;
-
-&lt;vglItm&gt;
-
-&lt;vglItm&gt;:state\_code&lt;/vglItm&gt;
-
-&lt;vglItm&gt;KY&lt;/vglItm&gt;
-
-&lt;/vglItm&gt;
-
-&lt;/vglItm&gt;
-
-&lt;/key&gt;
-
-&lt;field&gt;termEffectiveDate&lt;/field&gt;
-
-&lt;constraint&gt;requiredField&lt;/constraint&gt;
-
-&lt;/validationError&gt;
-
-&lt;validationError&gt;
-
-&lt;name&gt;required&lt;/name&gt;
-
-&lt;description&gt;A required value for 'term\_effective\_date' was not
-provided&lt;/description&gt;
-
-&lt;level&gt;class&lt;/level&gt;
-
-&lt;key&gt;
-
-&lt;vglItm&gt;
-
-&lt;vglItm&gt;
-
-&lt;vglItm&gt;:original\_policy\_term\_number&lt;/vglItm&gt;
-
-&lt;vglItm&gt;lr\_2.55-plrr\_adj 2.30-plrr\_adj\_flr 2.30&lt;/vglItm&gt;
-
-&lt;/vglItm&gt;
-
-&lt;vglItm&gt;
-
-&lt;vglItm&gt;:original\_policy\_term\_number&lt;/vglItm&gt;
-
-&lt;vglItm&gt;lr\_2.55-plrr\_adj 2.30-plrr\_adj\_flr 2.30&lt;/vglItm&gt;
-
-&lt;/vglItm&gt;
-
-&lt;vglItm&gt;
-
-&lt;vglItm&gt;:class\_code&lt;/vglItm&gt;
-
-&lt;vglItm&gt;2587&lt;/vglItm&gt;
-
-&lt;/vglItm&gt;
-
-&lt;vglItm&gt;
-
-&lt;vglItm&gt;:state\_code&lt;/vglItm&gt;
-
-&lt;vglItm&gt;KY&lt;/vglItm&gt;
-
-&lt;/vglItm&gt;
-
-&lt;/vglItm&gt;
-
-&lt;/key&gt;
-
-&lt;field&gt;termEffectiveDate&lt;/field&gt;
-
-&lt;constraint&gt;requiredField&lt;/constraint&gt;
-
-&lt;/validationError&gt;
-
-&lt;validationError&gt;
-
-&lt;name&gt;required&lt;/name&gt;
-
-&lt;description&gt;A required value for 'term\_effective\_date' was not
-provided&lt;/description&gt;
-
-&lt;level&gt;insured&lt;/level&gt;
-
-&lt;key&gt;
-
-&lt;vglItm&gt;
-
-&lt;vglItm&gt;
-
-&lt;vglItm&gt;:original\_policy\_term\_number&lt;/vglItm&gt;
-
-&lt;vglItm&gt;lr\_2.55-plrr\_adj 2.30-plrr\_adj\_flr 2.30&lt;/vglItm&gt;
-
-&lt;/vglItm&gt;
-
-&lt;/vglItm&gt;
-
-&lt;/key&gt;
-
-&lt;field&gt;termEffectiveDate&lt;/field&gt;
-
-&lt;constraint&gt;requiredField&lt;/constraint&gt;
-
-&lt;/validationError&gt;
-
-&lt;/errors&gt;
-
-&lt;/response&gt;
+<response>
+    <info>
+        <scoreKey>[guid goes here]</scoreKey>
+    </info>
+    <invalidRequest>
+        <request>
+            <![CDATA[<?xml version='1.0'encoding='UTF-8'?>
+            <scoreversion="1.0">
+                <info>
+                    <customer>valen</customer>
+                    <solution>insureright</solution>
+                    <submission>scoring</submission>
+                    <scoreKey>[guid goes here]</scoreKey>
+                </info>
+                <inputslevel="insured">
+                    <agency>Test123</agency>
+                    <underwriter>Test Person</underwriter>
+                    <audit_method_code>P</audit_method_code>
+                    <available_history_1>Y</available_history_1>
+                    <available_history_2>Y</available_history_2>
+                    <available_history_3>Y</available_history_3>
+                    <available_history_4>Y</available_history_4>
+                    <available_history_indemnity_1>Y</available_history_indemnity_1>
+                    <available_history_indemnity_2>Y</available_history_indemnity_2>
+                    <available_history_indemnity_3>Y</available_history_indemnity_3>
+                    <available_history_indemnity_4>Y</available_history_indemnity_4>
+                    <claim_amount_total_incurred_1>9</claim_amount_total_incurred_1>
+                    <claim_amount_total_incurred_2>9</claim_amount_total_incurred_2>
+                    <claim_amount_total_incurred_3>8</claim_amount_total_incurred_3>
+                    <claim_amount_total_incurred_4>0</claim_amount_total_incurred_4>
+                    <experience_mod_factor_initial>2.43</experience_mod_factor_initial>
+                    <insured_name>Error Submit</insured_name>
+                    <new_renew_flag>R</new_renew_flag>
+                    <non_zero_claim_count_1>9</non_zero_claim_count_1>
+                    <non_zero_claim_count_2>9</non_zero_claim_count_2>
+                    <non_zero_claim_count_3>8</non_zero_claim_count_3>
+                    <non_zero_claim_count_4>0</non_zero_claim_count_4>
+                    <non_zero_claim_count_indemnity_1>9</non_zero_claim_count_indemnity_1>
+                    <non_zero_claim_count_indemnity_2>9</non_zero_claim_count_indemnity_2>
+                    <non_zero_claim_count_indemnity_3>8</non_zero_claim_count_indemnity_3>
+                    <non_zero_claim_count_indemnity_4>0</non_zero_claim_count_indemnity_4>
+                    <original_policy_term_number>Test12/original_policy_term_number>
+                    <policy_state_code>KY</policy_state_code>
+                    <policy_zip_code>40143</policy_zip_code>
+                    <term_effective_date/>
+                    <inputChildrenlevel="class">
+                        <class>
+                            <term_effective_date/>
+                            <original_policy_term_number>Test12/original_policy_term_number>
+                            <class_code>2587</class_code>
+                            <payroll_amount_initial>35858</payroll_amount_initial>
+                            <state_code>KY</state_code>
+                        </class>
+                        <class>
+                            <term_effective_date/>
+                            <original_policy_term_number>Test12/original_policy_term_number>
+                            <class_code>8810</class_code>
+                            <payroll_amount_initial>10000</payroll_amount_initial>
+                            <state_code>KY</state_code>
+                        </class>
+                    </inputChildren>
+                </inputs>
+            </score>]]></request>
+    </invalidRequest>
+    <errors count="3">
+        <validationError>
+            <name>required</name>
+            <description>A required value for 'term_effective_date' was notprovided</description>
+            <level>class</level>
+            <key>
+                <vglItm>
+                    <vglItm>
+                        <vglItm>:original_policy_term_number</vglItm>
+                        <vglItm>Test12</vglItm>
+                    </vglItm>
+                    <vglItm>
+                        <vglItm>:original_policy_term_number</vglItm>
+                        <vglItm>Test12</vglItm>
+                    </vglItm>
+                    <vglItm>
+                        <vglItm>:class_code</vglItm>
+                        <vglItm>8810</vglItm>
+                    </vglItm>
+                    <vglItm>
+                        <vglItm>:state_code</vglItm>
+                        <vglItm>KY</vglItm>
+                    </vglItm>
+                </vglItm>
+            </key>
+            <field>termEffectiveDate</field>
+            <constraint>requiredField</constraint>
+        </validationError>
+        <validationError>
+            <name>required</name>
+            <description>A required value for 'term_effective_date' was notprovided</description>
+            <level>class</level>
+            <key>
+                <vglItm>
+                    <vglItm>
+                        <vglItm>:original_policy_term_number</vglItm>
+                        <vglItm>Test12</vglItm>
+                    </vglItm>
+                    <vglItm>
+                        <vglItm>:original_policy_term_number</vglItm>
+                        <vglItm>Test12</vglItm>
+                    </vglItm>
+                    <vglItm>
+                        <vglItm>:class_code</vglItm>
+                        <vglItm>2587</vglItm>
+                    </vglItm>
+                    <vglItm>
+                        <vglItm>:state_code</vglItm>
+                        <vglItm>KY</vglItm>
+                    </vglItm>
+                </vglItm>
+            </key>
+            <field>termEffectiveDate</field>
+            <constraint>requiredField</constraint>
+        </validationError>
+        <validationError>
+            <name>required</name>
+            <description>A required value for 'term_effective_date' was notprovided</description>
+            <level>insured</level>
+            <key>
+                <vglItm>
+                    <vglItm>
+                        <vglItm>:original_policy_term_number</vglItm>
+                        <vglItm>Test12</vglItm>
+                    </vglItm>
+                </vglItm>
+            </key>
+            <field>termEffectiveDate</field>
+            <constraint>requiredField</constraint>
+        </validationError>
+    </errors>
+</response>
 ```
 
 ##### Credential Violation
 
 ```xml
-&lt;data contentType="null"
-contentLength="16"&gt;&lt;!\[CDATA\[401:Unauthorized\]\]&gt;&lt;/data&gt;
+<data contentType="null"
+contentLength="16"><![CDATA[401:Unauthorized]]></data>
 ```
 
 ### Appendix D – *Predict* Report Download
 
-The PWS *Predict* Report Download gives clients a way to easily download
-their Insureright® *Predict* Reports from the InsureRight production
-system and store them on their local environment in PDF format.
+It is possible to pull Predict Reports from the InsureRight system and store them locally in PDF format.
 
 ##### PWS Predict Report Download Flow
 
-Once a client has submitted and scored valid data, the PWS *Predict*
-Report Download works as follows:
+In the response to a valid submission there is a Score ID.
 
-1.  The client extracts the scoreID from the scoring response.
 
-<!-- -->
+1.  The client submits a web service request for the report with a format=pdf parameter
 
-1.  The client submits a web service request for the *Predict* Report.
+2.  The report is delivered as base64 text in the response.
 
-2.  The *Predict* Report is delivered as a PWS response.
+3.  Decoding the Base64 decoder translates the file to binary which can be saved in PDF format
 
-3.  The client uses a Base64 decoder to translate the file.
-
-4.  The client saves the file in PDF format to their local environment.
 
 ##### PWS Predict Report Download Requirements
 
-Requests to the PWS are designed as RESTful requests. Responses contain
-the report data in binary format.
+Requests to the PWS are designed as RESTful requests. Responses contain the report data in binary format.
 
 Web service requests are submitted as an HTTP GET to the following URL:
 
@@ -1014,10 +952,7 @@ For example:
 
 `https://insureright.valen.com/solutions/insureright/scoring/12345?format=pdf`
 
-In this example the **solution** is InsureRight. A number of different
-types of submissions may be made to the InsureRight solution, but in
-this case we are making a **scoring** submission, which requires the
-‘reportID’ or ‘scoreID’ be sent to the production system.
+In this example the **solution** is InsureRight. A number of different types of submissions may be made to the InsureRight solution, but in this case we are making a **scoring** submission, which requires the ‘reportID’ or ‘scoreID’ be sent to the production system.
 
 ##### Request Data
 
@@ -1031,40 +966,64 @@ Resource = /solutions/insureright/scoring/{scoreID}
 
 Parameters = ?format=pdf
 
-**Web Service Style:** The PWS uses HTTPS and supports RESTful requests.
-The PWS processes requests and returns results synchronously.
+**Web Service Style:** 
+The PWS uses HTTPS and supports RESTful requests. The PWS processes requests and returns results synchronously.
 
-**Authentication:** The request should contain a HTTP Basic
-Authentication header containing a user name and valid credentials. If
-credentials are invalid an Unauthorized (HTTP 403) status code will be
-returned.
+**Authentication:** 
+The request should contain a HTTP Basic Authentication header containing a user name and valid credentials. If credentials are invalid an Unauthorized (HTTP 403) status code will be returned.
+
+##### PDF Request example
+
+This is a simple retrieval script written in Python.
+
+```python
+import requests
+import base64
+import xml.etree.ElementTree as ET 
+import sys
+
+if len(sys.argv) < 4:
+    print "Please username, password, and a list of scoreIDs"
+    sys.exit(1)
+
+user = sys.argv[1]
+pwd = sys.argv[2]
+id_list = sys.argv[3:]
+
+for item in id_list:
+    req_url = 'https://insureright.valen.com/solutions/insureright/scoring/%s?format=pdf' % item
+    filename = "retrieved_%s.pdf" % item
+
+    r = requests.get(req_url, auth=(user, pwd))
+    print r.status_code
+
+    root = ET.fromstring(r.text)
+    for child in root:
+        print child.tag, child.attrib
+
+    with open(filename, 'wb') as fout:
+        fout.write(base64.b64decode(root[0].text))
+```
 
 ### Appendix E – Test Tools
 
 We use cURL or Postman to test our request content.
 
-The curl utility can be downloaded at
-<http://curl.haxx.se/download.html> for various operating systems.
+The curl utility can be downloaded at <http://curl.haxx.se/download.html> for various operating systems.
 
-Postman is an app for Chrome or Mac and can be found at
-<https://www.getpostman.com/>
+Postman is an app for Chrome or Mac and can be found at <https://www.getpostman.com/>
 
 ##### Curl
 
-Given a valid xml file (see the example request in [Appendix
-A](#_Appendix_A_-)), this is a sample request.
+Given a valid xml file (see the example request in [Appendix A](#_Appendix_A_-)), this is a sample request.
 
-curl –u \[username\]:\[password\] -X POST -d @valid-request.xml -H
-'Content-Type: application/xml'
-[https://insureright.valen.com/solutions/&lt;customer&gt;insureright/scoring](https://insureright.valen.com/solutions/%3ccustomer%3einsureright/scoring)
+curl –u \[username\]:\[password\] -X POST -d @valid-request.xml -H 'Content-Type: application/xml' https://insureright.valen.com/solutions/<customer>/insureright/scoring
 
 ###### Postman
 
-We have a library of sample requests at
-<https://www.getpostman.com/collections/da164d2bbcfb55623635>
+We have a library of sample requests at <https://www.getpostman.com/collections/da164d2bbcfb55623635>
 
-Import the library into Postman, click on the Authorization tab then
-follow these steps.
+Import the library into Postman, click on the Authorization tab then follow these steps.
 
 1.  Enter the username and password for your Valen webservices user
     account
@@ -1073,32 +1032,24 @@ follow these steps.
 
 3.  Click the “Body” tab
 
-![](media/image5.png){width="6.5in" height="2.7708333333333335in"}
-
-While on the “Body” Tab, enter valid values into the xml (you may need
-to select the “Raw” radio tab to see the xml).
+While on the “Body” Tab, enter valid values into the xml (you may need to select the “Raw” radio tab to see the xml).
 
 Hit Send.
 
 
 ### Appendix Q - Disclaimers and Legalese
 
-InsureRight® Platform Predict Web Service Implementation Guide – Valen®
-Analytics, February 2015
+InsureRight® Platform Predict Web Service Implementation Guide – Valen® Analytics, February 2015
 
 All rights reserved. The copyright and trade secret laws of the United States and other countries protect this material. No part of this material or software covered by the copyrights herein may be reproduced, distributed or altered in any fashion without prior contractual or written consent of Valen® Analytics. Content is subject to change without notification.
 
 ##### Accuracy
 
-Every effort was made to ensure the material contained in this document
-was complete and accurate at the time of publication. However,
-information is subject to change with or without notice.
+Every effort was made to ensure the material contained in this document was complete and accurate at the time of publication. However, information is subject to change with or without notice.
 
 ##### Trademarks
 
-All products, trademarks, registered trademarks, trade names, service
-marks and company names mentioned herein are the property of their
-respective owners.
+All products, trademarks, registered trademarks, trade names, service marks and company names mentioned herein are the property of their respective owners.
 
 -   InsureRight® Platform is a trademark of Valen® Analytics.
 -   Linux® is the registered trademark of Linus Torvalds in the U.S. and other countries.
@@ -1111,9 +1062,7 @@ respective owners.
 
 Disclaimer
 
-This guide is not intended to provide or substitute for managerial or
-legal advice. Users with legal or managerial concerns should seek the
-advice of a qualified professional.
+This guide is not intended to provide or substitute for managerial or legal advice. Users with legal or managerial concerns should seek the advice of a qualified professional.
 
 ##### Publication Date
 
@@ -1125,4 +1074,5 @@ February 24, 2015
 |1.1|7/6/2016|Valen Support|Updated the examples to reflect code improvements.|
 |1.2|8/2/2016|Valen Support|Updated the error messaging|
 |1.3|11/14/2016|Valen Support|Converted to web document|
+|1.4|7/7/2017|Valen Support|Updated the sample responses|
 
