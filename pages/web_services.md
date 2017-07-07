@@ -17,7 +17,7 @@ In addition to the score results the system also returns information to explain 
 
 ##### Audience
 
-This guide is intended for use by developers who are building web-enabled applications that will use the PWS to invoke an application to score a set of input data. To use the PWS, clients are required to have a valid PWS account. Please contact <support@valen.com> to ensure that access is properly configured.
+This guide is intended for use by developers who are building web-enabled applications that will use the PWS to invoke an application to score a set of input data. To use the PWS, clients are required to have a valid  account with Valen. Please contact <support@valen.com> to ensure that access is properly configured.
 
 ##### Required Knowledge and Skills
 
@@ -29,33 +29,27 @@ Use of this guide assumes you are familiar with the following:
 -   A programming language for consuming a web service and any related
     tool
 
-### PWS Application 
+#### WebServices Application Flow
 
-The PWS addresses interoperability concerns by giving clients a way to easily send their data to the InsureRight production system and receive scores and predictions generated using their data via HTTP.
-
-#### PWS Application Flow
-
-When valid data is submitted, the PWS works as follows:
-1.  The client sends a PWS request to a given application containing
-    input data to score.
-2.  Predict production system validates the input data.
+1.  Submit a request to a given application containing input data to score.
+2.  Predict production system validates the input data and returns an error if problems are found.
 3.  Predict production system scores the input data.
-4.  Predict production system returns the scores and additional
-    information explaining the scores.
+4.  Predict production system returns the scores and additional information explaining the scores.
 
 Submitting data that is invalid or improperly formatted will return an error message. A list of common errors is provided below. For detailed responses, see [APPENDIX C: Error Handling](#appendixC). The errors in a failed scoring request will need to be addressed and the request will have to be resubmitted for scoring.
 
-#### PWS Application Processing Requirements
+#### Application Processing Requirements
 Requests to the PWS are designed as RESTful requests. Responses are provided for all models supported, i.e.*,* risk, misclassification and premium impact. The user cannot select independent models to be scored and or partial responses to be returned.
 
-Web service requests are submitted as a POST request to the following URL:
+Web service requests are submitted as a POST request to the following URI in the Valen Domain:
 
 `[server]/solutions/[solution]/[submission]`
 
 For example:
-`https://insureright.valen.com/solutions/insureright/scoring`
+`https://insureright.valen.com/solutions/insureright/scoring` - _a submission for workers compensation_
+`https://insureright.valen.com/solutions/ca/scoring` - _a submission for commercial auto_
 
-In this example the **solution** is InsureRight. A number of different types of submissions may be made to the InsureRight solution, but in this case we are making a **scoring** submission, which will score the inputs against all InsureRight Predict models.
+In the first example the **solution** is InsureRight. A number of different types of submissions may be made to the InsureRight solution, but in this case we are making a **scoring** submission, which will score the inputs against all InsureRight Predict models.
 
 #### Request Contents
 
@@ -296,7 +290,7 @@ The following example describes a valid Valen® PWS request.
     <score version="1.0">
         <inputs level="insured">
             <policy_city_name>A CITY IN</policy_city_name>
-            <agency>111777</agency>
+            <agency>test123</agency>
             <underwriter>UNDER WRITER</underwriter>
             <audit_method_code>P</audit_method_code>
             <available_history_1>Y</available_history_1>
@@ -348,8 +342,8 @@ If the request is well-formed, the input values can be converted to the required
 <response xmlns="http://www.valentech.com/2013/11/prediction/response">
   <score version="1.0">
     <info>
-      <scoreKey>125340a9-8a90-4844-8a10-defc8f5f3420</scoreKey>
-      <scoreId>1405194</scoreId>
+      <scoreKey>[guid goes here]</scoreKey>
+      <scoreId>[number goes here]</scoreId>
     </info>
     <inputs xmlns="http://www.valentech.com/2013/11/prediction/inputs" level="insured">
       <underwriter>UNDER WRITER</underwriter>
@@ -360,8 +354,8 @@ If the request is well-formed, the input values can be converted to the required
       <available_history_2>Y</available_history_2>
       <term_effective_date>2015-07-04</term_effective_date>
       <available_history_3>Y</available_history_3>
-      <agency>111777</agency>
-      <original_policy_term_number>2015022404</original_policy_term_number>
+      <agency>test123</agency>
+      <original_policy_term_number>test12</original_policy_term_number>
       <non_zero_claim_count_3>0</non_zero_claim_count_3>
       <available_history_1>Y</available_history_1>
       <audit_method_code>P</audit_method_code>
@@ -600,7 +594,7 @@ If the request XML is not well-formed a Bad Request (HTTP 400) status code conta
 ```xml
 <response>
     <info>
-        <scoreKey>65497dc3-8064-46ce-9234-a1f0d9ee0f00</scoreKey>
+        <scoreKey>[guid goes here]</scoreKey>
     </info>
     <illFormedRequest>
         <request>

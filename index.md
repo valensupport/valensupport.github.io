@@ -7,7 +7,7 @@ toc: false
 ---
 ### Documents
 
-[Scoring Submission Guide](webservices_guide.html)
+[Scoring Submission Guide](web_services.html)
 
 [Batch Submission Guide](batch_request.html)
 
