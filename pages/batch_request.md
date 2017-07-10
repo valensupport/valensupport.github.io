@@ -156,4 +156,4 @@ The data is presented in pipe delimted (`.psv`) format to accomodate commas in t
 
 >original_policy_term_number|term_effective_date|state_code|class_code|payroll_amount_initial
 >1234Test|7/7/2017|CO|4771|12345
->1234Test|7/8/2017|CO|8810|349
+>1234Test|7/7/2017|CO|8810|349

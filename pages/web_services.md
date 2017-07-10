@@ -873,7 +873,7 @@ While on the “Body” Tab, enter valid values into the xml (you may need to se
 Hit Send.
 
 
-### Appendix Q - Disclaimers and Legalese
+### Appendix F - Disclaimers
 
 InsureRight® Platform Predict Web Service Implementation Guide – Valen® Analytics, February 2015
 
