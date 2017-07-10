@@ -23,11 +23,11 @@ The input data for the Batch Application can be transmitted via the GUI or API, 
 
 Each carrier can define their own naming convention according to their system requirements and constraints, providing the word “batch” is contained somewhere in the file name and the format is “.zip”. (See: Batch Application Processing Requirements ). 
 
-The zip file cannot be password protected. It cannot contain subfolders and should contain two files, see below.
+The zip file cannot be password protected. It cannot contain subfolders and should contain one file per relation, see below.
 
 ### Submission File Details
 
-Client systems must transmit data as a single compressed .zip file. The zipped file must contain the two data files containing the transmission data which correspond to all required data nodes. There are two nodes defined in the data structure for submitting data for InsureRight/Workers Compensation, so the following files must exist in the batch transmission:
+Client systems must transmit data as a single compressed .zip file. The zipped file must contain the related files containing the transmission data which correspond to all required data nodes. There are two nodes defined in the data structure for submitting data for InsureRight/Workers Compensation, so the following files must exist in the batch transmission:
 insured.[csv, psv, txt]
 class.[csv, psv, txt]
 
@@ -35,7 +35,7 @@ Likewise, Commercial Auto has two nodes, term and unit:
 term.[csv, psv, txt]
 unit.[csv, psv, txt]
 
-Please note that the files within the .zip file may be delivered in .csv, .psv, or .txt formats. The only constraint is that the formats be the same in each .zip instance.
+Please note that the files within the .zip file may be delivered in .csv, .psv, or .tsv formats.
 
 #### Input Data File Examples
 Here is a sample for commercial auto, a sample for workers compensation is included later in the document. The importance of these examples is in the headers and the structure. The exact headers will differ depending on solution. Login to access the data dictionary for exact column names. This text can be pasted into files `term.csv` and `unit.csv`. A zip file containing these two files will be a valid file for testing purposes:
@@ -77,8 +77,7 @@ As stated above, the zip file cannot be password protected and cannot contain su
 The response will contain a GUID. This is a unique identifier for the submitted batch and can be used to retrieve the batch.
 
 ### Batch Workflow
-In order to submit a compressed batch file containing delimited data for scoring, first you must `POST` the
-file to a web-service endpoint and retrieve a UUID which can the be used to poll for the results.
+In order to submit a compressed batch file containing delimited data for scoring, first you must `POST` the file to a web-service endpoint and retrieve a UUID which can the be used to poll for the results.
 
 #### Batch Scoring Submission
 In order to submit a batch, you must submit an `HTTPS` `POST` to the following endpoint:
@@ -86,17 +85,14 @@ In order to submit a batch, you must submit an `HTTPS` `POST` to the following e
   `POST`: `multipart-form-data`
   `https://insureright.valen.com/api/2/batch/[solution]/[submission]`
 
-The solution and submission are encoded as part of the path. The submission; however,
-will always be scoring, as below:
+The solution and submission are encoded as part of the path.
 
   `POST`: `multipart-form-data`
   `https://insureright.valen.com/api/2/batch/[solution]/scoring`
  
-The content type of the body must be `multipart/form-data` where one part has the
-name `batch-file`. If there is no such part, or if the `content-type` of the scoring
-request is not `multipart-form-data` the request will fail with a status code `400`.
+The content type of the body must be `multipart/form-data` where one part has the name `batch-file`. If there is no such part, or if the `content-type` of the scoring request is not `multipart-form-data` the request will fail with a status code `400`.
 
-If the request is successful, a GUID will be returned in the response.
+If the request is successful, a GUID will be returned in the response. This GUID is used as the batch-key and is necessary for retrieving the results in the next step.
 
 ##### Batch Scoring Submission Summary
 
@@ -111,7 +107,7 @@ endpoint:
   `GET`
   `https://insureright.valen.com/api/2/batch/ca/scoring/[GUID]`
 
-The `GET` will either return a `404`, a zip file containing results, or an error code. See the status code section for more information about what those mean. The `404` response is expected and may mean the batch is still processing or the GUID is invalid. If a `404` is received, continue making the request again on an interval of 5 minutes between requests.
+The `GET` will either return a `404`, a zip file containing results, or an error code. The `404` response is expected and may mean the batch is still processing or the GUID is invalid. If a `404` is received, continue making the request again on an interval of 5 minutes between requests.
 
 A warning: large batches can take quite a while to finish processing.
 
@@ -148,6 +144,8 @@ The Commercial Auto files can found above. Here are other samples.
 #### Workers Comp
 
 The data is presented in pipe delimted (`.psv`) format to accomodate commas in the address (also useful if commas are in the insured name). The files in this case would be `insured.psv` and `class.psv`. Again, this data can be used as valid test data.
+
+**NOTE**: _It is possible to escape characters within the delimters with quotation marks. An insured name with commas inside a csv might look like this: `datavalue1, "insured name, containing commas", datavalue2`. This would resolve correctly in the Valen system_
 
 ##### Insured
 
