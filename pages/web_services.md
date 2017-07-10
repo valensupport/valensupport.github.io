@@ -4,7 +4,7 @@ title: InsureRight® Predict Web Services
 permalink: web_services.html
 sidebar: nav_sidebar
 last_updated: November, 2016
-summary: The webservices guide for making scoring requests to the the 3.0 platform.
+summary: The webservices guide for making scoring requests to the 3.0 platform.
 ---
 
 # Valen WebServices Implementation Guide
@@ -13,7 +13,7 @@ summary: The webservices guide for making scoring requests to the the 3.0 platfo
 
 The InsureRight® Predict Web Service (PWS) allows clients to send input data, in the form of a prediction request, to the InsureRight platform for scoring with Valen’s models. Once received, the system validates the XML and data content of the transmission, scores the data, then returns a prediction response.
 
-In addition to the score results the system also returns information to explain the predictions in terms of influential data elements and, optionally, Valen can incorporate custom business rules to provide support for automated decision making based on the prediction results.
+In addition to the score results, the system also returns information to explain the predictions in terms of influential data elements. Optionally, Valen can incorporate custom business rules to provide support for automated decision making based on the prediction results.
 
 ##### Audience
 
@@ -101,7 +101,7 @@ Special characters in the XML will return a status code of 500.
 
 PWS Requests are **POST** requests to the URL constructed above.
 
-The example a reminder - `https://insureright.valen.com/solutions/insureright/scoring`
+The URL example as a reminder - `https://insureright.valen.com/solutions/insureright/scoring`
 
 Two headers are required:
 ```http
@@ -109,7 +109,7 @@ Content-Type: Application/xml
 Authorization: username/password in base64
 ```
 
-The PWS Application requires data in a minimum of 2 nodes, **insured** and **class**. Those are nested inside the **input node**. In order to handle multiple classes, the class information is further nested inside the **input_child** node. The sequence of field names defined in the input files are not important, providing the field names defined in the columns match Valen’s field names. A full example is provided in [Appendix A](#appendixA). More information about the fields is provided in the [Data Dictionary](#dataDict). The basic layout for Request and Response packets is this:
+For Workers Compensation, the PWS Application requires data in a minimum of 2 nodes, **insured** and **class**. Those are nested inside the **input node**. In order to handle multiple classes, the class information is further nested inside the **input_child** node. A full example is provided in [Appendix A](#appendixA). More information about the fields is provided in the [Data Dictionary](#dataDict). The basic layout for Request and Response packets is this:
 
 ##### Request Requirements
 ```xml
