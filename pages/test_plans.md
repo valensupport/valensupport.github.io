@@ -15,9 +15,9 @@ Here is a collection of the integration test plans for Valen's Web Services. It'
 {:.tests}
 |Test|Request|Expected Response|
 |----|-------|-----------------|
-|Basic Scoring|curl --request POST -u user:password --header "content-type: application/xml" --data "" --url "https://insureright.valen.com/solutions/insureright/scoring"`| 200 OK: Scoring Response here|
-|Retrieve PDF|`curl --request GET  -u [username]:[password] --header "content-type: application/xml" --url 'https://insureright.valen.com/solutions/insureright/scoring/[scoreID]?format=pdf'`| 200 OK: PDF contents will be returned in Base 64 format|
-|Retrieve Without Params|`curl -X GET -u [username]:[password] --header "content-type: application/xml" --url 'https://insureright.valen.com/solutions/scores/query/insureright/scoring'`|200 OK: Response will be a list of scored records. Max is 1000 records long|
+|Basic Scoring|`curl -X POST -u user:password -H "content-type: application/xml" --data "" https://insureright.valen.com/solutions/insureright/scoring`| 200 OK: Scoring Response here|
+|Retrieve PDF|`curl -X GET  -u [username]:[password] -H "content-type: application/xml" https://insureright.valen.com/solutions/insureright/scoring/[scoreID]?format=pdf`| 200 OK: PDF contents will be returned in Base 64 format|
+|Retrieve Without Params|`curl -X GET -u [username]:[password] -H "content-type: application/xml" https://insureright.valen.com/solutions/scores/query/insureright/scoring`|200 OK: Response will be a list of scored records. Max is 1000 records long|
 
 
 ### CA Batch submission
