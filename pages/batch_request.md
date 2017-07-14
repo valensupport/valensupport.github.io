@@ -9,7 +9,7 @@ summary: A guide for building requests to take advantage of Valen's batch proces
 
 ## Batch Application Overview
 
-The Batch Application allows clients to transmit data to Valen for scoring with the Predict predictive analytic models. Data is provided using a pre-defined format, with data for each level (unit and term for Commercial Auto, insured and class for Workers Comp.) contained in a separate delimited file. The Predict Batch Application may be accessed using the InsureRight Graphical User Interface (GUI) or directly via API.
+The Batch Application allows clients to transmit data to Valen for scoring with the Predict predictive analytic models. Data is provided using a pre-defined format, contained in separate delimited files. The Predict Batch Application may be accessed using the InsureRight Graphical User Interface (GUI) or directly via API.
 
 Once initiated, the Batch Application validates the transmission, parses the input data from the delimited flat files, scores the data, and creates the resulting scoring data, which includes scores from each of the models and explains for the predictions in terms of influential data elements.
 
@@ -25,30 +25,39 @@ Each carrier can define their own naming convention according to their system re
 
 The zip file cannot be password protected. It cannot contain subfolders and should contain one file per relation, see below.
 
-### Submission File Details
+### Scoring Submission File Details
 
-Client systems must transmit data as a single compressed .zip file. The zipped file must contain the related files containing the transmission data which correspond to all required data nodes. There are two nodes defined in the data structure for submitting data for InsureRight/Workers Compensation, so the following files must exist in the batch transmission:
+Client systems must transmit data as a single compressed .zip file. The zipped file must contain related files containing the transmission data. Each line of business requires different files in order to be processed correctly:
+
+##### Workers Compensation
+
 insured.[csv, psv, txt]
 class.[csv, psv, txt]
 
-Likewise, Commercial Auto has two nodes, term and unit:
+##### Commercial Auto
+
 term.[csv, psv, txt]
 unit.[csv, psv, txt]
 
 Please note that the files within the .zip file may be delivered in .csv, .psv, or .tsv formats.
 
 #### Input Data File Examples
-Here is a sample for commercial auto, a sample for workers compensation is included later in the document. The importance of these examples is in the headers and the structure. The exact headers will differ depending on solution. Login to access the data dictionary for exact column names. This text can be pasted into files `term.csv` and `unit.csv`. A zip file containing these two files will be a valid file for testing purposes:
+Here is a sample for workers compensation. The importance of these examples is in the headers and the structure. The exact headers will differ depending on client solution. Login to access the data dictionary for exact column names. This text can be pasted into files `insured.csv` and `class.csv`. A zip file containing these two files will be a valid file for testing purposes:
 
-##### Term
+The data is presented in pipe delimted (`.psv`) format to accomodate commas in the address (also useful if commas are in the insured name). The files in this case would be `insured.psv` and `class.psv`. Again, this data can be used as valid test data. The same file is duplicated later, just with commas as the delimeter.
 
->units_total_1,underwriter,new_renew_flag,policy_number,term_effective_date,mailing_address,claim_count_liab_1,available_history_liab_1,agency,mailing_city,available_history_liab_2,claim_count_liab_2,dot_number,vehicle_business_primary,available_units_total_1yr,available_history_1,claim_count_1,vehicle_size_primary,mailing_state_code,available_history_liab_3,claim_count_liab_3,insured_name,mailing_zip_code
->1,Test Person,R,test123,6/14/2016,"1234 Test Street, Anytown CO 80309",1,Y,,Anytown,Y,0,98765432,Anytown,Y,Y,3,L,CO,Y,0,CU Buffs,80309
+**NOTE**: _It is possible to escape characters within the delimters with quotation marks. An insured name with commas inside a csv might look like this: `datavalue1, "insured name, containing commas", datavalue2`. This would resolve correctly in the Valen system_
 
-##### Unit
+##### Insured
 
->unit_vin,policy_number,term_effective_date,unit_premium_initial_total,unit_classification,unit_premium_initial_liab,unit_reference,garage_zip_code,unit_model_year
->1ABCD23EFG567890,test123,6/14/2016,12345,truck,1234,1234ABCD,80309,1987
+>original_policy_term_number|term_effective_date|experience_mod_factor_initial|new_renew_flag|insured_name|policy_address|policy_city_name|policy_state_code|policy_zip_code|available_history_1|available_history_2|available_history_3|non_zero_claim_count_1|non_zero_claim_count_2|non_zero_claim_count_3|underwriter
+>1234Test|7/7/2017|1|N|Test Submit|1234 Anystreet, Anytown, CO|Anytown|CO|80309|Y|N|Y|0||3|Test Person
+
+##### Class
+
+>original_policy_term_number|term_effective_date|state_code|class_code|payroll_amount_initial
+>1234Test|7/7/2017|CO|4771|12345
+>1234Test|7/7/2017|CO|8810|349
 
 ## Batch API
 
@@ -79,7 +88,7 @@ The response will contain a GUID. This is a unique identifier for the submitted 
 ### Batch Workflow
 In order to submit a compressed batch file containing delimited data for scoring, first you must `POST` the file to a web-service endpoint and retrieve a UUID which can the be used to poll for the results.
 
-#### Batch Scoring Submission
+#### Scoring Batch Submission
 In order to submit a batch, you must submit an `HTTPS` `POST` to the following endpoint:
  
   `POST`: `multipart-form-data`
@@ -94,22 +103,27 @@ The content type of the body must be `multipart/form-data` where one part has th
 
 If the request is successful, a GUID will be returned in the response. This GUID is used as the batch-key and is necessary for retrieving the results in the next step.
 
-##### Batch Scoring Submission Summary
+##### Scoring Batch Submission Summary
 
   parameters: solution, submission in path and 'batch-file' in form.
   consumes: multipart/form-data
   produces: text/plain
 
-#### Batch Scoring Retrieval
+#### Scoring Batch Retrieval
 Using the GUID returned from the submission, you will poll for the results a the following
 endpoint:
 
   `GET`
-  `https://insureright.valen.com/api/2/batch/ca/scoring/[GUID]`
+  `https://insureright.valen.com/api/2/batch/insurerigyht/scoring/[GUID]`
 
 The `GET` will either return a `404`, a zip file containing results, or an error code. The `404` response is expected and may mean the batch is still processing or the GUID is invalid. If a `404` is received, continue making the request again on an interval of 5 minutes between requests.
 
 A warning: large batches can take quite a while to finish processing.
+
+
+### Contributory Batch Submission
+
+Currently, the API only supports scoring batch submissions. Expect this later in 2017.
 
 #### Batch Status Codes
 Status codes returned from a batch submission may include
@@ -139,21 +153,33 @@ Status codes returned from a batch results retrieval request may include
 
 ### Sample Files
 
-The Commercial Auto files can found above. Here are other samples.
+An example of Workers Compensation files can found above. Here are other samples.
 
 #### Workers Comp
 
-The data is presented in pipe delimted (`.psv`) format to accomodate commas in the address (also useful if commas are in the insured name). The files in this case would be `insured.psv` and `class.psv`. Again, this data can be used as valid test data.
+The data is presented in pipe delimted (`.psv`) format to accomodate commas in the address (also useful if commas are in the insured name). The files in this case would be `insured.psv` and `class.psv`. Again, this data can be used as valid test data. The same file is duplicated later, just with commas as the delimeter.
 
-**NOTE**: _It is possible to escape characters within the delimters with quotation marks. An insured name with commas inside a csv might look like this: `datavalue1, "insured name, containing commas", datavalue2`. This would resolve correctly in the Valen system_
+**NOTE**: _It is possible to escape characters within the delimeters with quotation marks. An insured name with commas inside a csv might look like this: `datavalue1, "insured name, containing commas", datavalue2`. This would resolve correctly in the Valen system._
 
 ##### Insured
 
->original_policy_term_number|term_effective_date|experience_mod_factor_initial|new_renew_flag|insured_name|policy_address|policy_city_name|policy_state_code|policy_zip_code|available_history_1|available_history_2|available_history_3|non_zero_claim_count_1|non_zero_claim_count_2|non_zero_claim_count_3|underwriter
->1234Test|7/7/2017|1|N|Test Submit|1234 Anystreet, Anytown, CO|Anytown|CO|80309|Y|N|Y|0||3|Test Person
+>original_policy_term_number,term_effective_date,experience_mod_factor_initial,new_renew_flag,insured_name,policy_address,policy_city_name,policy_state_code,policy_zip_code,available_history_1,available_history_2,available_history_3,non_zero_claim_count_1,non_zero_claim_count_2,non_zero_claim_count_3,underwriter
+>1234Test,7/7/2017,1,N,Test Submit,"1234 Anystreet, Anytown, CO",Anytown,CO,80309,Y,N,Y,0,,3,Test Person
 
 ##### Class
 
->original_policy_term_number|term_effective_date|state_code|class_code|payroll_amount_initial
->1234Test|7/7/2017|CO|4771|12345
->1234Test|7/7/2017|CO|8810|349
+>original_policy_term_number,term_effective_date,state_code,class_code,payroll_amount_initial
+>1234Test,7/7/2017,CO,4771,12345
+>1234Test,7/7/2017,CO,8810,349
+
+#### Commercial Auto
+
+##### Term
+
+>units_total_1,underwriter,new_renew_flag,policy_number,term_effective_date,mailing_address,claim_count_liab_1,available_history_liab_1,agency,mailing_city,available_history_liab_2,claim_count_liab_2,dot_number,vehicle_business_primary,available_units_total_1yr,available_history_1,claim_count_1,vehicle_size_primary,mailing_state_code,available_history_liab_3,claim_count_liab_3,insured_name,mailing_zip_code
+>1,Test Person,R,test123,6/14/2016,"1234 Test Street, Anytown CO 80309",1,Y,,Anytown,Y,0,98765432,Anytown,Y,Y,3,L,CO,Y,0,CU Buffs,80309
+
+##### Unit
+
+>unit_vin,policy_number,term_effective_date,unit_premium_initial_total,unit_classification,unit_premium_initial_liab,unit_reference,garage_zip_code,unit_model_year
+>1ABCD23EFG567890,test123,6/14/2016,12345,truck,1234,1234ABCD,80309,1987
