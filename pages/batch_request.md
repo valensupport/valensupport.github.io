@@ -21,7 +21,7 @@ This guide is intended for use by developers who wish to integrate batch service
 
 The input data for the Batch Application can be transmitted via the GUI or API, as a compressed “.zip” file format.
 
-Each carrier can define their own naming convention according to their system requirements and constraints, providing the word “batch” is contained somewhere in the file name and the format is “.zip”. (See: Batch Application Processing Requirements ). 
+Each carrier can define their own naming convention according to their system requirements and constraints, provided the format is “.zip”. (See: Batch Application Processing Requirements ). 
 
 The zip file cannot be password protected. It cannot contain subfolders and should contain one file per relation, see below.
 
@@ -86,7 +86,7 @@ As stated above, the zip file cannot be password protected and cannot contain su
 The response will contain a GUID. This is a unique identifier for the submitted batch and can be used to retrieve the batch.
 
 ### Batch Workflow
-In order to submit a compressed batch file containing delimited data for scoring, first you must `POST` the file to a web-service endpoint and retrieve a UUID which can the be used to poll for the results.
+In order to submit a compressed batch file containing delimited data for scoring, first you must `POST` the file to a web-service endpoint and retrieve a GUID which can the be used to poll for the results.
 
 #### Scoring Batch Submission
 In order to submit a batch, you must submit an `HTTPS` `POST` to the following endpoint:
