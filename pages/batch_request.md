@@ -114,7 +114,7 @@ Using the GUID returned from the submission, you will poll for the results a the
 endpoint:
 
   `GET`
-  `https://insureright.valen.com/api/2/batch/insurerigyht/scoring/[GUID]`
+  `https://insureright.valen.com/api/2/batch/insureright/scoring/[GUID]`
 
 The `GET` will either return a `404`, a zip file containing results, or an error code. The `404` response is expected and may mean the batch is still processing or the GUID is invalid. If a `404` is received, continue making the request again on an interval of 5 minutes between requests.
 
@@ -157,7 +157,7 @@ An example of Workers Compensation files can found above. Here are other samples
 
 #### Workers Comp
 
-The data is presented in pipe delimted (`.psv`) format to accomodate commas in the address (also useful if commas are in the insured name). The files in this case would be `insured.psv` and `class.psv`. Again, this data can be used as valid test data. The same file is duplicated later, just with commas as the delimeter.
+The data is presented in comma delimited (`.csv`) format. In order to accomodate commas in the address or insured name, values may be surrounded by double quotes. It is also possible to avoid this by using pipes or tabs to separate the values. The files in this case would be `insured.csv` and `class.csv`. Again, this data can be used as valid test data.
 
 **NOTE**: _It is possible to escape characters within the delimeters with quotation marks. An insured name with commas inside a csv might look like this: `datavalue1, "insured name, containing commas", datavalue2`. This would resolve correctly in the Valen system._
 
