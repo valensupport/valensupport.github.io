@@ -158,19 +158,16 @@ The following example describes a valid Valen® PWS request.
                     <class_code>2416</class_code>
                     <payroll_amount_initial>250000</payroll_amount_initial>
                     <state_code>CO</state_code>
-                    <policy_state_code>CO</policy_state_code>
                 </class>
                 <class>
                     <class_code>2220</class_code>
                     <payroll_amount_initial>50000</payroll_amount_initial>
                     <state_code>UT</state_code>
-                    <policy_state_code>CO</policy_state_code>
                 </class>
                 <class>
                     <class_code>8742</class_code>
                     <payroll_amount_initial>50000</payroll_amount_initial>
                     <state_code>UT</state_code>
-                    <policy_state_code>CO</policy_state_code>
                 </class>
             </inputChildren>
         </inputs>
@@ -184,175 +181,167 @@ The following example describes a valid Valen® PWS request.
 If the request is well-formed, the input values can be converted to the required types and the data passes all constraints and exclusions, a response including all results is synchronously returned.
 
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <response xmlns="http://www.valentech.com/2013/11/prediction/response">
-  <score version="1.0">
-    <info>
-      <scoreKey>[guid goes here]</scoreKey>
-      <scoreId>[number goes here]</scoreId>
-    </info>
-    <inputs xmlns="http://www.valentech.com/2013/11/prediction/inputs" level="insured">
-      <underwriter>UNDER WRITER</underwriter>
-      <non_zero_claim_count_1>0</non_zero_claim_count_1>
-      <new_renew_flag>N</new_renew_flag>
-      <policy_zip_code>81601</policy_zip_code>
-      <non_zero_claim_count_2>0</non_zero_claim_count_2>
-      <available_history_2>Y</available_history_2>
-      <term_effective_date>2015-07-04</term_effective_date>
-      <available_history_3>Y</available_history_3>
-      <agency>test123</agency>
-      <original_policy_term_number>test12</original_policy_term_number>
-      <non_zero_claim_count_3>0</non_zero_claim_count_3>
-      <available_history_1>Y</available_history_1>
-      <audit_method_code>P</audit_method_code>
-      <experience_mod_factor_initial>0.25</experience_mod_factor_initial>
-      <policy_state_code>CO</policy_state_code>
-      <insured_name>TEST SUBMISSION</insured_name>
-      <inputChildren level="class">
-        <class xmlns="http://www.valentech.com/2013/11/prediction/class">
-          <description>YARN DYEING OR FINISHING.</description>
-          <class_code>2416</class_code>
-          <payroll_amount_initial>250000.0</payroll_amount_initial>
-          <policy_state_code>CO</policy_state_code>
-          <state_code>CO</state_code>
-        </class>
-        <class xmlns="http://www.valentech.com/2013/11/prediction/class">
-          <description>YARN OR THREAD MFG.-COTTON</description>
-          <class_code>2220</class_code>
-          <payroll_amount_initial>50000.0</payroll_amount_initial>
-          <policy_state_code>CO</policy_state_code>
-          <state_code>UT</state_code>
-        </class>
-        <class xmlns="http://www.valentech.com/2013/11/prediction/class">
-          <description>SALESPERSONS OR COLLECTORS-OUTSIDE(N/A MA)</description>
-          <class_code>8742</class_code>
-          <payroll_amount_initial>50000.0</payroll_amount_initial>
-          <policy_state_code>CO</policy_state_code>
-          <state_code>UT</state_code>
-        </class>
-        <class xmlns="http://www.valentech.com/2013/11/prediction/class">
-          <description>CLERICAL OFFICE EMPLOYEES NOC</description>
-          <class_code>8810</class_code>
-          <payroll_amount_initial>87108.0</payroll_amount_initial>
-          <policy_state_code>CO</policy_state_code>
-          <state_code>FL</state_code>
-        </class>
-      </inputChildren>
-    </inputs>
-    <outputs xmlns="http://www.valentech.com/2013/11/prediction/outputs" level="insured">
-      <pi_interpretation>Premium impact due to exposure misclassification is generally Additional Premium between $71 and $223</pi_interpretation>
-      <loss_ratio_relativity_prediction>1.1201785113099543</loss_ratio_relativity_prediction>
-      <risk_lower_bound>0.075</risk_lower_bound>
-      <term_effective_date>2015-07-04</term_effective_date>
-      <misclass_upper_bound>0.15</misclass_upper_bound>
-      <pi_bin>8</pi_bin>
-      <pi_upper_bound>223</pi_upper_bound>
-      <original_policy_term_number>2015022404</original_policy_term_number>
-      <pi_lower_bound>71</pi_lower_bound>
-      <misclass_lower_bound>0.12</misclass_lower_bound>
-      <risk_upper_bound>0.15</risk_upper_bound>
-      <pi_prediction>127.1539884664539</pi_prediction>
-      <misclass_interpretation>% exposure misclassified for bin 9 generally falls between 12% - 15%</misclass_interpretation>
-      <risk_bin>7</risk_bin>
-      <misclass_bin>9</misclass_bin>
-      <risk_interpretation>Prospective term loss ratios of policies in bin 7 are typically 7.5% to 15% higher than average within your data</risk_interpretation>
-    </outputs>
-    <explanations level="insured">
-      <explanations xmlns="http://www.valentech.com/2013/11/prediction/explanations" name="exposure_shift_prediction">
-        <explanation name="misclass_exp_class_count_onlevel_initial">
-          <description>Class Count</description>
-          <importance>0.27119261423539837</importance>
-        </explanation>
-        <explanation name="misclass_exp_governing_industry_group">
-          <description>NCCI Governing Industry Group</description>
-          <importance>0.26255110702512885</importance>
-        </explanation>
-        <explanation name="misclass_exp_loss_cost_versus_governing_class_loss_cost">
-          <description>Policy Weighted Average Loss Cost Relative to Governing Class Loss Cost</description>
-          <importance>-0.23430855927372504</importance>
-        </explanation>
-        <explanation name="misclass_exp_combined_hazard_score">
-          <description>Combined Weighted Average Hazard Score</description>
-          <importance>0.03981215362239914</importance>
-        </explanation>
-        <explanation name="misclass_exp_governing_loss_cost_initial_onlevel">
-          <description>Policy Weighted Average Loss Cost Relative to Governing Class Loss Cost</description>
-          <importance>0.02631521388817334</importance>
-        </explanation>
-      </explanations>
-      <explanations xmlns="http://www.valentech.com/2013/11/prediction/explanations" name="loss_ratio_relativity_prediction">
-        <explanation name="risk2_exp_lngn1lf_lrr_250">
-          <description>Loss Ratio Relative to National for like industry and historical claim profile</description>
-          <importance>-0.0</importance>
-        </explanation>
-        <explanation name="risk2_exp_lf_mod_4">
-          <description>Valen Loss Free Model Score</description>
-          <importance>-0.0</importance>
-        </explanation>
-        <explanation name="risk2_exp_one_yr_manprem_freq">
-          <description>1 Yr Frequency</description>
-          <importance>-0.0</importance>
-        </explanation>
-        <explanation name="risk2_exp_lsrblf_claim_frequency">
-          <description>Claim Frequency of like State Rate Band and historical claim profile</description>
-          <importance>-0.0</importance>
-        </explanation>
-        <explanation name="risk2_exp_lnghlcbw_lrr_250">
-          <description>Loss Ratio for policies with like State policy rate And Hazard</description>
-          <importance>-0.0</importance>
-        </explanation>
-      </explanations>
-      <explanations xmlns="http://www.valentech.com/2013/11/prediction/explanations" name="pi_score">
-        <explanation name="pi_exp_premium">
-          <description>Policy Premium</description>
-          <importance>-0.15077391575836302</importance>
-        </explanation>
-        <explanation name="pi_exp_zaftig2_sc">
-          <description>Policy Loss Cost Weighting vs. Gov Class Average: Single-Class</description>
-          <importance>-0.14441566997103877</importance>
-        </explanation>
-        <explanation name="pi_exp_zaftig2">
-          <description>Policy Loss Cost Weighting vs. Gov Class Average: Multi-Class</description>
-          <importance>0.13031821303487698</importance>
-        </explanation>
-        <explanation name="pi_exp_weighted_loss_cost">
-          <description>Policy Exposure Weighted Loss Cost</description>
-          <importance>0.08660492124918047</importance>
-        </explanation>
-        <explanation name="pi_exp_zaftig1">
-          <description>Exposure Weighting Across Lower Loss Cost Classes</description>
-          <importance>-0.04484792394062284</importance>
-        </explanation>
-      </explanations>
-    </explanations>
-    <reportData level="insured">
-      <governingClassSwapResults xmlns="http://www.valentech.com/2013/11/prediction/swap">
-        <class type="governing" sortOrder="0">
-          <agencyCode>NCCI</agencyCode>
-          <classCode>2416</classCode>
-          <description>YARN DYEING OR FINISHING.</description>
-          <percentOfOccurrence>1.0</percentOfOccurrence>
-          <percentOfPremiumImpact>1.1218325</percentOfPremiumImpact>
-        </class>
-      </governingClassSwapResults>
-      <classCodeComparison xmlns="http://www.valentech.com/2013/11/prediction/comparison">
-        <class type="governing" sortOrder="0">
-          <stateCode>CO</stateCode>
-          <classCode>2416</classCode>
-          <description>YARN DYEING OR FINISHING.</description>
-          <percentOfPayroll />
-          <percentOfObservations>1</percentOfObservations>
-        </class>
-        <class type="associated" sortOrder="1">
-          <stateCode>CO</stateCode>
-          <classCode>8810</classCode>
-          <description>CLERICAL OFFICE EMPLOYEES NOC</description>
-          <percentOfPayroll>0.22586876</percentOfPayroll>
-          <percentOfObservations>1.0</percentOfObservations>
-        </class>
-      </classCodeComparison>
-    </reportData>
-  </score>
+    <score version="1.0">
+        <info>
+            <scoreKey>b7266a49-1afa-4090-b81c-4ec2456ac097</scoreKey>
+            <scoreId>8051346</scoreId>
+        </info>
+        <inputs xmlns="http://www.valentech.com/2013/11/prediction/inputs" level="insured">
+            <policy_city_name>A CITY IN</policy_city_name>
+            <underwriter>UNDER WRITER</underwriter>
+            <non_zero_claim_count_1>0</non_zero_claim_count_1>
+            <new_renew_flag>N</new_renew_flag>
+            <policy_zip_code>81601</policy_zip_code>
+            <non_zero_claim_count_2>0</non_zero_claim_count_2>
+            <available_history_2>Y</available_history_2>
+            <term_effective_date>2015-07-04</term_effective_date>
+            <available_history_3>Y</available_history_3>
+            <agency>test123</agency>
+            <original_policy_term_number>2015022404</original_policy_term_number>
+            <non_zero_claim_count_3>0</non_zero_claim_count_3>
+            <policy_address>890 W MAIN AVE</policy_address>
+            <available_history_1>Y</available_history_1>
+            <audit_method_code>P</audit_method_code>
+            <inputChildren level="class">
+                <class xmlns="http://www.valentech.com/2013/11/prediction/class">
+                    <description>YARN DYEING OR FINISHING.</description>
+                    <class_code>2416</class_code>
+                    <payroll_amount_initial>250000.0</payroll_amount_initial>
+                    <state_code>CO</state_code>
+                </class>
+                <class xmlns="http://www.valentech.com/2013/11/prediction/class">
+                    <description>YARN OR THREAD MFG.-COTTON</description>
+                    <class_code>2220</class_code>
+                    <payroll_amount_initial>50000.0</payroll_amount_initial>
+                    <state_code>UT</state_code>
+                </class>
+                <class xmlns="http://www.valentech.com/2013/11/prediction/class">
+                    <description>SALESPERSONS OR COLLECTORS-OUTSIDE(N/A MA)</description>
+                    <class_code>8742</class_code>
+                    <payroll_amount_initial>50000.0</payroll_amount_initial>
+                    <state_code>UT</state_code>
+                </class>
+            </inputChildren>
+            <experience_mod_factor_initial>0.25</experience_mod_factor_initial>
+            <policy_state_code>CO</policy_state_code>
+            <insured_name>TEST SUBMISSION</insured_name>
+        </inputs>
+        <outputs xmlns="http://www.valentech.com/2013/11/prediction/outputs" level="insured">
+            <pi_interpretation>Premium impact due to exposure misclassification is generally Neutral Premium between -$23 and $71</pi_interpretation>
+            <loss_ratio_relativity_prediction>0.9342303384131115</loss_ratio_relativity_prediction>
+            <risk_lower_bound>-0.1</risk_lower_bound>
+            <term_effective_date>2015-07-04</term_effective_date>
+            <misclass_upper_bound>0.15</misclass_upper_bound>
+            <pi_bin>7</pi_bin>
+            <pi_upper_bound>71</pi_upper_bound>
+            <original_policy_term_number>2015022404</original_policy_term_number>
+            <pi_lower_bound>-23</pi_lower_bound>
+            <misclass_lower_bound>0.12</misclass_lower_bound>
+            <risk_upper_bound>-0.05</risk_upper_bound>
+            <pi_prediction>17.442202309508698</pi_prediction>
+            <misclass_interpretation>% exposure misclassified for bin 9 generally falls between 12% - 15%</misclass_interpretation>
+            <risk_bin>4</risk_bin>
+            <misclass_bin>9</misclass_bin>
+            <risk_interpretation>Prospective term loss ratios of policies in bin 4 are typically 5% to 10% lower than average within your data</risk_interpretation>
+        </outputs>
+        <explanations level="insured">
+            <explanations xmlns="http://www.valentech.com/2013/11/prediction/explanations" name="exposure_shift_prediction">
+                <explanation name="misclass_exp_class_count_onlevel_initial">
+                    <description>Class Count</description>
+                    <importance>0.4037634867159326</importance>
+                </explanation>
+                <explanation name="misclass_exp_governing_industry_group">
+                    <description>NCCI Governing Industry Group</description>
+                    <importance>0.2258528541727219</importance>
+                </explanation>
+                <explanation name="misclass_exp_loss_cost_versus_governing_class_loss_cost">
+                    <description>Policy Weighted Avg Loss Cost vs. Governing Class Loss Cost</description>
+                    <importance>-0.20155792702105918</importance>
+                </explanation>
+                <explanation name="misclass_exp_governing_loss_cost_initial_onlevel">
+                    <description>Governing Class Loss Cost</description>
+                    <importance>0.02263698764081296</importance>
+                </explanation>
+                <explanation name="misclass_exp_combined_hazard_score">
+                    <description>Combined Weighted Average Hazard Score</description>
+                    <importance>0.0035460407361076764</importance>
+                </explanation>
+            </explanations>
+            <explanations xmlns="http://www.valentech.com/2013/11/prediction/explanations" name="loss_ratio_relativity_prediction">
+                <explanation name="risk_exp_prem_per_claim_0">
+                    <description>Claim History</description>
+                    <importance>0.47841691998613384</importance>
+                </explanation>
+                <explanation name="risk_exp_log_prem_per_claim">
+                    <description>Policy Size to Claim History Relativity</description>
+                    <importance>-0.4272386145452476</importance>
+                </explanation>
+                <explanation name="risk_exp_scf_3yr_lr_cred">
+                    <description>Regional Loss Ratio History</description>
+                    <importance>-0.045573416854520286</importance>
+                </explanation>
+                <explanation name="risk_exp_indus_3yr_lr">
+                    <description>Industry and State Loss Ratio History</description>
+                    <importance>-0.013856934443070191</importance>
+                </explanation>
+                <explanation name="risk_exp_class_scf_3yr_freq_rel">
+                    <description>Class to Region Claim Frequency Relativity</description>
+                    <importance>0.011334509108306719</importance>
+                </explanation>
+            </explanations>
+            <explanations xmlns="http://www.valentech.com/2013/11/prediction/explanations" name="pi_score">
+                <explanation name="pi_exp_pct_std_except">
+                    <description>Standard Exception Class Exposure Weighting</description>
+                    <importance>0.24170140340562737</importance>
+                </explanation>
+                <explanation name="pi_exp_premium">
+                    <description>Policy Premium</description>
+                    <importance>-0.20899761842907172</importance>
+                </explanation>
+                <explanation name="pi_exp_zaftig2_sc">
+                    <description>Policy Loss Cost Weighting vs. Gov Class Average: Single-Class</description>
+                    <importance>-0.19158874402073914</importance>
+                </explanation>
+                <explanation name="pi_exp_zaftig2">
+                    <description>Policy Loss Cost Weighting vs. Gov Class Average: Multi-Class</description>
+                    <importance>0.17288638250534885</importance>
+                </explanation>
+                <explanation name="pi_exp_weighted_loss_cost">
+                    <description>Policy Exposure Weighted Loss Cost</description>
+                    <importance>0.0965228221745559</importance>
+                </explanation>
+            </explanations>
+        </explanations>
+        <reportData level="insured">
+            <classCodeComparison xmlns="http://www.valentech.com/2013/11/prediction/comparison">
+                <class type="governing" sortOrder="0">
+                    <stateCode>CO</stateCode>
+                    <classCode>2416</classCode>
+                    <description>YARN DYEING OR FINISHING.</description>
+                    <percentOfPayroll>0.774131</percentOfPayroll>
+                    <percentOfObservations>1</percentOfObservations>
+                </class>
+                <class type="associated" sortOrder="1">
+                    <stateCode>CO</stateCode>
+                    <classCode>8810</classCode>
+                    <description>CLERICAL OFFICE EMPLOYEES NOC</description>
+                    <percentOfPayroll>0.22586876</percentOfPayroll>
+                    <percentOfObservations>1.0</percentOfObservations>
+                </class>
+            </classCodeComparison>
+            <governingClassSwapResults xmlns="http://www.valentech.com/2013/11/prediction/swap">
+                <class type="governing" sortOrder="0">
+                    <agencyCode>NCCI</agencyCode>
+                    <classCode>2416</classCode>
+                    <description>YARN DYEING OR FINISHING.</description>
+                    <percentOfOccurrence>1.0</percentOfOccurrence>
+                    <percentOfPremiumImpact>1.1218325</percentOfPremiumImpact>
+                </class>
+            </governingClassSwapResults>
+        </reportData>
+    </score>
 </response>
 ```
 
@@ -486,15 +475,11 @@ If the request XML is not well-formed a Bad Request (HTTP 400) status code conta
                     <term_effective_date>2014-01-01</term_effective_date>
                     <inputChildren level="class">
                         <class>
-                            <term_effective_date>2014-01-01</term_effective_date>
-                            <original_policy_term_number>test 3.0</original_policy_term_number>
                             <class_code>2587</class_code>
                             <payroll_amount_initial>35858</payroll_amount_initial>
                             <state_code>HI</state_code>
                         </class>
                         <class>
-                            <term_effective_date>2014-01-01</term_effective_date>
-                            <original_policy_term_number>test 3.0</original_policy_term_number>
                             <class_code>8810</class_code>
                             <payroll_amount_initial>10000</payroll_amount_initial>
                             <state_code>KY</state_code>
@@ -577,22 +562,16 @@ If the request XML is not well-formed a Bad Request (HTTP 400) status code conta
                     <term_effective_date>2014-01-01</term_effective_date>
                     <inputChildren level="class">
                         <class>
-                            <term_effective_date>2014-01-01</term_effective_date>
-                            <original_policy_term_number>Test123</original_policy_term_number>
                             <class_code>2587</class_code>
                             <payroll_amount_initial>35858</payroll_amount_initial>
                             <state_code>KY</state_code>
                         </class>
                         <class>
-                            <term_effective_date>2014-01-01</term_effective_date>
-                            <original_policy_term_number>Test123</original_policy_term_number>
                             <class_code>8810</class_code>
                             <payroll_amount_initial>10000</payroll_amount_initial>
                             <state_code>KY</state_code>
                         </class>
                         <class>
-                            <term_effective_date>2014-01-01</term_effective_date>
-                            <original_policy_term_number>Test123</original_policy_term_number>
                             <class_code>8810</class_code>
                             <payroll_amount_initial>10000</payroll_amount_initial>
                             <state_code>KY</state_code>
@@ -662,15 +641,11 @@ If the request XML is not well-formed a Bad Request (HTTP 400) status code conta
                     <term_effective_date/>
                     <inputChildrenlevel="class">
                         <class>
-                            <term_effective_date/>
-                            <original_policy_term_number>Test12/original_policy_term_number>
                             <class_code>2587</class_code>
                             <payroll_amount_initial>35858</payroll_amount_initial>
                             <state_code>KY</state_code>
                         </class>
                         <class>
-                            <term_effective_date/>
-                            <original_policy_term_number>Test12/original_policy_term_number>
                             <class_code>8810</class_code>
                             <payroll_amount_initial>10000</payroll_amount_initial>
                             <state_code>KY</state_code>
@@ -911,4 +886,3 @@ February 24, 2015
 |1.2|8/2/2016|Valen Support|Updated the error messaging|
 |1.3|11/14/2016|Valen Support|Converted to web document|
 |1.4|7/7/2017|Valen Support|Updated the sample responses|
-
