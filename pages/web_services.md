@@ -413,7 +413,10 @@ The following are special characters and how to address them in XML (note the Fa
 |Special Character|Escape code|Failed example|Proper Example|
 |-----------------|-----------|--------------|--------------|
 |&|`&amp;`|`<app:insured\_name value="Joe Rockhead & Sons">`|`<app:insured_name value="Joe Rockhead &amp; Sons"/>`|
-|" (quote)|`&quot;`|`<app:insured_name value="Joe Rockhead "DBA Rockhead Quarry""/>`|`<app:insured_name value="Joe Rockhead &quot;DBA Rockhead Quarry&quot;"/>`|
+|" (quote)|`&quot;`|`<app:insured_name value="Joe Rockhead at "DBA Rockhead Quarry""/>`|`<app:insured_name value="Joe Rockhead at &quot;DBA Rockhead Quarry&quot;"/>`|
+|>|`&gt;`|`<app:insured\_name value="Joe Rockhead > Sons">`|`<app:insured_name value="Joe Rockhead &gt; Sons"/>`|
+|<|`&lt;`|`<app:insured\_name value="Joe Rockhead < Sons">`|`<app:insured_name value="Joe Rockhead &lt; Sons"/>`|
+|' (apostrophe)|`&apos;`|`<app:insured\_name value="Bob's Bar and Grill">`|`<app:insured_name value="Bob&apos;s Bar and Grill"/>`|
 
 
 #### Predict RESTful Request – Generated Error Examples
