@@ -68,7 +68,7 @@ The PWS uses HTTPS and supports RESTful requests.
 
 The PWS processes requests and returns results synchronously. The formatting and encoding style are document and literal, respectively. All requests must be secure requests.
 
-### Common Errors
+### Common Validation Errors
 
 A list of responses to common errors. Detailed information about the response messages can be found in [APPENDIX C: Error Handling](#appendixC).
 
@@ -80,7 +80,7 @@ A list of responses to common errors. Detailed information about the response me
 |500|Required Field Violation|A value is needed for a required field|
 |500|Non-escaped special character|XML requires some special characters to be escaped|
 
-### Common Error Codes
+### Common System Error Codes
 
 The errors listed above all rely on the request reach the service and failing, usually during the validation of the request XML. There are other errors that will occur.
 
