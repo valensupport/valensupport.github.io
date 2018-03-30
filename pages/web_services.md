@@ -84,7 +84,7 @@ A list of responses to common errors. Detailed information about the response me
 
 The errors listed above all rely on the request reach the service and failing, usually during the validation of the request XML. There are other errors that will occur.
 
-||Code|Message|Probable Cause|
+|Code|Message|Probable Cause|
 |----|-------|-----------|
 |400|SSL certificate error|Request is attempting authentication with a client certificate|
 |401|Unauthorized|Bad username or password|
