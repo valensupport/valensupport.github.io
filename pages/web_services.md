@@ -110,12 +110,21 @@ Authorization: username/password in base64
 
 The PWS Application requires data for each required relation inside an **inputs** node. For example, in Workers Compensation, we look for Insured and Class information. In order to handle multiple classes, the class information is nested inside the **input_child** node. A full example is provided in [Appendix A](#appendixA). More information about the fields is provided in the [Data Dictionary](#dataDict). The basic layout for Request and Response packets is this:
 
-##### Request Requirements
+##### InsureRight Request Requirements
 ```xml
 <inputs level="insured">
-	<inputChildren>
+	<inputChildren level="class">
 		<class></class>
 	</inputChildren>
+</inputs>
+```
+
+##### Commercial Auto Request Requirements
+```xml
+<inputs level="insured">
+    <inputChildren level="unit">
+        <class></class>
+    </inputChildren>
 </inputs>
 ```
 
