@@ -135,6 +135,7 @@ Status codes returned from a batch submission may include
 |400|File contains subdirectories, provide zips with only files|
 |403|403:Forbidden|Credentials or authorization problem.|
 |200||Returns a zip file with the results from batch processing.|
+|405|Method Not allowed|Bad method used, batch requests need to be a POST|
 
 Status codes returned from a batch results retrieval request may include
 
