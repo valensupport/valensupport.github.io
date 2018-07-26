@@ -26,5 +26,5 @@ entries:
       url: http://www.valen.com
       output: web
     - title: Support Blog
-      url: /Blog
+      url: /blog
       output: web
