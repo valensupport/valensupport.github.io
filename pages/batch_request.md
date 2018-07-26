@@ -123,7 +123,7 @@ A warning: large batches can take quite a while to finish processing.
 
 ### Contributory Batch Submission
 
-Currently, the API only supports scoring batch submissions. Expect this later in 2017.
+Currently, the API only supports scoring batch submissions.
 
 #### Batch Status Codes
 Status codes returned from a batch submission may include
