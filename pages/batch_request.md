@@ -75,7 +75,10 @@ Batch requests are POSTs using multi-part form data.
 To construct the URI we start with our base URL, `https://insureright.valen.com/api/`. We append the version, the action, and solution, for example: `2/batch/ca` or `2/batch/insureright`
 
 The generalized form looks like this: `https://insureright.valen.com/api/2/batch/[solution]/[submission]`
-A sample batch request url for a submission to workers compensation might look like this: `https://insureright.valen.com/api/2/batch/insureright/scoring`
+A sample batch request url for a submission to workers compensation would look like this: `https://insureright.valen.com/api/2/batch/insureright/scoring`
+
+A sample batch request url for a contributory submission to workers compensation would look like this: `https://insureright.valen.com/api/2/batch/profile`
+For contributory batch submission, InsureRight will pick the correct solution based on the schema of the supplied data in the zip file.
 
 ##### Request Requirements
 
@@ -83,7 +86,7 @@ A batch request requires a username and password, a content-type:multipart/form-
 As stated above, the zip file cannot be password protected and cannot contain subdirectories. If they do, the system will return an error. The files contained in the zip must be psv, csv, or tsv format. If they are not, the system will return an error.
 
 ##### Response Structure
-The response will contain a GUID. This is a unique identifier for the submitted batch and can be used to retrieve the batch.
+The response will contain a GUID. This is a unique identifier for the submitted batch and can be used to retrieve the batch for scoring. Note that for contributory data, there is no support for retrieving the batch. However, you may login to InsureRight and go to the Batch->Profile->History tab to see the results of a Batch Contributory submission.
 
 ### Batch Workflow
 In order to submit a compressed batch file containing delimited data for scoring, first you must `POST` the file to a web-service endpoint and retrieve a GUID which can the be used to poll for the results.
@@ -123,7 +126,21 @@ A warning: large batches can take quite a while to finish processing.
 
 ### Contributory Batch Submission
 
-Currently, the API only supports scoring batch submissions.
+
+In order to submit a batch, you must submit an `HTTPS` `POST` to the following endpoint:
+ 
+  `POST`: `multipart-form-data`
+  `https://insureright.valen.com/api/2/batch/[submission]`
+
+The submission is encoded as part of the path.
+
+  `POST`: `multipart-form-data`
+  `https://insureright.valen.com/api/2/batch/profile`
+ 
+The content type of the body must be `multipart/form-data` where one part has the name `batch-file`. If there is no such part, or if the `content-type` of the scoring request is not `multipart-form-data` the request will fail with a status code `400`.
+
+If the request is successful, a GUID will be returned in the response. This GUID is used as the batch-key but at this point in time*cannot* be used to get the status of the batch job.
+
 
 #### Batch Status Codes
 Status codes returned from a batch submission may include
@@ -137,7 +154,7 @@ Status codes returned from a batch submission may include
 |200||Returns a zip file with the results from batch processing.|
 |405|Method Not allowed|Bad method used, batch requests need to be a POST|
 
-Status codes returned from a batch results retrieval request may include
+Status codes returned from a batch results retrieval request may include:
 
 |Status|Message|Description|
 |----|-------|-----------------|
@@ -149,8 +166,10 @@ Status codes returned from a batch results retrieval request may include
 
 |Test|Request|Expected Response|
 |----|-------|-----------------|
-|Basic Batch Submit|curl -X POST -u "[username]":"[password]" -H "content-type: multipart/form-data" --form "batch-file=@[filename]" --url "https://insureright.valen.com/api/2/batch/insureright/scoring"|200 OK GUID|
-|Basic Batch Retrieve|curl -X GET --url 'https://insureright.valentech.com/api/2/batch/insureright/scoring/[GUID]' -u "[username]":"[password]"|404 or 200 OK and Zip File|
+|Basic Batch Submit Scoring|curl -X POST -u "[username]":"[password]" -H "content-type: multipart/form-data" --form "batch-file=@[filename]" --url "https://insureright.valen.com/api/2/batch/insureright/scoring"|200 OK GUID|
+|Basic Batch Retrieve Scoring|curl -X GET --url 'https://insureright.valentech.com/api/2/batch/insureright/scoring/[GUID]' -u "[username]":"[password]"|404 or 200 OK and Zip File|
+|Basic Batch Submit Contributory Data|curl -X POST -u "[username]":"[password]" -H "content-type: multipart/form-data" --form "batch-file=@[filename]" --url "https://insureright.valen.com/api/2/batch/profile"|200 OK GUID|
+
 
 ### Sample Files
 
