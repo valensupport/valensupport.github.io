@@ -25,5 +25,5 @@ Here is a collection of sample integrations for Valen's Web Services.
 {:.tests}
 |Test|Request|Expected Response|
 |----|-------|-----------------|
-|Basic Batch Submit|curl -X POST -u "[username]":"[password]" -H "content-type: multipart/form-data" --form "batch-file=@[filePATH]" --url "https://insureright.valen.com/api/2/batch/insureright/scoring"|200 OK GUID|
-|Basic Batch Retrieve|curl -X GET --url 'https://insureright.valentech.com/api/2/batch/insureright/scoring/[GUID]' -u "[username]":"[password]"|404 or 200 OK and Zip File|
+|Basic Batch Submit|curl -X POST -u "[username]":"[password]" -H "content-type: multipart/form-data" --form "batch-file=@[filePATH]" --url "https://insureright.valen.com/api/2/batch/ca/scoring"|200 OK GUID|
+|Basic Batch Retrieve|curl -X GET --url 'https://insureright.valentech.com/api/2/batch/ca/scoring/[GUID]' -u "[username]":"[password]"|404 or 200 OK and Zip File|
