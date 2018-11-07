@@ -878,7 +878,7 @@ curl –u \[username\]:\[password\] -X POST -d @valid-request.xml -H 'Content-Ty
 	
 All of the URL's referenced in this document can take the optional parameter of solutionVersion. If you are testing a future dated Release, it is a best practive to authenticate with a test user so any scores created are not considered production scores.
 	
-Your Valen customer engagement manager will provide the version to use, as well as inform you of the date a future dated Relelase will become active for all of your users.
+Your Valen customer engagement manager will provide the version to use, as well as inform you of the date a future dated Release will become active for all of your users.
 
 ### Appendix G - Disclaimers
 
