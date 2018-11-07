@@ -866,13 +866,17 @@ Hit Send.
 
 Valen supports future dated releases in the insureright.valen.com environment.  This allows two different releases to be available at the same time in this production environment. The future date refers to a date and time that the Release will automatically become the Release available to all users of the customer.
 
-A common use case involves some customer acceptance testing of a Release before it becaomes available to all end users of the customer. A future dated release is only available via the Web services interface, the User Interface for InsureRight is not capable of accessing a future dated release.
+A common use case involves some customer acceptance testing of a Release before it becaomes available to all end users of the customer. A future dated release is only available via the Web services interface. The User Interface for InsureRight is not capable of accessing a future dated release.
 
-To access a future dated solution via a web service:
+To access a future dated release via a web service:
 
 curl –u \[username\]:\[password\] -X POST -d @valid-request.xml -H 'Content-Type: application/xml' https://insureright.valen.com/solutions/<customer>/insureright/scoring?solutionVersion=1.0.7
 	
-All of the URL's referenced in this document can take the optional parameter of solutionVersion.
+To access the current active release available to all users:
+
+curl –u \[username\]:\[password\] -X POST -d @valid-request.xml -H 'Content-Type: application/xml' https://insureright.valen.com/solutions/<customer>/insureright/scoring
+	
+All of the URL's referenced in this document can take the optional parameter of solutionVersion. If you are testing a future dated Release, it is a best practive to authenticate with a test user so any scores created are not considered produciton scores.
 	
 Your Valen customer engagement manager will provide the version to use, as well as inform you of the date the future dated Relelase will become active for all of your users.
 
