@@ -20,10 +20,19 @@ Here is a collection of sample integrations for Valen's Web Services.
 |Retrieve Without Params|`curl -X GET -u [username]:[password] -H "content-type: application/xml" https://insureright.valen.com/solutions/scores/query/insureright/scoring`|200 OK: Response will be a list of scored records. Max is 1000 records long|
 
 
-### CA Batch submission
+### CA Batch score submission
 
 {:.tests}
 |Test|Request|Expected Response|
 |----|-------|-----------------|
 |Basic Batch Submit|curl -X POST -u "[username]":"[password]" -H "content-type: multipart/form-data" --form "batch-file=@[filePATH]" --url "https://insureright.valen.com/api/2/batch/ca/scoring"|200 OK GUID|
 |Basic Batch Retrieve|curl -X GET --url 'https://insureright.valentech.com/api/2/batch/ca/scoring/[GUID]' -u "[username]":"[password]"|404 or 200 OK and Zip File|
+
+
+### Workers Comp Claims Batch score submission
+
+{:.tests}
+|Test|Request|Expected Response|
+|----|-------|-----------------|
+|Basic Batch Submit|curl -X POST -u "[username]":"[password]" -H "content-type: multipart/form-data" --form "batch-file=@[filePATH]" --url "https://insureright.valen.com/api/2/batch/wc_claims/scoring"|200 OK GUID|
+|Basic Batch Retrieve|curl -X GET --url 'https://insureright.valentech.com/api/2/batch/wc_claims/scoring/[GUID]' -u "[username]":"[password]"|404 or 200 OK and Zip File|
