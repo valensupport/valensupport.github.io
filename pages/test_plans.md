@@ -5,10 +5,10 @@ permalink: test_plans.html
 sidebar: nav_sidebar
 toc: false
 last_updated: December, 2016
-summary: A collection of test plans for acceptance of integration with Valen Analytics
+summary: A collection of example integrations with Valen Analytics
 ---
 
-Here is a collection of the integration test plans for Valen's Web Services. It's organized into suites based on the Solution. Cross-solution APIs like Profile and Search are repeated on a solution-by-solution basis for ease of test replication.
+Here is a collection of sample integrations for Valen's Web Services. 
 
 ### InsureRight score submission
 
