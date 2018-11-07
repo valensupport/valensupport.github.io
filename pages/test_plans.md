@@ -10,7 +10,7 @@ summary: A collection of example integrations with Valen Analytics
 
 Here is a collection of sample integrations for Valen's Web Services. 
 
-### InsureRight score submission
+### InsureRight (Workers Comp) score submission
 
 {:.tests}
 |Test|Request|Expected Response|
