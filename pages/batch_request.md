@@ -203,3 +203,11 @@ The data is presented in comma delimited (`.csv`) format. In order to accomodate
 
 >unit_vin,policy_number,term_effective_date,unit_premium_initial_total,unit_classification,unit_premium_initial_liab,unit_reference,garage_zip_code,unit_model_year
 >1ABCD23EFG567890,test123,6/14/2016,12345,truck,1234,1234ABCD,80309,1987
+
+#### Workers Comp Claims
+
+##### Claim
+
+>claim_number,claim_identifier,date_of_injury,claim_adjuster,claim_type_code,claim_severity_code,injured_worker_city,injured_worker_state,policy_num,claimant_gender,claimant height,claimant_weight,claimant_age,body_part_code,cause_of_injury_code,ICD_diagnosis_code,primary_work_class_code,specific_activity_desc,litigation_flag,modified_duty_available,officer_partner_owner,written_seatbelt_pol_in_place,wages_continued,were_safety_rules_violated,written_premium,medical_loss_paid,total_incurred,outstanding_reserve
+>20140007263,12345,6/6/14,Bob,WC - Med Only,M1,Columbia,MO,2003444,M,70,175,55,0066,Burn,V72.81,9600,working by stove,N,Y,N,Y,Y,N,21345,200,200,0
+
