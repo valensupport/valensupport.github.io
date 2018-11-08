@@ -216,3 +216,21 @@ The data is presented in comma delimited (`.csv`) format. In order to accomodate
 
 >20140007263,12345,6/6/14,Bob,WC - Med Only,M1,Columbia,MO,2003444,M,70,175,55,0066,Burn,V72.81,9600,working by stove,N,Y, N, Y,Y,N,21345,200,200,0
 
+
+### Appendix A – Testing Valen Future Dated Releases using Batch Scoring
+
+Valen supports future dated releases in the insureright.valen.com environment.  This allows two different releases to be available at the same time in this production environment. The future date refers to a date and time that the release will automatically become the release available to all users of the customer.
+
+A common use case involves some customer acceptance testing of a release before it becomes available to all end users of the customer. A future dated release is only available via the Web services interface. The User Interface for InsureRight is not capable of accessing a future dated release.
+
+To access a future dated release via a web service:
+
+curl -X POST -u “[username]”:”[password]” -H “content-type: multipart/form-data” –form “batch-file=@[filename]” –url “https://insureright.valen.com/api/2/batch/insureright/scoring”?solutionVersion=1.0.7"
+	
+To access the current active release available to all users:
+
+curl -X POST -u “[username]”:”[password]” -H “content-type: multipart/form-data” –form “batch-file=@[filename]” –url “https://insureright.valen.com/api/2/batch/insureright/scoring”
+	
+All of the URL's referenced in this document can take the optional parameter of solutionVersion. If you are testing a future dated release, it is a best practive to authenticate with a test user so any scores created are not considered production scores.
+	
+Your Valen customer engagement manager will provide the version to use, as well as inform you of the date a future dated release will become active for all of your users.
