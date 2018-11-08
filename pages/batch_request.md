@@ -183,7 +183,7 @@ The data is presented in comma delimited (`.csv`) format. In order to accomodate
 
 ##### Insured
 
->original_policy_term_number,term_effective_date,experience_mod_factor_initial,new_renew_flag,insured_name,policy_address,policy_city_name,policy_state_code,policy_zip_code,available_history_1,available_history_2,available_history_3,non_zero_claim_count_1,non_zero_claim_count_2,non_zero_claim_count_3,underwriter
+>original_policy_term_number,term_effective_date,experience_mod_factor_initial,new_renew_flag,insured_name,policy_address, policy_city_name,policy_state_code,policy_zip_code,available_history_1,available_history_2,available_history_3, non_zero_claim_count_1,non_zero_claim_count_2,non_zero_claim_count_3,underwriter
 >1234Test,7/7/2017,1,N,Test Submit,"1234 Anystreet, Anytown, CO",Anytown,CO,80309,Y,N,Y,0,,3,Test Person
 
 ##### Class
@@ -196,7 +196,7 @@ The data is presented in comma delimited (`.csv`) format. In order to accomodate
 
 ##### Term
 
->units_total_1,underwriter,new_renew_flag,policy_number,term_effective_date,mailing_address,claim_count_liab_1,available_history_liab_1,agency,mailing_city,available_history_liab_2,claim_count_liab_2,dot_number,vehicle_business_primary,available_units_total_1yr,available_history_1,claim_count_1,vehicle_size_primary,mailing_state_code,available_history_liab_3,claim_count_liab_3,insured_name,mailing_zip_code
+>units_total_1,underwriter,new_renew_flag,policy_number,term_effective_date,mailing_address,claim_count_liab_1, available_history_liab_1,agency,mailing_city,available_history_liab_2,claim_count_liab_2,dot_number,vehicle_business_primary, available_units_total_1yr,available_history_1,claim_count_1,vehicle_size_primary,mailing_state_code,available_history_liab_3, claim_count_liab_3,insured_name,mailing_zip_code
 >1,Test Person,R,test123,6/14/2016,"1234 Test Street, Anytown CO 80309",1,Y,,Anytown,Y,0,98765432,Anytown,Y,Y,3,L,CO,Y,0,CU Buffs,80309
 
 ##### Unit
@@ -208,6 +208,6 @@ The data is presented in comma delimited (`.csv`) format. In order to accomodate
 
 ##### Claim
 
->claim_number,claim_identifier,date_of_injury,claim_adjuster,claim_type_code,claim_severity_code,injured_worker_city,injured_worker_state,policy_num,claimant_gender,claimant height,claimant_weight,claimant_age,body_part_code,cause_of_injury_code,ICD_diagnosis_code,primary_work_class_code,specific_activity_desc,litigation_flag,modified_duty_available,officer_partner_owner,written_seatbelt_pol_in_place,wages_continued,were_safety_rules_violated,written_premium,medical_loss_paid,total_incurred,outstanding_reserve
->20140007263,12345,6/6/14,Bob,WC - Med Only,M1,Columbia,MO,2003444,M,70,175,55,0066,Burn,V72.81,9600,working by stove,N,Y,N,Y,Y,N,21345,200,200,0
+>claim_number,claim_identifier,date_of_injury,claim_adjuster,claim_type_code,claim_severity_code,injured_worker_city, injured_worker_state,policy_num,claimant_gender,claimant height,claimant_weight,claimant_age, body_part_code,cause_of_injury_code,ICD_diagnosis_code,primary_work_class_code,specific_activity_desc,litigation_flag, modified_duty_available,officer_partner_owner,written_seatbelt_pol_in_place,wages_continued,were_safety_rules_violated, written_premium,medical_loss_paid,total_incurred,outstanding_reserve
+>20140007263,12345,6/6/14,Bob,WC - Med Only,M1,Columbia,MO,2003444,M,70,175,55,0066,Burn,V72.81,9600,working by stove,N,Y,N, Y,Y,N,21345,200,200,0
 
