@@ -225,7 +225,7 @@ A common use case involves some customer acceptance testing of a release before 
 
 To access a future dated release via a web service:
 
-curl -X POST -u “[username]”:”[password]” -H “content-type: multipart/form-data” –form “batch-file=@[filename]” –url “https://insureright.valen.com/api/2/batch/insureright/scoring”?solutionVersion=1.0.7"
+curl -X POST -u “[username]”:”[password]” -H “content-type: multipart/form-data” –form “batch-file=@[filename]” –url “https://insureright.valen.com/api/2/batch/insureright/scoring?solutionVersion=1.0.7"
 	
 To access the current active release available to all users:
 
