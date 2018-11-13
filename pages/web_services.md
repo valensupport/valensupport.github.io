@@ -870,7 +870,7 @@ A common use case involves some customer acceptance testing of a release before 
 
 To access a future dated release via a web service:
 
-curl –u \[username\]:\[password\] -X POST -d @valid-request.xml -H 'Content-Type: application/xml' https://insureright.valen.com/solutions/<customer>/insureright/scoring?solutionVersion=1.0.7
+`curl –u \[username\]:\[password\]` `-X POST -d @valid-request.xml -H 'Content-Type: application/xml'` `https://insureright.valen.com/solutions/<customer>/insureright/scoring?solutionVersion=1.0.7`
 	
 To access the current active release available to all users:
 
