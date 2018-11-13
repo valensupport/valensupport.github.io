@@ -909,7 +909,7 @@ This guide is not intended to provide or substitute for managerial or legal advi
 
 ##### Publication Date
 
-February 24, 2015
+November 13, 2018
 
 | Revision | Date | Author(s) | Description |
 |----------|------|-----------|-------------|
@@ -918,3 +918,4 @@ February 24, 2015
 |1.2|8/2/2016|Valen Support|Updated the error messaging|
 |1.3|11/14/2016|Valen Support|Converted to web document|
 |1.4|7/7/2017|Valen Support|Updated the sample responses|
+|1.5|11/13/2018|Valen Support|Added WC Claims and Future Dated Releases|
