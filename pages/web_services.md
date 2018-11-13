@@ -843,7 +843,7 @@ Postman is an app for Chrome or Mac and can be found at <https://www.getpostman.
 
 Given a valid xml file (see the example request in [Appendix A](#_Appendix_A_-)), this is a sample request.
 
-curl –u \[username\]:\[password\] -X POST -d @valid-request.xml -H 'Content-Type: application/xml' https://insureright.valen.com/solutions/<customer>/insureright/scoring
+`curl –u \[username\]:\[password\]` `-X POST -d @valid-request.xml -H 'Content-Type: application/xml'` `https://insureright.valen.com/solutions/<customer>/insureright/scoring`
 
 ###### Postman
 
@@ -870,11 +870,11 @@ A common use case involves some customer acceptance testing of a release before 
 
 To access a future dated release via a web service:
 
-`curl –u \[username\]:\[password\]` `-X POST -d @valid-request.xml -H 'Content-Type: application/xml'` `https://insureright.valen.com/solutions/<customer>/insureright/scoring?solutionVersion=1.0.7`
+`curl -u \[username\]:\[password\]` `-X POST -d @valid-request.xml -H 'Content-Type: application/xml'` `https://insureright.valen.com/solutions/<customer>/insureright/scoring?solutionVersion=1.0.7`
 	
 To access the current active release available to all users:
 
-curl –u \[username\]:\[password\] -X POST -d @valid-request.xml -H 'Content-Type: application/xml' https://insureright.valen.com/solutions/<customer>/insureright/scoring
+`curl –u \[username\]:\[password\]` `-X POST -d @valid-request.xml -H 'Content-Type: application/xml'` `https://insureright.valen.com/solutions/<customer>/insureright/scoring`
 	
 All of the URL's referenced in this document can take the optional parameter of solutionVersion. If you are testing a future dated release, it is a best practive to authenticate with a test user so any scores created are not considered production scores.
 	
