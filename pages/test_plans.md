@@ -29,7 +29,7 @@ Here is a collection of sample integrations for Valen's Web Services.
 |Basic Batch Retrieve|`curl -X GET` `--url 'https://insureright.valentech.com/api/2/batch/ca/scoring/[GUID]'` `-u "[username]":"[password]"`|404 or 200 OK and Zip File|
 
 
-### Workers Comp Claims Batch score submission
+### Workers Comp Claims score submission
 
 {:.tests}
 |Test|Request|Expected Response|
