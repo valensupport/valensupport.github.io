@@ -167,7 +167,7 @@ Status codes returned from a batch results retrieval request may include:
 |Test|Request|Expected Response|
 |----|-------|-----------------|
 |Basic Batch Submit Scoring|`curl -X POST -u "[username]":"[password]"`` -H "content-type: multipart/form-data"` `--form "batch-file=@[filename]"` `--url "https://insureright.valen.com/api/2/batch/insureright/scoring"`|200 OK GUID|
-|Basic Batch Retrieve Scoring|`curl -X GET` `--url 'https://insureright.valentech.com/api/2/batch/insureright/scoring/[GUID]'` `-u "[username]":"[password]"`|404 or 200 OK and Zip File|
+|Basic Batch Retrieve Scoring|`curl -X GET` `--url 'https://insureright.valen.com/api/2/batch/insureright/scoring/[GUID]'` `-u "[username]":"[password]"`|404 or 200 OK and Zip File|
 |Basic Batch Submit Contributory Data|`curl -X POST -u "[username]":"[password]"` `-H "content-type: multipart/form-data"` `--form "batch-file=@[filename]"` `--url "https://insureright.valen.com/api/2/batch/profile"`|200 OK GUID|
 
 
