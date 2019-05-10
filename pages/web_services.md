@@ -58,7 +58,7 @@ Two headers are required for successful request.
 -   Content-Type – this can be either application/xml or text/xml
 -   Authorization – username and password
 
-The body of the request must conform to the standards defined in the [Data Dictionary Requirements](#data-dictionary) section of this document. This section describes the input data names, types, and constraints. The *Field Name* is used as a unique identifier when sending input data. The web-service WSDL also defines the input data names and constraints.
+The body of the request must conform to the standards defined in the Data Dictionary available in the Profile page of your Valen account . This section describes the input data names, types, and constraints. The *Field Name* is used as a unique identifier when sending input data.
 
 If the XML is a well-formed, UTF-8 request, the request will be validated.
 
@@ -108,7 +108,7 @@ Content-Type: Application/xml
 Authorization: username/password in base64
 ```
 
-The PWS Application requires data for each required relation inside an **inputs** node. For example, in Workers Compensation, we look for Insured and Class information. In order to handle multiple classes, the class information is nested inside the **input_child** node. A full example is provided in [Appendix A](#appendixA). More information about the fields is provided in the [Data Dictionary](#dataDict). The basic layout for Request and Response packets is this:
+The PWS Application requires data for each required relation inside an **inputs** node. For example, in Workers Compensation, we look for Insured and Class information. In order to handle multiple classes, the class information is nested inside the **input_child** node. A full example is provided in [Appendix A](#appendixA). More information about the fields is provided in the Data Dictionary available in the Profile page of your Valen account. The basic layout for Request and Response packets is this:
 
 ##### InsureRight Request Requirements
 ```xml
