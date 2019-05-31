@@ -141,39 +141,40 @@ The following example describes a valid Valen® PWS request.
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <request>
-    <score version="1.0">
-        <inputs level="insured">
-            <policy_city_name>A CITY IN</policy_city_name>
-            <agency>test123</agency>
-            <underwriter>UNDER WRITER</underwriter>
-            <audit_method_code>P</audit_method_code>
-            <available_history_1>Y</available_history_1>
-            <available_history_2>Y</available_history_2>
-            <available_history_3>Y</available_history_3>
-            <experience_mod_factor_initial>0.95</experience_mod_factor_initial>
-            <insured_name>TEST SUBMISSION</insured_name>
-            <new_renew_flag>N</new_renew_flag>
-            <non_zero_claim_count_1>2</non_zero_claim_count_1>
-            <non_zero_claim_count_2>3</non_zero_claim_count_2>
-            <non_zero_claim_count_3>5</non_zero_claim_count_3>
-            <original_policy_term_number>2015022404</original_policy_term_number>
-            <policy_address>890 W MAIN AVE</policy_address>
-            <policy_state_code>NC</policy_state_code>
-            <policy_zip_code>27513</policy_zip_code>
-            <term_effective_date>2019-02-01</term_effective_date>
-	    <inputChildren level="class">
-		<class>
-			<class_code>5645</class_code>
-			<payroll_amount_initial>500000.0</payroll_amount_initial>
-			<state_code>NC</state_code>
-		</class>
-		<class>
-			<class_code>8810</class_code>
-			<payroll_amount_initial>80000.0</payroll_amount_initial>
-			<state_code>NC</state_code>
-		</class>
-	 </inputs>
-    </score>
+	<score version="1.0">
+		<inputs level="insured">
+			<policy_city_name>A CITY IN</policy_city_name>
+			<agency>test123</agency>
+			<underwriter>UNDER WRITER</underwriter>
+			<audit_method_code>P</audit_method_code>
+			<available_history_1>Y</available_history_1>
+			<available_history_2>Y</available_history_2>
+			<available_history_3>Y</available_history_3>
+			<experience_mod_factor_initial>0.95</experience_mod_factor_initial>
+			<insured_name>TEST SUBMISSION</insured_name>
+			<new_renew_flag>N</new_renew_flag>
+			<non_zero_claim_count_1>2</non_zero_claim_count_1>
+			<non_zero_claim_count_2>3</non_zero_claim_count_2>
+			<non_zero_claim_count_3>5</non_zero_claim_count_3>
+			<original_policy_term_number>2015022404</original_policy_term_number>
+			<policy_address>890 W MAIN AVE</policy_address>
+			<policy_state_code>NC</policy_state_code>
+			<policy_zip_code>27513</policy_zip_code>
+			<term_effective_date>2019-02-01</term_effective_date>
+			<inputChildren level="class">
+				<class>
+					<class_code>5645</class_code>
+					<payroll_amount_initial>500000.0</payroll_amount_initial>
+					<state_code>NC</state_code>
+				</class>
+				<class>
+					<class_code>8810</class_code>
+					<payroll_amount_initial>80000.0</payroll_amount_initial>
+					<state_code>NC</state_code>
+				</class>
+			</inputChildren>
+		</inputs>
+	</score>
 </request>
 ```
 
@@ -183,6 +184,44 @@ The following example describes a valid Valen® PWS request.
 If the request is well-formed, the input values can be converted to the required types and the data passes all constraints and exclusions, a response including all results is synchronously returned.
 
 ```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<request>
+	<score version="1.0">
+		<inputs level="insured">
+			<policy_city_name>A CITY IN</policy_city_name>
+			<agency>test123</agency>
+			<underwriter>UNDER WRITER</underwriter>
+			<audit_method_code>P</audit_method_code>
+			<available_history_1>Y</available_history_1>
+			<available_history_2>Y</available_history_2>
+			<available_history_3>Y</available_history_3>
+			<experience_mod_factor_initial>0.95</experience_mod_factor_initial>
+			<insured_name>TEST SUBMISSION</insured_name>
+			<new_renew_flag>N</new_renew_flag>
+			<non_zero_claim_count_1>2</non_zero_claim_count_1>
+			<non_zero_claim_count_2>3</non_zero_claim_count_2>
+			<non_zero_claim_count_3>5</non_zero_claim_count_3>
+			<original_policy_term_number>2015022404</original_policy_term_number>
+			<policy_address>890 W MAIN AVE</policy_address>
+			<policy_state_code>NC</policy_state_code>
+			<policy_zip_code>27513</policy_zip_code>
+			<term_effective_date>2019-02-01</term_effective_date>
+			<inputChildren level="class">
+				<class>
+					<class_code>5645</class_code>
+					<payroll_amount_initial>500000.0</payroll_amount_initial>
+					<state_code>NC</state_code>
+				</class>
+				<class>
+					<class_code>8810</class_code>
+					<payroll_amount_initial>80000.0</payroll_amount_initial>
+					<state_code>NC</state_code>
+				</class>
+			</inputChildren>
+		</inputs>
+	</score>
+</request>
+
 <?xml version='1.0' encoding='UTF-8'?>
 <response xmlns="http://www.valentech.com/2013/11/prediction/response">
     <score version="1.0">
