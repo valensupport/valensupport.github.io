@@ -150,35 +150,29 @@ The following example describes a valid Valen® PWS request.
             <available_history_1>Y</available_history_1>
             <available_history_2>Y</available_history_2>
             <available_history_3>Y</available_history_3>
-            <experience_mod_factor_initial>0.25</experience_mod_factor_initial>
+            <experience_mod_factor_initial>0.95</experience_mod_factor_initial>
             <insured_name>TEST SUBMISSION</insured_name>
             <new_renew_flag>N</new_renew_flag>
-            <non_zero_claim_count_1>0</non_zero_claim_count_1>
-            <non_zero_claim_count_2>0</non_zero_claim_count_2>
-            <non_zero_claim_count_3>0</non_zero_claim_count_3>
+            <non_zero_claim_count_1>2</non_zero_claim_count_1>
+            <non_zero_claim_count_2>3</non_zero_claim_count_2>
+            <non_zero_claim_count_3>5</non_zero_claim_count_3>
             <original_policy_term_number>2015022404</original_policy_term_number>
             <policy_address>890 W MAIN AVE</policy_address>
-            <policy_state_code>CO</policy_state_code>
-            <policy_zip_code>81601</policy_zip_code>
-            <term_effective_date>2015-07-04</term_effective_date>
-            <inputChildren level="class">
-                <class>
-                    <class_code>2416</class_code>
-                    <payroll_amount_initial>250000</payroll_amount_initial>
-                    <state_code>CO</state_code>
-                </class>
-                <class>
-                    <class_code>2220</class_code>
-                    <payroll_amount_initial>50000</payroll_amount_initial>
-                    <state_code>UT</state_code>
-                </class>
-                <class>
-                    <class_code>8742</class_code>
-                    <payroll_amount_initial>50000</payroll_amount_initial>
-                    <state_code>UT</state_code>
-                </class>
-            </inputChildren>
-        </inputs>
+            <policy_state_code>NC</policy_state_code>
+            <policy_zip_code>27513</policy_zip_code>
+            <term_effective_date>2019-02-01</term_effective_date>
+	    <inputChildren level="class">
+		<class>
+			<class_code>5645</class_code>
+			<payroll_amount_initial>500000.0</payroll_amount_initial>
+			<state_code>NC</state_code>
+		</class>
+		<class>
+			<class_code>8810</class_code>
+			<payroll_amount_initial>80000.0</payroll_amount_initial>
+			<state_code>NC</state_code>
+		</class>
+	 </inputs>
     </score>
 </request>
 ```
