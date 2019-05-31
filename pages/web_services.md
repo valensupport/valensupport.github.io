@@ -312,6 +312,10 @@ If the request is well-formed, the input values can be converted to the required
 			</explanations>
 		</explanations>
 		<reportData level="insured">
+			
+			**** Note that Class Code Comparison corresponds to the section of the 
+			**** InsureRight Predict report labeled "Companion Class Results"
+			
 			<classCodeComparison xmlns="http://www.valentech.com/2013/11/prediction/comparison">
 				<class type="governing" sortOrder="0">
 					<stateCode>NC</stateCode>
@@ -370,6 +374,9 @@ If the request is well-formed, the input values can be converted to the required
 					<percentOfObservations>0.05814552</percentOfObservations>
 				</class>
 			</classCodeComparison>
+			
+			**** Note that governingClassSwapResults corresponds to the section of the 
+			**** InsureRight Predict report labeled "Governing Class Swap Results"
 			<governingClassSwapResults xmlns="http://www.valentech.com/2013/11/prediction/swap">
 				<class type="governing" sortOrder="0">
 					<agencyCode>NCCI</agencyCode>
@@ -432,6 +439,8 @@ If the request is well-formed, the input values can be converted to the required
 	</score>
 </response>
 ```
+
+
 
 ### Appendix B – Interpreting the “Importance” value
 
