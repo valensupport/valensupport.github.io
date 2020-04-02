@@ -27,10 +27,9 @@ This is the complete set of API's available for integration purposes.
 ##### Navigating the Swagger page
 
 
+##### Schema
 
-#### Schema
-
-#### Try it Now
+##### Try it Out
 
 
 
