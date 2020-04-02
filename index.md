@@ -13,5 +13,7 @@ toc: false
 
 [Valen Test Plan](test_plans.html)
 
+[Swagger Definitions for Customer Specific API](customer_specific_apis.html)
+
 For more information about Valen, please visit us on the web:
 [Valen](https://www.insurity.com/solutions/insurity-data-analytics-solutions/valen-solutions/)
