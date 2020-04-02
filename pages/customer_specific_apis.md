@@ -19,17 +19,16 @@ In addition to the score results, the system also returns information to explain
 
 This guide is intended for use by developers who are building web-enabled applications that will use the PWS to invoke an application to score a set of input data. To use the PWS, clients are required to have a valid  account with Valen. Please contact <support@valen.com> to ensure that access is properly configured.
 
-##### How to get access to your specific Swagger definition
+#### How to get access to your specific Swagger definition
 
 The swagger defintion for inputs and outputs will vary by customer.  In order to find out the exact inputs required, and the expected outputs in a response, a valid login to the valen system is required.  Go to the Valen website at https://insureight.valen.com and login with your credentials.  Under the Tools option, select the API Documentation option.
 This is the complete set of API's available for integration purposes.
 
-##### Navigating the Swagger page
+#### Navigating the Swagger page
 
+#### Schema
 
-##### Schema
-
-##### Try it Out
+#### Try it Out
 
 
 
