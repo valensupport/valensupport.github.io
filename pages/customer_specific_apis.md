@@ -1,6 +1,6 @@
 ---
 layout: page
-title: InsureRight® Predict Swagger Definitions
+title: InsureRight® Predict OpenAPI 3 Definitions
 permalink: customer_specific_apis.html
 sidebar: nav_sidebar
 last_updated: April, 2020
@@ -30,13 +30,14 @@ Valen has created 2 major revisions of the of the Valen API.  By default the api
 
 The avaiable scoring API's will be presented based upon the Line of Business (LOB ) a given customer has subscribed to. Click on any of the LOB's such as /solutions/insureright/scoring ( which is for Workers' Compensation), and the schema for this particular scoring interface will be presented.
 
-Version:  describe what solution version means.
+##### Version: 
+Valen maintains a complete version history of any solution presented to a customer.  By default, the API always selects the most recent version of the solution.  The only time the solution version should ever be incporated in a request is for future data solutions.  See section TODO : <insert cross ref link here> for more information on future dated solutions.
 
-Format string: Recommend XML,  need to explain why 
+##### Format string
+For API1, please always use XML. 
 
-Request body:  Supports two modes the Schema and the Example.
-
-
+##### Request body
+The OpenAPI3 supports two modes: the Schema and the Example.  The schema section calls out each element, defines the data type, annotates with a "\*" if the element is required, and shows any constraints needed for the element.
 
 #### Schema
 
