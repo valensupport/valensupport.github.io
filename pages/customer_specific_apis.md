@@ -19,16 +19,46 @@ In addition to the score results, the system also returns information to explain
 
 This guide is intended for use by developers who are building web-enabled applications that will use the PWS to invoke an application to score a set of input data. To use the PWS, clients are required to have a valid  account with Valen. Please contact <support@valen.com> to ensure that access is properly configured.
 
-#### How to get access to your specific Swagger definition
+#### How to get access to your specific OpenAPI 3 definition
 
 The swagger defintion for inputs and outputs will vary by customer.  In order to find out the exact inputs required, and the expected outputs in a response, a valid login to the valen system is required.  Go to the Valen website at https://insureight.valen.com and login with your credentials.  Under the Tools option, select the API Documentation option.
 This is the complete set of API's available for integration purposes.
 
-#### Navigating the Swagger page
+#### Navigating the OpenAPI 3 page
+
+Valen has created 2 major revisions of the of the Valen API.  By default the api1 defintion will be displayed. For realtime scoring, all customers use the api1 version as of April 2020.  This API will not be depracated, and Valen will continue to support this interface.
+
+The avaiable scoring API's will be presented based upon the Line of Business (LOB ) a given customer has subscribed to. Click on any of the LOB's such as /solutions/insureright/scoring ( which is for Workers' Compensation), and the schema for this particular scoring interface will be presented.
+
+Version:  describe what solution version means.
+
+Format string: Recommend XML,  need to explain why 
+
+Request body:  Supports two modes the Schema and the Example.
+
+
 
 #### Schema
 
+The schema section consists of:
+
+
+##### The request section
+   Inputs:
+   
+##### The response section
+   A list of all possible http return codes the content for each return code.
+   
+   The most common response is a return code of 200, representing a successful transaction. The stucture of any response follows the following format:
+   Inputs: ( note that we return all of the inputs that were passed in the request )
+   Outputs: 
+   Explanations:
+   Report Data:
+   
+
 #### Try it Out
+
+The "Try it Out" button toggles from "schema" mode into "example" mode.  The example mode enables the user to manually edit the sample request with any value for each available input.  The "execute" button will submit the request, and display the response directly below the request section. This enables the user of the API to try out inputs, and observe both sucessful and failing transactions.
 
 
 
