@@ -63,20 +63,20 @@ The following screen shots lists the first couple of inputs for a Workers' Compe
    The most common response is a return code of 200, representing a successful transaction. The stucture of any response follows the following format:
    Inputs: ( note: this repeats all inputs that were passed in the request )
    
-   ![Sample Workers Compensation Response]({{ "/images/WCSampleOutputInputs.PNG" | absolute_url }})
+![Sample Workers Compensation Response]({{ "/images/WCSampleOutputInputs.PNG" | absolute_url }})
    
    Outputs: 
    
-      ![Sample Workers Compensation Response]({{ "/images/WCSampleOutputOutputs.PNG" | absolute_url }})
+![Sample Workers Compensation Response]({{ "/images/WCSampleOutputOutputs.PNG" | absolute_url }})
 
 
    Explanations:
    
-      ![Sample Workers Compensation Response]({{ "/images/WCSampleOutputExplains.PNG" | absolute_url }})
+![Sample Workers Compensation Response]({{ "/images/WCSampleOutputExplains.PNG" | absolute_url }})
 
    Report Data:
    
-      ![Sample Workers Compensation Response]({{ "/images/WCSampleOutputReportData.PNG" | absolute_url }})
+![Sample Workers Compensation Response]({{ "/images/WCSampleOutputReportData.PNG" | absolute_url }})
 
    
 
