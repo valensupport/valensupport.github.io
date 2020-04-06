@@ -55,6 +55,8 @@ The schema section consists of:
 ##### The request section
    Inputs:
    
+![Sample Workers Compensation Inputs]({{ "/images/WCSampleInputs.PNG" | absolute_url }})
+   
 ##### The response section
    The response section contains a list of all possible http return codes the content for each return code.
    
