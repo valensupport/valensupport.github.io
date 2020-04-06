@@ -96,5 +96,5 @@ April 2, 2020
 
 | Revision | Date | Author(s) | Description |
 |----------|------|-----------|-------------|
-|1|04/02/2020Valen Support|Initial version for Customer Specific Swagger documentation|
+|1|04/02/2020|Valen Support|Initial version for Customer Specific OpenAPI 3 documentation|
 
