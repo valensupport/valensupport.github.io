@@ -53,7 +53,7 @@ The schema section consists of:
 
 
 ##### The request section
-The following screen shots lists the first couple of inputs for a Workers' Compensation Request. The '>' character can be toggle to expand a section to get more detailed information. 
+The following screen shots lists the first couple of inputs for a Workers' Compensation Request. The "down arrow" character can be toggled to collapse a section hide information about that section. The ">" character can be toggled to expand a section to reveal more details acout that section.
    
 ![Sample Workers Compensation Inputs]({{ "/images/WCSampleInputs.PNG" | absolute_url }})
    
