@@ -9,7 +9,7 @@ summary: The webservices guide for the details on the exact schema for requests 
 
 # Valen Customer Specific OpenAPI 3 definition
 
-### Integrating webservices for Predict on InsureRight® Platform 3.0
+### Integrating webservices on InsureRight® Platform 3.0
 
 The InsureRight® Predict Web Service (PWS) allows clients to send input data, in the form of a prediction request, to the InsureRight platform for scoring with Valen’s models. Once received, the system validates the XML/JSON data content of the transmission, scores the data, then returns a prediction response.
 
@@ -28,7 +28,7 @@ This is the complete set of API's available for integration purposes.
 
 Valen has created 2 major revisions of the of the Valen API.  By default the api1 defintion will be displayed. For realtime scoring, all customers use the api1 version as of April 2020.  This API will not be depracated, and Valen will continue to support this interface.
 
-The avaiable scoring API's will be presented based upon the Line of Business (LOB) a given customer has subscribed to. Click on any of the LOB's such as /solutions/insureright/scoring ( which is for Workers' Compensation), and the schema for this particular scoring interface will be presented.
+The avaiable scoring API's will be presented based upon the Line of Business (LOB) a given customer has subscribed to. Click on any of the LOB's such as /solutions/insureright/scoring (which is for Workers' Compensation), and the schema for this particular scoring interface will be presented.
 
 ##### Version: 
 Valen maintains a complete version history of any solution presented to a customer.  By default, the API always selects the most recent version of the solution.  The only time the solution version should ever be incporated in a request is for future dated solutions.  See section <https://valensupport.github.io/web_services.html#appendix-f--testing-valen-future-dated-releases> for more information on using future dated solutions.
