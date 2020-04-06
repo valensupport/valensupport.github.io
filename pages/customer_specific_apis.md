@@ -22,6 +22,10 @@ This guide is intended for use by developers who are building web-enabled applic
 #### How to get access to your specific OpenAPI 3 definition
 
 The payload definition for inputs and outputs will vary by customer.  In order to find out the exact inputs required, and the expected outputs in a response, a valid login to the valen system is required.  Go to the Valen website at https://insureight.valen.com and login with your credentials.  Under the Tools option, select the API Documentation option.
+
+![OpenAPI 3 Landing Page]({{ "/images/API1EntryPoint.PNG" | absolute_url }})
+
+
 This is the complete set of API's available for integration purposes.
 
 #### Navigating the OpenAPI 3 page
