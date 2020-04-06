@@ -7,11 +7,11 @@ last_updated: April, 2020
 summary: The webservices guide for the details on the exact schema for requests and responses.
 ---
 
-# Valen Customer Specific Swagger definition
+# Valen Customer Specific OpenAPI 3 definition
 
 ### Integrating webservices for Predict on InsureRight® Platform 3.0
 
-The InsureRight® Predict Web Service (PWS) allows clients to send input data, in the form of a prediction request, to the InsureRight platform for scoring with Valen’s models. Once received, the system validates the XML/JSON and data content of the transmission, scores the data, then returns a prediction response.
+The InsureRight® Predict Web Service (PWS) allows clients to send input data, in the form of a prediction request, to the InsureRight platform for scoring with Valen’s models. Once received, the system validates the XML/JSON data content of the transmission, scores the data, then returns a prediction response.
 
 In addition to the score results, the system also returns information to explain the predictions in terms of influential data elements. Optionally, Valen can incorporate custom business rules to provide support for automated decision making based on the prediction results.
 
@@ -21,7 +21,7 @@ This guide is intended for use by developers who are building web-enabled applic
 
 #### How to get access to your specific OpenAPI 3 definition
 
-The swagger defintion for inputs and outputs will vary by customer.  In order to find out the exact inputs required, and the expected outputs in a response, a valid login to the valen system is required.  Go to the Valen website at https://insureight.valen.com and login with your credentials.  Under the Tools option, select the API Documentation option.
+The payload definition for inputs and outputs will vary by customer.  In order to find out the exact inputs required, and the expected outputs in a response, a valid login to the valen system is required.  Go to the Valen website at https://insureight.valen.com and login with your credentials.  Under the Tools option, select the API Documentation option.
 This is the complete set of API's available for integration purposes.
 
 #### Navigating the OpenAPI 3 page
@@ -34,7 +34,7 @@ The avaiable scoring API's will be presented based upon the Line of Business (LO
 Valen maintains a complete version history of any solution presented to a customer.  By default, the API always selects the most recent version of the solution.  The only time the solution version should ever be incporated in a request is for future dated solutions.  See section https://valensupport.github.io/web_services.html#appendix-f--testing-valen-future-dated-releases
 
 ##### Format string
-For API1, please always use XML. 
+For api1, please always use XML. 
 
 ##### Request body
 The OpenAPI3 supports two modes: the Schema and the Example.  The schema section calls out each element, defines the data type, annotates with a "\*" if the element is required, and shows any constraints needed for the element.
@@ -48,7 +48,7 @@ The schema section consists of:
    Inputs:
    
 ##### The response section
-   A list of all possible http return codes the content for each return code.
+   The response section contains a list of all possible http return codes the content for each return code.
    
    The most common response is a return code of 200, representing a successful transaction. The stucture of any response follows the following format:
    Inputs: ( note that we return all of the inputs that were passed in the request )
@@ -59,7 +59,7 @@ The schema section consists of:
 
 #### Try it Out
 
-The "Try it Out" button toggles from "schema" mode into "example" mode.  The example mode enables the user to manually edit the sample request with any value for each available input.  The "execute" button will submit the request, and display the response directly below the request section. This enables the user of the API to try out inputs, and observe both sucessful and failing transactions.
+The "Try it Out" button toggles from "Schema" mode into "Example Value" mode.  The example mode enables the user to manually edit the sample request with any value for each available input.  The "Execute" button will submit the request, and display the response directly below the request section. This enables the user of the API to try out inputs, and observe both sucessful and failing transactions.
 
 
 
