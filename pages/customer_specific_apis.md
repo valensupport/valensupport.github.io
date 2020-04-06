@@ -45,6 +45,8 @@ For api1, please always use XML.
 ##### Request body
 The OpenAPI3 supports two modes: the Schema and the Example.  The schema section calls out each element, defines the data type, annotates with a "\*" if the element is required, and shows any constraints needed for the element.
 
+![Sample Workers Compensation Request Body]({{ "/images/SchemaAndExample.PNG" | absolute_url }})
+
 #### Schema
 
 The schema section consists of:
