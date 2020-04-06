@@ -51,7 +51,6 @@ The OpenAPI3 supports two modes: the Schema and the Example.  The schema section
 
 The schema section consists of:
 
-
 ##### The request section
 The following screen shots lists the first couple of inputs for a Workers' Compensation Request. The "down arrow" character can be toggled to collapse a section hide information about that section. The ">" character can be toggled to expand a section to reveal more details acout that section.
    
@@ -63,7 +62,7 @@ The following screen shots lists the first couple of inputs for a Workers' Compe
    The most common response is a return code of 200, representing a successful transaction. The stucture of any response follows the following format:
    Inputs: ( note: this repeats all inputs that were passed in the request )
    
-![Sample Workers Compensation Response]({{ "/images/WCSampleOutputInputs.PNG" | absolute_url }})
+![Sample Workers Compensation Response]({{ "/images/WCSampleOutputInput.PNG" | absolute_url }})
    
    Outputs: 
    
