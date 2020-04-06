@@ -28,10 +28,10 @@ This is the complete set of API's available for integration purposes.
 
 Valen has created 2 major revisions of the of the Valen API.  By default the api1 defintion will be displayed. For realtime scoring, all customers use the api1 version as of April 2020.  This API will not be depracated, and Valen will continue to support this interface.
 
-The avaiable scoring API's will be presented based upon the Line of Business (LOB ) a given customer has subscribed to. Click on any of the LOB's such as /solutions/insureright/scoring ( which is for Workers' Compensation), and the schema for this particular scoring interface will be presented.
+The avaiable scoring API's will be presented based upon the Line of Business (LOB) a given customer has subscribed to. Click on any of the LOB's such as /solutions/insureright/scoring ( which is for Workers' Compensation), and the schema for this particular scoring interface will be presented.
 
 ##### Version: 
-Valen maintains a complete version history of any solution presented to a customer.  By default, the API always selects the most recent version of the solution.  The only time the solution version should ever be incporated in a request is for future data solutions.  See section TODO : <insert cross ref link here> for more information on future dated solutions.
+Valen maintains a complete version history of any solution presented to a customer.  By default, the API always selects the most recent version of the solution.  The only time the solution version should ever be incporated in a request is for future dated solutions.  See section https://valensupport.github.io/web_services.html#appendix-f--testing-valen-future-dated-releases
 
 ##### Format string
 For API1, please always use XML. 
@@ -63,7 +63,7 @@ The "Try it Out" button toggles from "schema" mode into "example" mode.  The exa
 
 
 
-### Appendix G - Disclaimers
+### Appendix A - Disclaimers
 
 InsureRight® Platform Predict Web Service Implementation Guide – Valen® Analytics, April 2020
 
