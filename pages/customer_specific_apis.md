@@ -77,15 +77,18 @@ The following screen shots lists the first couple of inputs for a Workers' Compe
    
 ![Sample Workers Compensation Response]({{ "/images/WCSampleOutputReportData.PNG" | absolute_url }})
 
-   
 
 #### Try it Out
 
 The "Try it Out" button toggles from "Schema" mode into "Example Value" mode.  The example mode enables the user to manually edit the sample request with any value for each available input.  The "Execute" button will submit the request, and display the response directly below the request section. This enables the user of the API to try out inputs, and observe both sucessful and failing transactions.
 
+![Sample Workers Compensation Response]({{ "/images/WCSampleTryitOutInputs.PNG" | absolute_url }})
 
+#### Execute
 
-### Appendix A - Disclaimers
+![Sample Workers Compensation Response]({{ "/images/WCSampleTryitOutOutputs.PNG" | absolute_url }})
+
+#### Appendix A - Disclaimers
 
 InsureRight® Platform Predict Web Service Implementation Guide – Valen® Analytics, April 2020
 
