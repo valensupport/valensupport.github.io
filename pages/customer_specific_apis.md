@@ -1,6 +1,6 @@
 ---
 layout: page
-title: InsureRight® Predict OpenAPI 3 Definitions
+title: InsureRight® Predict OpenAPI 3 Scoring Definitions
 permalink: customer_specific_apis.html
 sidebar: nav_sidebar
 last_updated: April, 2020
@@ -21,7 +21,7 @@ This guide is intended for use by developers who are building web-enabled applic
 
 #### How to get access to your specific OpenAPI 3 definition
 
-The payload definition for inputs and outputs will vary by customer.  In order to find out the exact inputs required, and the expected outputs in a response, a valid login to the valen system is required.  Go to the Valen website at https://insureight.valen.com and login with your credentials.  Under the Tools option, select the API Documentation option.
+The payload definition for inputs and outputs will vary by customer.  In order to find out the exact inputs required, and the expected outputs in a response, a valid login to the Valen InsureRight platform is required.  Go to the Valen website at https://insureight.valen.com and login with your credentials.  Under the Tools option, select the API Documentation option.
 
 ![OpenAPI 3 Landing Page]({{ "/images/API1EntryPoint.PNG" | absolute_url }})
 
@@ -110,11 +110,6 @@ Every effort was made to ensure the material contained in this document was comp
 All products, trademarks, registered trademarks, trade names, service marks and company names mentioned herein are the property of their respective owners.
 
 -   InsureRight® Platform is a trademark of Valen® Analytics.
--   Linux® is the registered trademark of Linus Torvalds in the U.S. and other countries.
--   Microsoft®, Windows is a registered trademark of Microsoft
-    Corporation in the United States and/or other countries.
--   W3Schools.com© is copyrighted by Refsnes Data 1999-2009. All Rights
-    Reserved
 -   cURL and libcurl are Open Source/Free Software. The cURL license is
     copyrighted by Daniel Stenberg 1996 - 2013, <https://curl.haxx.se/docs/copyright.html>
 
@@ -124,9 +119,9 @@ This guide is not intended to provide or substitute for managerial or legal advi
 
 ##### Publication Date
 
-April 2, 2020
+April 7, 2020
 
 | Revision | Date | Author(s) | Description |
 |----------|------|-----------|-------------|
-|1|04/02/2020|Valen Support|Initial version for Customer Specific OpenAPI 3 documentation|
+|1|04/07/2020|Valen Support|Initial version for Customer Specific OpenAPI 3 documentation|
 
