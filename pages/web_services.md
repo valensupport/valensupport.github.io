@@ -673,3 +673,4 @@ November 13, 2018
 |1.3|11/14/2016|Valen Support|Converted to web document|
 |1.4|7/7/2017|Valen Support|Updated the sample responses|
 |1.5|11/13/2018|Valen Support|Added WC Claims and Future Dated Releases|
+|1.6|6/16/2020|Valen Support|Referring to OpenAPI 3 online docs for current https status codes|
