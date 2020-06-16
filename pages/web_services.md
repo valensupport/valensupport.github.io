@@ -68,31 +68,9 @@ The PWS uses HTTPS and supports RESTful requests.
 
 The PWS processes requests and returns results synchronously. The formatting and encoding style are document and literal, respectively. All requests must be secure requests.
 
-### Common Validation Errors
+### Http Status Codes
 
-A list of responses to common errors. Detailed information about the response messages can be found in [APPENDIX C: Error Handling](#appendixC).
-
-|Code|Message|Probable Cause|
-|----|-------|--------------|
-|400|Bad Request|The xml is malformed or one of the root tags (<score> or <request>) is missing|
-|500|InvalidInputValue|Some value is out of range or in the wrong format|
-|500|Duplicate Class Key|There are two or more entries where the class code and state code match|
-|500|Required Field Violation|A value is needed for a required field|
-|500|Non-escaped special character|XML requires some special characters to be escaped|
-
-### Common System Error Codes
-
-The errors listed above all rely on the request reach the service and failing, usually during the validation of the request XML. There are other errors that will occur.
-
-|Code|Message|Probable Cause|
-|----|-------|-----------|
-|400|SSL certificate error|Request is attempting authentication with a client certificate|
-|401|Unauthorized|Bad username or password|
-|403|Forbidden|User lacks the proper permissions to access feature|
-|404|Not Found|Usually means the API doesn't exist|
-|429|Too Many Requests|Too many requests have been made against the system in a short period of time|
-|502|Bad Gateway|Valen Server is not responding|
-|504|Gateway Timeout|Valen system is down|
+A list of responses to common errors. Detailed information about the response messages can be found by following the instructions in .
 
 
 
