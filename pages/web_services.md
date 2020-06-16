@@ -70,7 +70,7 @@ The PWS processes requests and returns results synchronously. The formatting and
 
 ### Http Status Codes
 
-A list of responses to common errors. Detailed information about the response messages can be found by following the instructions in .
+A list of responses to common errors. Detailed information about the response messages can be found by following the instructions in [OpenAPI 3 Definitions for Customer Specific API](customer_specific_apis.html).
 
 
 
