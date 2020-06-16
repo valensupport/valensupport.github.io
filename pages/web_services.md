@@ -167,7 +167,7 @@ If the request is well-formed, the input values can be converted to the required
 <response xmlns="http://www.valentech.com/2013/11/prediction/response">
 	<score version="1.0">
 		<info>
-			<scoreKey>40a45ce5-96f8-4195-9d6c-72bbc55f8384</scoreKey>
+			<score_key>40a45ce5-96f8-4195-9d6c-72bbc55f8384</score_key>
 			<scoreId>26089282</scoreId>
 		</info>
 		<inputs xmlns="http://www.valentech.com/2013/11/prediction/inputs" level="insured">
@@ -507,7 +507,7 @@ If the request XML is not well-formed a Bad Request (HTTP 400) status code conta
 ```xml
 <response>
     <info>
-        <scoreKey>[guid goes here]</scoreKey>
+        <score_key>[guid goes here]</score_key>
     </info>
     <illFormedRequest>
         <request>
@@ -526,7 +526,7 @@ If the request XML is not well-formed a Bad Request (HTTP 400) status code conta
 ```xml
 <response>
     <info>
-        <scoreKey>[guid goes here]</scoreKey>
+        <score_key>[guid goes here]</score_key>
     </info>
     <invalidRequest>
         <request>
@@ -536,7 +536,7 @@ If the request XML is not well-formed a Bad Request (HTTP 400) status code conta
                     <customer>valen</customer>
                     <solution>insureright</solution>
                     <submission>scoring</submission>
-                    <scoreKey>[guid goes here]</scoreKey>
+                    <score_key>[guid goes here]</score_key>
                 </info>
                 <inputs level="insured">
                     <agency>Test123</agency>
@@ -599,7 +599,7 @@ If the request XML is not well-formed a Bad Request (HTTP 400) status code conta
 ```xml
 <response>
     <info>
-        <scoreKey>[guid goes here]</scoreKey>
+        <score_key>[guid goes here]</score_key>
     </info>
     <invalidRequest>
         <request>
@@ -609,7 +609,7 @@ If the request XML is not well-formed a Bad Request (HTTP 400) status code conta
                     <customer>valen</customer>
                     <solution>insureright</solution>
                     <submission>scoring</submission>
-                    <scoreKey>[guid goes here]</scoreKey>
+                    <score_key>[guid goes here]</score_key>
                 </info>
                 <inputs level="insured">
                     <agency>123456</agency>
@@ -678,7 +678,7 @@ If the request XML is not well-formed a Bad Request (HTTP 400) status code conta
 ```xml
 <response>
     <info>
-        <scoreKey>[guid goes here]</scoreKey>
+        <score_key>[guid goes here]</score_key>
     </info>
     <invalidRequest>
         <request>
@@ -688,7 +688,7 @@ If the request XML is not well-formed a Bad Request (HTTP 400) status code conta
                     <customer>valen</customer>
                     <solution>insureright</solution>
                     <submission>scoring</submission>
-                    <scoreKey>[guid goes here]</scoreKey>
+                    <score_key>[guid goes here]</score_key>
                 </info>
                 <inputslevel="insured">
                     <agency>Test123</agency>
