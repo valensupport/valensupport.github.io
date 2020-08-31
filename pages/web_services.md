@@ -614,7 +614,7 @@ For example:
 
 `https://insureright.valen.com/api/2/reports/insureright/scoring/12345/predict`
 
-In this example the **solution** is InsureRight. A number of different types of submissions may be made to the InsureRight solution, but in this case we are making a **scoring** submission, which requires the ‘score_id’ or ‘score_key’ be sent to the production system.
+In this example the **solution** is InsureRight. A number of different types of submissions may be made to the InsureRight solution, but in this case we are making a **scoring** submission, which requires the ‘score_id’ be sent to the production system.
 
 ##### Request Data
 
