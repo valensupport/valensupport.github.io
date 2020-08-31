@@ -585,7 +585,7 @@ for item in id_list:
         fout.write(base64.b64decode(root[0].text))
 ```
 
-### Appendix E – *Predict* Report Download ( Current API Recommended for new development )
+### Appendix E – *Predict* Report Download ( Current API recommended for new development )
 
 It is possible to pull Predict Reports from the InsureRight system and store them locally in PDF format.   A full 1 or 2 page report is available using the 'predict' option, and an abberviated report is available using the 'lite' option using the 'api/3/reports' URL. The 'lite' option is only available for Workers' Compensation and Commercial Auto lines of business. Visit the API documentation located under the Tools option at insureright.valen.com for more examples on using the reports API.
 
