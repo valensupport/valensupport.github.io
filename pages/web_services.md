@@ -585,7 +585,55 @@ for item in id_list:
         fout.write(base64.b64decode(root[0].text))
 ```
 
-### Appendix E – Test Tools
+### Appendix E – *Predict* Report Download ( Current API Recommended for new development )
+
+It is possible to pull Predict Reports from the InsureRight system and store them locally in PDF format.   A full 1 or 2 page report is available using the 'predict' option, and an abberviated report is available using the 'lite' option using the 'api/3/reports' URL. The 'lite' option is only available for Workers' Compensation and Commercial Auto lines of business. Visit the API documentation located under the Tools option at insureright.valen.com for more examples on using the reports API.
+
+##### PWS Predict Report Download Flow
+
+In the response to a valid submission there is a score_id or score_key.
+
+
+1.  The client submits a web service request for the report with a format=pdf parameter
+
+2.  The report is delivered as base64 text in the response.
+
+3.  Decoding the Base64 decoder translates the file to binary which can be saved in PDF format
+
+
+##### PWS Predict Report Download Requirements
+
+Requests to the PWS are designed as RESTful requests. Responses contain the report data in binary format.
+
+Web service requests are submitted as an HTTP GET to the following URL:
+
+`[server]/api/2/reports/[solution]/scoring/[score_id]/predict` OR
+`[server]/api/3/reports/[solution]/scoring/[score_key]/[predict][lite]`
+
+For example:
+
+`https://insureright.valen.com/api/2/reports/insureright/scoring/12345/predict`
+
+In this example the **solution** is InsureRight. A number of different types of submissions may be made to the InsureRight solution, but in this case we are making a **scoring** submission, which requires the ‘score_id’ or ‘score_key’ be sent to the production system.
+
+##### Request Data
+
+The PWS request must conform to the following standards:
+
+Method = GET
+
+Endpoint = `<https://insureright.valen.com>`
+
+Resources = /solutions/insureright/scoring/{score_id}/lite
+            /solutions/insureright/scoring/{score_key}/predict
+
+**Web Service Style:** 
+The PWS uses HTTPS and supports RESTful requests. The PWS processes requests and returns results synchronously.
+
+**Authentication:** 
+The request should contain a HTTP Basic Authentication header containing a user name and valid credentials. If credentials are invalid an Unauthorized (HTTP 403) status code will be returned.
+
+### Appendix F – Test Tools
 
 We use cURL or Postman to test our request content.
 
@@ -599,7 +647,7 @@ Given a valid xml file (see the example request in [Appendix A](#_Appendix_A_-))
 
 `curl –u \[username\]:\[password\]` `-X POST -d @valid-request.xml -H 'Content-Type: application/xml'` `https://insureright.valen.com/solutions/insureright/scoring`
 
-###### Postman
+###### PostmFn
 
 We have a library of sample requests at <https://www.getpostman.com/collections/da164d2bbcfb55623635>
 
