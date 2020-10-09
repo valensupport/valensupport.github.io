@@ -624,8 +624,8 @@ Method = GET
 
 Endpoint = `<https://insureright.valen.com>`
 
-Resources = /solutions/insureright/scoring/{score_id}/lite
-            /solutions/insureright/scoring/{score_key}/predict
+Resources = `/solutions/insureright/scoring/{score_id}/lite` OR
+            `/solutions/insureright/scoring/{score_key}/predict`
 
 **Web Service Style:** 
 The PWS uses HTTPS and supports RESTful requests. The PWS processes requests and returns results synchronously.
