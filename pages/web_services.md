@@ -517,7 +517,7 @@ In the response to a valid submission there is a Score ID.
 
 2.  The report is delivered as base64 encoded text in the response.
 
-3.  Using a standard base64 decoder translates the response text to binary which can be saved in PDF format. See the python implementations below for more details.
+3.  Use a standard base64 decoder to translate the response text to binary which can be saved in PDF format. See the python implementations below for more details.
 
 
 ##### PWS Predict Report Download Requirements
