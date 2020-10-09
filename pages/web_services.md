@@ -513,11 +513,11 @@ It is possible to pull Predict Reports from the InsureRight system and store the
 In the response to a valid submission there is a Score ID.
 
 
-1.  The client submits a web service request for the report with a format=pdf parameter
+1.  The client submits a web service request for the report with a format=pdf parameter.
 
-2.  The report is delivered as base64 text in the response.
+2.  The report is delivered as base64 encoded text in the response.
 
-3.  Decoding the Base64 decoder translates the file to binary which can be saved in PDF format
+3.  Using a standard base64 decoder translates the response text to binary which can be saved in PDF format. See the python implementations below for more details.
 
 
 ##### PWS Predict Report Download Requirements
