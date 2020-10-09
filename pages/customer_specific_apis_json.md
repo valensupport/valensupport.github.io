@@ -73,7 +73,7 @@ Explanations:
 
 Report Data:
    
-![Sample Workers Compensation Response]({{ "/images/WCSampleOutputReportData.PNG" | absolute_url }})
+![Sample Workers Compensation Response]({{ "/images/WCResponseReportDataJSON.PNG" | absolute_url }})
 
 
 #### Try it Out and Execute
