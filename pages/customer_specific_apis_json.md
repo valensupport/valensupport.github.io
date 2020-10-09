@@ -69,7 +69,7 @@ Outputs:  This the complete list of output elements sent back with each successf
 
 Explanations:
    
-![Sample Workers Compensation Response]({{ "/images/WCSampleOutputExplains.PNG" | absolute_url }})
+![Sample Workers Compensation Response]({{ "/images/WCResponseExplanationJSON.PNG" | absolute_url }})
 
 Report Data:
    
