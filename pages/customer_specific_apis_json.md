@@ -45,7 +45,7 @@ For the "Legacy/Deprecated" version of the API, always leave this field empty an
 ##### Request body
 The OpenAPI3 supports two modes: the Schema mode and the Example Value mode.  The schema section defines each element, defines the data type, annotates with a "\*" if the element is required, and shows any constraints applied to the element.
 
-![Sample Workers Compensation Request Body]({{ "/images/SchemaAndExample.PNG" | absolute_url }})
+![Sample Workers Compensation Request Body]({{ "/images/WCRequestBodyJSON.PNG" | absolute_url }})
 
 #### Schema
 
