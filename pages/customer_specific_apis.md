@@ -3,7 +3,7 @@ layout: page
 title: InsureRight® Predict OpenAPI 3 Scoring Definitions
 permalink: customer_specific_apis.html
 sidebar: nav_sidebar
-last_updated: April, 2020
+last_updated: October, 2020
 summary: The webservices guide for the details on the exact schema for requests and responses.
 ---
 
@@ -30,7 +30,7 @@ This is the complete set of API's available for integration purposes.
 
 #### Navigating the OpenAPI 3 page
 
-Valen has created 2 major revisions of the of the Valen API.  By default the api1 defintion will be displayed. For realtime scoring, all customers use the api1 version as of April 2020.  This API will not be depracated, and Valen will continue to support this interface.
+Valen has created 2 major revisions of the of the Valen API.  By default the "Current" defintion will be displayed. For realtime scoring, all customers use the Legacy/Deprecated version as of April 2020.  Valen will continue to support "Legacy/Deprecated" interface.
 
 The avaiable scoring API's will be presented based upon the Line of Business (LOB) a given customer has subscribed to. Click on any of the LOB's such as /solutions/insureright/scoring (which is for Workers' Compensation), and the schema for this particular scoring interface will be presented.
 
@@ -40,7 +40,7 @@ The avaiable scoring API's will be presented based upon the Line of Business (LO
 Valen maintains a complete version history of any solution presented to a customer.  By default, the API always selects the most recent version of the solution.  The only time the solution version should ever be incporated in a request is for future dated solutions.  See section <https://valensupport.github.io/web_services.html#appendix-f--testing-valen-future-dated-releases> for more information on using future dated solutions.
 
 ##### Format string
-For api1, always leave this field empty and let the system default to XML. 
+For the "Legacy/Deprecated" version of the API, always leave this field empty and let the system default to XML. 
 
 ##### Request body
 The OpenAPI3 supports two modes: the Schema mode and the Example Value mode.  The schema section defines each element, defines the data type, annotates with a "\*" if the element is required, and shows any constraints applied to the element.
