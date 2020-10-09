@@ -65,7 +65,7 @@ The following screen shots lists the first couple of inputs for a Workers' Compe
    
 Outputs:  This the complete list of output elements sent back with each successful scoring transaction.
    
-![Sample Workers Compensation Response]({{ "/images/WCSampleOutputOutputs.PNG" | absolute_url }})
+![Sample Workers Compensation Response]({{ "/images/WCResponeOutputsJSON.PNG" | absolute_url }})
 
 Explanations:
    
