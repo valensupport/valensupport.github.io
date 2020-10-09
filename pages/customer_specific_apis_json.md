@@ -54,14 +54,14 @@ The Schema section consists of:
 ##### The request section
 The following screen shots lists the first couple of inputs for a Workers' Compensation Request. The "down arrow" character can be toggled to collapse a section and hide information about that section. The ">" character can be toggled to expand a section to reveal more details acout that section.
    
-![Sample Workers Compensation Inputs]({{ "/images/ResponseInputsJSON.PNG" | absolute_url }})
+![Sample Workers Compensation Inputs]({{ "/images/WCRequestBodyJSON.PNG" | absolute_url }})
    
 ##### The response section
    The response section contains a list of all possible http return codes the content for each return code. The most common response is a return code of 200, representing a successful transaction. The stucture of any response follows the following format:
    
  Inputs: ( note: this repeats all inputs that were passed in the request )
    
-![Sample Workers Compensation Response]({{ "/images/WCSampleOutputInput.PNG" | absolute_url }})
+![Sample Workers Compensation Response]({{ "/images/ResponseInputsJSON.PNG" | absolute_url }})
    
 Outputs:  This the complete list of output elements sent back with each successful scoring transaction.
    
