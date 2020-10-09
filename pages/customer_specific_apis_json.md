@@ -80,7 +80,7 @@ Report Data:
 
 The "Try it Out" button toggles from "Schema" mode into "Example Value" mode.  The "Example value" mode enables the user to manually edit the sample request with any value for each available input.  The "Execute" button will submit the request, and display the response directly below the request section. This enables the user of the API to try out inputs, and observe both sucessful and failing transactions.
 
-![Sample Workers Compensation Response]({{ "/images/WCSampleTryitOutInputs.PNG" | absolute_url }})
+![Sample Workers Compensation Response]({{ "/images/WCTryItRequestJSON.PNG" | absolute_url }})
 
 The "Execute" button ( shown in the screen shot above ) submits the Request body with the example inputs to the InsureRight platform as a scoring request.  
 
