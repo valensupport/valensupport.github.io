@@ -88,15 +88,15 @@ The "Execute" button ( shown in the screen shot above ) submits the Request body
 
 The curl request can be copied from screen, and pasted into a command line tool to execute the exact same command the "Execute" button.
 
-![Sample Workers Compensation Response]({{ "/images/WCSampleCurl.PNG" | absolute_url }})
+![Sample Workers Compensation Response]({{ "/images/WCTryItCurlJSON.PNG" | absolute_url }})
 
 #### Execution Response
 
-![Sample Workers Compensation Response]({{ "/images/WCSampleTryitOutOutputs.PNG" | absolute_url }})
+![Sample Workers Compensation Response]({{ "/images/WCTryItResponseJSON.PNG" | absolute_url }})
 
 #### Appendix A - Disclaimers
 
-InsureRight® Platform Predict Web Service Implementation Guide – Valen® Analytics, April 2020
+InsureRight® Platform Predict Web Service Implementation Guide – Valen® Analytics, October 2020
 
 All rights reserved. The copyright and trade secret laws of the United States and other countries protect this material. No part of this material or software covered by the copyrights herein may be reproduced, distributed or altered in any fashion without prior contractual or written consent of Valen® Analytics. Content is subject to change without notification.
 
