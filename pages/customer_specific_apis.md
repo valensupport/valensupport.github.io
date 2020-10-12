@@ -1,6 +1,6 @@
 ---
 layout: page
-title: InsureRight® Predict OpenAPI 3 Scoring Definitions
+title: InsureRight® Predict OpenAPI 3 XML Scoring Definitions
 permalink: customer_specific_apis.html
 sidebar: nav_sidebar
 last_updated: October, 2020
