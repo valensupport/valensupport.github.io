@@ -11,7 +11,7 @@ summary: The webservices guide for the details on the exact schema for requests 
 
 ### Integrating webservices on InsureRight® Platform 3.0
 
-The InsureRight® Predict Web Service (PWS) allows clients to send input data, in the form of a prediction request, to the InsureRight platform for scoring with Valen’s models. Once received, the system validates the XML content of the transmission, scores the data, then returns a prediction response.
+The InsureRight® Predict Web Service (PWS) allows clients to send input data, in the form of a prediction request, to the InsureRight platform for scoring with Valen’s models. Once received, the system validates the JSON content of the transmission, scores the data, then returns a prediction response.
 
 In addition to the score results, the system also returns information to explain the predictions in terms of influential data elements. Optionally, Valen can incorporate custom business rules to provide support for automated decision making based on the prediction results.
 
@@ -38,9 +38,6 @@ The avaiable scoring API's will be presented based upon the Line of Business (LO
 
 ##### Version: 
 Valen maintains a complete version history of any solution presented to a customer.  By default, the API always selects the most recent version of the solution.  The only time the solution version should ever be incporated in a request is for future dated solutions.  See section <https://valensupport.github.io/web_services.html#appendix-f--testing-valen-future-dated-releases> for more information on using future dated solutions.
-
-##### Format string
-For the "Legacy/Deprecated" version of the API, always leave this field empty and let the system default to XML. 
 
 ##### Request body
 The OpenAPI3 supports two modes: the Schema mode and the Example Value mode.  The schema section defines each element, defines the data type, annotates with a "\*" if the element is required, and shows any constraints applied to the element.
