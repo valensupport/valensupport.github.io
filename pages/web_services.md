@@ -554,7 +554,7 @@ The request should contain a HTTP Basic Authentication header containing a user 
 
 ##### PDF Request example
 
-This is a simple retrieval script written in Python 3 or above.
+This is a simple retrieval script written in Python ( should work in Python 2 or Python 3 ).
 
 ```python
 import requests
