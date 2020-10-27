@@ -563,7 +563,7 @@ import xml.etree.ElementTree as ET
 import sys
 
 if len(sys.argv) < 4:
-    print "Please username, password, and a list of scoreIDs"
+    print ("Please supply username, password, and a list of scoreIDs")
     sys.exit(1)
 
 user = sys.argv[1]
@@ -575,11 +575,11 @@ for item in id_list:
     filename = "retrieved_%s.pdf" % item
 
     r = requests.get(req_url, auth=(user, pwd))
-    print r.status_code
+    print (r.status_code)
 
     root = ET.fromstring(r.text)
     for child in root:
-        print child.tag, child.attrib
+        print (child.tag, child.attrib)
 
     with open(filename, 'wb') as fout:
         fout.write(base64.b64decode(root[0].text))
