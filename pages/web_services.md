@@ -593,13 +593,11 @@ It is possible to pull Predict Reports from the InsureRight system and store the
 
 In the response to a valid submission there is a score_id or score_key.
 
+1.  The client submits a web service request for the report.
 
-1.  The client submits a web service request for the report with a format=pdf parameter
+2.  The report is delivered as base64 encoded text in the response.
 
-2.  The report is delivered as base64 text in the response.
-
-3.  Decoding the Base64 decoder translates the file to binary which can be saved in PDF format
-
+3.  Use a standard base64 decoder to translate the response text to binary which can be saved in PDF format.
 
 ##### PWS Predict Report Download Requirements
 
@@ -632,6 +630,7 @@ The PWS uses HTTPS and supports RESTful requests. The PWS processes requests and
 
 **Authentication:** 
 The request should contain a HTTP Basic Authentication header containing a user name and valid credentials. If credentials are invalid an Unauthorized (HTTP 403) status code will be returned.
+
 
 ### Appendix F – Test Tools
 
