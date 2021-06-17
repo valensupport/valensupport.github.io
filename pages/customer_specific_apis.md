@@ -34,7 +34,7 @@ Valen has created 2 major revisions of the of the Valen API.  By default the "Cu
 
 The avaiable scoring API's will be presented based upon the Line of Business (LOB) a given customer has subscribed to. Click on any of the LOB's such as /solutions/insureright/scoring (which is for Workers' Compensation), and the schema for this particular scoring interface will be presented.
 
-![Sample Workers' Compensation API 1]({{ "/images/SampleWCAPI.PNG" | absolute_url }})
+![Sample Workers' Compensation API 1]({{ "/images/SampleWCAPI.PNG" | relative_url }})
 
 ##### Version: 
 Valen maintains a complete version history of any solution presented to a customer.  By default, the API always selects the most recent version of the solution.  The only time the solution version should ever be incporated in a request is for future dated solutions.  See section <https://valensupport.github.io/web_services.html#appendix-f--testing-valen-future-dated-releases> for more information on using future dated solutions.
