@@ -34,7 +34,7 @@ Valen has created 2 major revisions of the of the Valen API.  By default the "Cu
 
 The avaiable scoring API's will be presented based upon the Line of Business (LOB) a given customer has subscribed to. Click on any of the LOB's such as /solutions/insureright/scoring (which is for Workers' Compensation), and the schema for this particular scoring interface will be presented.
 
-![Sample Workers' Compensation API 1]({{ "/images/WCRequestJSON.PNG" | absolute_url }})
+![Sample Workers' Compensation API 1]({{ "/images/WCRequestJSON.PNG" | relative_url }})
 
 ##### Version: 
 Valen maintains a complete version history of any solution presented to a customer.  By default, the API always selects the most recent version of the solution.  The only time the solution version should ever be incporated in a request is for future dated solutions.  See section <https://valensupport.github.io/web_services.html#appendix-f--testing-valen-future-dated-releases> for more information on using future dated solutions.
@@ -42,7 +42,7 @@ Valen maintains a complete version history of any solution presented to a custom
 ##### Request body
 The OpenAPI3 supports two modes: the Schema mode and the Example Value mode.  The schema section defines each element, defines the data type, annotates with a "\*" if the element is required, and shows any constraints applied to the element.
 
-![Sample Workers Compensation Request Body]({{ "/images/WCRequestBodyJSON.PNG" | absolute_url }})
+![Sample Workers Compensation Request Body]({{ "/images/WCRequestBodyJSON.PNG" | relative_url }})
 
 #### Schema
 
@@ -51,33 +51,33 @@ The Schema section consists of:
 ##### The request section
 The following screen shots lists the first couple of inputs for a Workers' Compensation Request. The "down arrow" character can be toggled to collapse a section and hide information about that section. The ">" character can be toggled to expand a section to reveal more details acout that section.
    
-![Sample Workers Compensation Inputs]({{ "/images/WCRequestBodyJSON.PNG" | absolute_url }})
+![Sample Workers Compensation Inputs]({{ "/images/WCRequestBodyJSON.PNG" | relative_url }})
    
 ##### The response section
    The response section contains a list of all possible http return codes the content for each return code. The most common response is a return code of 200, representing a successful transaction. The stucture of any response follows the following format:
    
  Inputs: ( note: this repeats all inputs that were passed in the request )
    
-![Sample Workers Compensation Response]({{ "/images/ResponseInputsJSON.PNG" | absolute_url }})
+![Sample Workers Compensation Response]({{ "/images/ResponseInputsJSON.PNG" | relative_url }})
    
 Outputs:  This the complete list of output elements sent back with each successful scoring transaction.
    
-![Sample Workers Compensation Response]({{ "/images/WCResponeOutputsJSON.PNG" | absolute_url }})
+![Sample Workers Compensation Response]({{ "/images/WCResponeOutputsJSON.PNG" | relative_url }})
 
 Explanations:
    
-![Sample Workers Compensation Response]({{ "/images/WCResponseExplanationJSON.PNG" | absolute_url }})
+![Sample Workers Compensation Response]({{ "/images/WCResponseExplanationJSON.PNG" | relative_url }})
 
 Report Data:
    
-![Sample Workers Compensation Response]({{ "/images/WCResponseReportDataJSON.PNG" | absolute_url }})
+![Sample Workers Compensation Response]({{ "/images/WCResponseReportDataJSON.PNG" | relative_url }})
 
 
 #### Try it Out and Execute
 
 The "Try it Out" button toggles from "Schema" mode into "Example Value" mode.  The "Example value" mode enables the user to manually edit the sample request with any value for each available input.  The "Execute" button will submit the request, and display the response directly below the request section. This enables the user of the API to try out inputs, and observe both sucessful and failing transactions.
 
-![Sample Workers Compensation Response]({{ "/images/WCTryItRequestJSON.PNG" | absolute_url }})
+![Sample Workers Compensation Response]({{ "/images/WCTryItRequestJSON.PNG" | relative_url }})
 
 The "Execute" button ( shown in the screen shot above ) submits the Request body with the example inputs to the InsureRight platform as a scoring request.  
 
@@ -85,11 +85,11 @@ The "Execute" button ( shown in the screen shot above ) submits the Request body
 
 The curl request can be copied from screen, and pasted into a command line tool to execute the exact same command the "Execute" button.
 
-![Sample Workers Compensation Response]({{ "/images/WCTryItCurlJSON.PNG" | absolute_url }})
+![Sample Workers Compensation Response]({{ "/images/WCTryItCurlJSON.PNG" | relative_url }})
 
 #### Execution Response
 
-![Sample Workers Compensation Response]({{ "/images/WCTryItResponseJSON.PNG" | absolute_url }})
+![Sample Workers Compensation Response]({{ "/images/WCTryItResponseJSON.PNG" | relative_url }})
 
 #### Appendix A - Disclaimers
 
