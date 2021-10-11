@@ -24,7 +24,7 @@ This guide is intended for use by developers who are building web-enabled applic
 The payload definition for inputs and outputs will vary by customer.  In order to find out the exact inputs required, and the expected outputs in a response, a valid login to the Valen InsureRight platform is required.  Using your favorite browser, go to the Valen website at https://insureight.valen.com and login with your credentials.  Under the Tools option, select the API Documentation option.
 Note the "Try it Out" option is only available for users that are designated as "test" users.  This prevents users with "production" credentials generating scores that would be included in analyzing model performance when using Manage.
 
-![OpenAPI 3 Landing Page]({{ "/images/API1EntryPoint.PNG" | absolute_url }})
+![OpenAPI 3 Landing Page]({{ "/images/API1EntryPoint.PNG" | relative_url }})
 
 This is the complete set of API's available for integration purposes.
 
@@ -34,7 +34,7 @@ Valen has created 2 major revisions of the of the Valen API.  By default the "Cu
 
 The avaiable scoring API's will be presented based upon the Line of Business (LOB) a given customer has subscribed to. Click on any of the LOB's such as /solutions/insureright/scoring (which is for Workers' Compensation), and the schema for this particular scoring interface will be presented.
 
-![Sample Workers' Compensation API 1]({{ "/images/SampleWCAPI.PNG" | absolute_url }})
+![Sample Workers' Compensation API 1]({{ "/images/SampleWCAPI.PNG" | relative_url }})
 
 ##### Version: 
 Valen maintains a complete version history of any solution presented to a customer.  By default, the API always selects the most recent version of the solution.  The only time the solution version should ever be incporated in a request is for future dated solutions.  See section <https://valensupport.github.io/web_services.html#appendix-f--testing-valen-future-dated-releases> for more information on using future dated solutions.
@@ -45,7 +45,7 @@ For the "Legacy/Deprecated" version of the API, always leave this field empty an
 ##### Request body
 The OpenAPI3 supports two modes: the Schema mode and the Example Value mode.  The schema section defines each element, defines the data type, annotates with a "\*" if the element is required, and shows any constraints applied to the element.
 
-![Sample Workers Compensation Request Body]({{ "/images/SchemaAndExample.PNG" | absolute_url }})
+![Sample Workers Compensation Request Body]({{ "/images/SchemaAndExample.PNG" | relative_url }})
 
 #### Schema
 
@@ -54,33 +54,33 @@ The Schema section consists of:
 ##### The request section
 The following screen shots lists the first couple of inputs for a Workers' Compensation Request. The "down arrow" character can be toggled to collapse a section and hide information about that section. The ">" character can be toggled to expand a section to reveal more details acout that section.
    
-![Sample Workers Compensation Inputs]({{ "/images/WCSampleInputs.PNG" | absolute_url }})
+![Sample Workers Compensation Inputs]({{ "/images/WCSampleInputs.PNG" | relative_url }})
    
 ##### The response section
    The response section contains a list of all possible http return codes the content for each return code. The most common response is a return code of 200, representing a successful transaction. The stucture of any response follows the following format:
    
  Inputs: ( note: this repeats all inputs that were passed in the request )
    
-![Sample Workers Compensation Response]({{ "/images/WCSampleOutputInput.PNG" | absolute_url }})
+![Sample Workers Compensation Response]({{ "/images/WCSampleOutputInput.PNG" | relative_url }})
    
 Outputs:  This the complete list of output elements sent back with each successful scoring transaction.
    
-![Sample Workers Compensation Response]({{ "/images/WCSampleOutputOutputs.PNG" | absolute_url }})
+![Sample Workers Compensation Response]({{ "/images/WCSampleOutputOutputs.PNG" | relative_url }})
 
 Explanations:
    
-![Sample Workers Compensation Response]({{ "/images/WCSampleOutputExplains.PNG" | absolute_url }})
+![Sample Workers Compensation Response]({{ "/images/WCSampleOutputExplains.PNG" | relative_url }})
 
 Report Data:
    
-![Sample Workers Compensation Response]({{ "/images/WCSampleOutputReportData.PNG" | absolute_url }})
+![Sample Workers Compensation Response]({{ "/images/WCSampleOutputReportData.PNG" | relative_url }})
 
 
 #### Try it Out and Execute
 
 The "Try it Out" button toggles from "Schema" mode into "Example Value" mode.  The "Example value" mode enables the user to manually edit the sample request with any value for each available input.  The "Execute" button will submit the request, and display the response directly below the request section. This enables the user of the API to try out inputs, and observe both sucessful and failing transactions.
 
-![Sample Workers Compensation Response]({{ "/images/WCSampleTryitOutInputs.PNG" | absolute_url }})
+![Sample Workers Compensation Response]({{ "/images/WCSampleTryitOutInputs.PNG" | relative_url }})
 
 The "Execute" button ( shown in the screen shot above ) submits the Request body with the example inputs to the InsureRight platform as a scoring request.  
 
@@ -88,11 +88,11 @@ The "Execute" button ( shown in the screen shot above ) submits the Request body
 
 The curl request can be copied from screen, and pasted into a command line tool to execute the exact same command the "Execute" button.
 
-![Sample Workers Compensation Response]({{ "/images/WCSampleCurl.PNG" | absolute_url }})
+![Sample Workers Compensation Response]({{ "/images/WCSampleCurl.PNG" | relative_url }})
 
 #### Execution Response
 
-![Sample Workers Compensation Response]({{ "/images/WCSampleTryitOutOutputs.PNG" | absolute_url }})
+![Sample Workers Compensation Response]({{ "/images/WCSampleTryitOutOutputs.PNG" | relative_url }})
 
 #### Appendix A - Disclaimers
 
