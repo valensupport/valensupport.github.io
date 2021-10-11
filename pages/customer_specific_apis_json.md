@@ -24,7 +24,7 @@ This guide is intended for use by developers who are building web-enabled applic
 The payload definition for inputs and outputs will vary by customer.  In order to find out the exact inputs required, and the expected outputs in a response, a valid login to the Valen InsureRight platform is required.  Using your favorite browser, go to the Valen website at https://insureight.valen.com and login with your credentials.  Under the Tools option, select the API Documentation option.
 Note the "Try it Out" option is only available for users that are designated as "test" users.  This prevents users with "production" credentials generating scores that would be included in analyzing model performance when using Manage.
 
-![OpenAPI 3 Landing Page]({{ "/images/CurrentEntryPoint.PNG" | absolute_url }})
+![OpenAPI 3 Landing Page]({{ "/images/CurrentEntryPoint.PNG" | relative_url }})
 
 This is the complete set of API's available for integration purposes.
 
