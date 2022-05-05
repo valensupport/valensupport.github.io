@@ -110,7 +110,7 @@ The PWS Application requires data for each required relation inside an **inputs*
 
 #### RESTful Request/Response Examples
 
-<span id="_Toc412556468" class="anchor"></span>We use cURL or Postman to test our response content. See [Appendix E](#Appendix_E) for some examples.
+<span id="_Toc412556468" class="anchor"></span>We use cURL or Postman to test our response content. See [Appendix E](#AppendixE) for some examples.
 
 ##### Predict RESTful Request Example: 
 
