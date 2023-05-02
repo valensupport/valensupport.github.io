@@ -17,7 +17,6 @@ Here is a collection of sample integrations for Valen's Web Services.
 |----|-------|-----------------|
 |Basic Scoring|`curl -X POST -u "[username]":"[password]" -H "content-type: application/xml" -d @[filePATH] https://insureright.valen.com/api/2/document/insureright/scoring`| 200 OK: Scoring Response here|
 |Retrieve PDF|`curl -X GET -u "[username]":"[password]" -H "accept: application/octet-stream" https://insureright.valen.com/api/2/reports/insureright/scoring/[scoreID]/predict`| 200 OK: PDF contents will be returned in native PDF format|
-|Retrieve Without Params|`curl -X GET -u "[username]":"[password]" -H "content-type: application/xml" https://insureright.valen.com/solutions/scores/query/insureright/scoring`|200 OK: Response will be a list of scored records. Max is 1000 records long|
 
 
 ### CA Batch score submission
