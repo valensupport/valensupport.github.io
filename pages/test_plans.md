@@ -4,7 +4,7 @@ title: Collected test plans
 permalink: test_plans.html
 sidebar: nav_sidebar
 toc: false
-last_updated: December, 2016
+last_updated: May, 2023
 summary: A collection of example integrations with Valen Analytics
 ---
 
