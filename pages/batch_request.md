@@ -139,7 +139,7 @@ In order to submit a batch, you must submit an `HTTPS` `POST` to the following e
   `https://insureright.valen.com/api/2/batch/profile`
  
       
-  Important Note:  For all Contributory Batch submissions, use the following URL supported as of June 15, 2023. Please note the content of the zip file for a data contribution has not changed.
+  Important Note:  For all Contributory Batch submissions, use the following URL syntax supported as of June 15, 2023. Please note the content of the zip file for a data contribution has not changed.
   
   `https://insureright.valen.com/api/2/batch/[LineOfBusiness]/consortium` 
        Supported LineOfBusiness:
@@ -148,7 +148,7 @@ In order to submit a batch, you must submit an `HTTPS` `POST` to the following e
        "gl":   General Liability
        
    Examples:
-      For Worker’s Compensation the new URL is:
+      For Workers' Compensation the new URL is:
 
           https://insureright.valen.com/api/2/batch/wc/consortium 
 
