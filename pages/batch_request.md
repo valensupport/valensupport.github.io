@@ -131,11 +131,13 @@ A warning: large batches can take quite a while to finish processing.
 In order to submit a batch, you must submit an `HTTPS` `POST` to the following endpoint:
  
  Important Note:  The following URL is being depracated.  This will be supported until the existing customer base converts to the new API, which is targetted to be August 1, 2023.
+ 
   `POST`: `multipart-form-data`
   `https://insureright.valen.com/api/2/batch/[submission]` ( deprecated API)
       The submission is encoded as part of the path.
       
   Important Note:  For all Contributory Batch submissions, use the following URL supported as of June 15, 2023. Please note the content of the zip file for a data contribution has not changed.
+  
   `https://insureright.valen.com/api/2/batch/[LineOfBusiness]/consortium` 
        Supported LineOfBusiness:
        "wc":   Workers' Compensation
