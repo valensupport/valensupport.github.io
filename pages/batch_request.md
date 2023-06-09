@@ -149,6 +149,7 @@ In order to submit a batch, you must submit an `HTTPS` `POST` to the following e
        "gl":   General Liability
        
    Examples:
+  
       For Workers' Compensation the new URL is:
 
           https://insureright.valen.com/api/2/batch/wc/consortium 
