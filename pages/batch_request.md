@@ -135,7 +135,8 @@ In order to submit a batch, you must submit an `HTTPS` `POST` to the following e
   `POST`: `multipart-form-data`
   `https://insureright.valen.com/api/2/batch/[submission]` ( deprecated API)
       The submission is encoded as part of the path.
-    `POST`: `multipart-form-data`
+ 
+  `POST`: `multipart-form-data`
   `https://insureright.valen.com/api/2/batch/profile`
  
       
