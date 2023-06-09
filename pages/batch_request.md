@@ -135,6 +135,9 @@ In order to submit a batch, you must submit an `HTTPS` `POST` to the following e
   `POST`: `multipart-form-data`
   `https://insureright.valen.com/api/2/batch/[submission]` ( deprecated API)
       The submission is encoded as part of the path.
+    `POST`: `multipart-form-data`
+  `https://insureright.valen.com/api/2/batch/profile`
+ 
       
   Important Note:  For all Contributory Batch submissions, use the following URL supported as of June 15, 2023. Please note the content of the zip file for a data contribution has not changed.
   
@@ -159,9 +162,6 @@ In order to submit a batch, you must submit an `HTTPS` `POST` to the following e
 	   
 
 
-  `POST`: `multipart-form-data`
-  `https://insureright.valen.com/api/2/batch/profile`
- 
 The content type of the body must be `multipart/form-data` where one part has the name `batch-file`. If there is no such part, or if the `content-type` of the scoring request is not `multipart-form-data` the request will fail with a status code `400`.
 
 If the request is successful, a GUID will be returned in the response. This GUID is used as the batch-key but at this point in time*cannot* be used to get the status of the batch job.
