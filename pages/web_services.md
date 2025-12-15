@@ -49,7 +49,7 @@ For example:
 `https://insureright.valen.com/solutions/insureright/scoring` - _a submission for workers compensation_
 `https://insureright.valen.com/solutions/ca/scoring` - _a submission for commercial auto_
 
-In the first example the **solution** is InsureRight, which is our workers' compensation. In this case we are making a **scoring** submission, which will score the inputs against all Workers' Compensation Predict models.
+In the first example the **solution** is InsureRight, which is our workers' compensation model. In this case we are making a **scoring** submission, which will score the inputs against all Workers' Compensation Predict models.
 
 #### Request Contents
 
@@ -532,7 +532,7 @@ For example:
 
 `https://insureright.valen.com/solutions/insureright/scoring/12345?format=pdf`
 
-In the first example the **solution** is InsureRight, which is our workers' compensation. In this case we are making a Predict Pulse report retrieval submission, which requires the ‘reportID’ or ‘scoreID’ be sent to the production system.
+In the first example the **solution** is InsureRight, which is our workers' compensation model. In this case we are making a Predict Pulse report retrieval submission, which requires the ‘reportID’ or ‘scoreID’ be sent to the production system.
 
 ##### Request Data
 
@@ -612,7 +612,7 @@ For example:
 
 `https://insureright.valen.com/api/2/reports/insureright/scoring/12345/predict`
 
-In this example the **solution** is InsureRight, which is our workers' compensation. In this case we are making a Predict Pulse report retrieval submission, which requires the ‘scoreID’ or ‘score_key’ be sent to the production system.
+In this example the **solution** is InsureRight, which is our workers' compensation model. In this case we are making a Predict Pulse report retrieval submission, which requires the ‘scoreID’ or ‘score_key’ be sent to the production system.
 
 
 ##### Request Data
