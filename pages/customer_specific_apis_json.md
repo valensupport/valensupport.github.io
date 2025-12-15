@@ -1,27 +1,27 @@
 ---
 layout: page
-title: InsureRight® Predict OpenAPI 3 JSON Scoring Definitions
+title: Insurity Predict OpenAPI 3 JSON Scoring Definitions
 permalink: customer_specific_apis_json.html
 sidebar: nav_sidebar
-last_updated: October, 2020
+last_updated: December, 2025
 summary: The webservices guide for the details on the exact schema for requests and responses.
 ---
 
-# Valen Customer Specific OpenAPI 3 definition
+# Insurity Predict Customer Specific OpenAPI 3 definition
 
-### Integrating webservices on InsureRight® Platform 3.0
+### Integrating webservices on Isnurity Predict Platform
 
-The InsureRight® Predict Web Service (PWS) allows clients to send input data, in the form of a prediction request, to the InsureRight platform for scoring with Valen’s models. Once received, the system validates the JSON content of the transmission, scores the data, then returns a prediction response.
+The Insurity Predict Web Service (PWS) allows clients to send input data, in the form of a prediction request, to the Predict platform for scoring with insurity Predict’s models. Once received, the system validates the JSON content of the transmission, scores the data, then returns a prediction response.
 
-In addition to the score results, the system also returns information to explain the predictions in terms of influential data elements. Optionally, Valen can incorporate custom business rules to provide support for automated decision making based on the prediction results.
+In addition to the score results, the system also returns information to explain the predictions in terms of influential data elements. Optionally, Insurity Predict can incorporate custom business rules to provide support for automated decision making based on the prediction results.
 
 ##### Audience
 
-This guide is intended for use by developers who are building web-enabled applications that will use the PWS to invoke an application to score a set of input data. To use the PWS, clients are required to have a valid  account with Valen. Please contact <support@valen.com> to ensure that access is properly configured.
+This guide is intended for use by developers who are building web-enabled applications that will use the PWS to invoke an application to score a set of input data. To use the PWS, clients are required to have a valid  account with Insurity Predict. Please contact <support@valen.com> to ensure that access is properly configured.
 
 #### How to get access to your specific OpenAPI 3 definition
 
-The payload definition for inputs and outputs will vary by customer.  In order to find out the exact inputs required, and the expected outputs in a response, a valid login to the Valen InsureRight platform is required.  Using your favorite browser, go to the Valen website at https://insureight.valen.com and login with your credentials.  Under the Tools option, select the API Documentation option.
+The payload definition for inputs and outputs will vary by customer.  In order to find out the exact inputs required, and the expected outputs in a response, a valid login to the Insurity Predict platform is required.  Using your favorite browser, go to the Insurity Predict website at https://insureight.valen.com and login with your credentials.  Under the Tools option, select the API Documentation option.
 Note the "Try it Out" option is only available for users that are designated as "test" users.  This prevents users with "production" credentials generating scores that would be included in analyzing model performance when using Manage.
 
 ![OpenAPI 3 Landing Page]({{ "/images/CurrentEntryPoint.PNG" | relative_url }})
@@ -30,14 +30,14 @@ This is the complete set of API's available for integration purposes.
 
 #### Navigating the OpenAPI 3 page
 
-Valen has created 2 major revisions of the of the Valen API.  By default the "Current" defintion will be displayed. For realtime scoring, all customers use the Legacy/Deprecated version as of April 2020.  Valen will continue to support "Legacy/Deprecated" interface.
+Insurity predict has created 2 major revisions of the of the Insurity Predict API.  By default the "Current" defintion will be displayed. For realtime scoring, all customers use the Legacy/Deprecated version as of April 2020.  Insurity Predict will continue to support "Legacy/Deprecated" interface.
 
-The avaiable scoring API's will be presented based upon the Line of Business (LOB) a given customer has subscribed to. Click on any of the LOB's such as /solutions/insureright/scoring (which is for Workers' Compensation), and the schema for this particular scoring interface will be presented.
+The available scoring API's will be presented based upon the Line of Business (LOB) a given customer has subscribed to. Click on any of the LOB's such as /solutions/insureright/scoring (which is for Workers' Compensation), and the schema for this particular scoring interface will be presented.
 
 ![Sample Workers' Compensation API 1]({{ "/images/WCRequestJSON.PNG" | relative_url }})
 
 ##### Version: 
-Valen maintains a complete version history of any solution presented to a customer.  By default, the API always selects the most recent version of the solution.  The only time the solution version should ever be incporated in a request is for future dated solutions.  See section <https://valensupport.github.io/web_services.html#appendix-f--testing-valen-future-dated-releases> for more information on using future dated solutions.
+Insurity Predict maintains a complete version history of any solution presented to a customer.  By default, the API always selects the most recent version of the solution.  The only time the solution version should ever be incporated in a request is for future dated solutions.  See section <https://valensupport.github.io/web_services.html#appendix-f--testing-valen-future-dated-releases> for more information on using future dated solutions.
 
 ##### Request body
 The OpenAPI3 supports two modes: the Schema mode and the Example Value mode.  The schema section defines each element, defines the data type, annotates with a "\*" if the element is required, and shows any constraints applied to the element.
@@ -79,7 +79,7 @@ The "Try it Out" button toggles from "Schema" mode into "Example Value" mode.  T
 
 ![Sample Workers Compensation Response]({{ "/images/WCTryItRequestJSON.PNG" | relative_url }})
 
-The "Execute" button ( shown in the screen shot above ) submits the Request body with the example inputs to the InsureRight platform as a scoring request.  
+The "Execute" button ( shown in the screen shot above ) submits the Request body with the example inputs to the Insurity Predict platform as a scoring request.  
 
 #### Curl request 
 
@@ -93,9 +93,9 @@ The curl request can be copied from screen, and pasted into a command line tool 
 
 #### Appendix A - Disclaimers
 
-InsureRight® Platform Predict Web Service Implementation Guide – Valen® Analytics, October 2020
+Insurity Predict Platform Predict Web Service Implementation Guide – Insurity Predict, October 2025
 
-All rights reserved. The copyright and trade secret laws of the United States and other countries protect this material. No part of this material or software covered by the copyrights herein may be reproduced, distributed or altered in any fashion without prior contractual or written consent of Valen® Analytics. Content is subject to change without notification.
+All rights reserved. The copyright and trade secret laws of the United States and other countries protect this material. No part of this material or software covered by the copyrights herein may be reproduced, distributed or altered in any fashion without prior contractual or written consent of Insurity Predict. Content is subject to change without notification.
 
 ##### Accuracy
 
@@ -105,7 +105,6 @@ Every effort was made to ensure the material contained in this document was comp
 
 All products, trademarks, registered trademarks, trade names, service marks and company names mentioned herein are the property of their respective owners.
 
--   InsureRight® Platform is a trademark of Valen® Analytics.
 -   cURL and libcurl are Open Source/Free Software. The cURL license is
     copyrighted by Daniel Stenberg 1996 - 2013, <https://curl.haxx.se/docs/copyright.html>
 
@@ -115,9 +114,11 @@ This guide is not intended to provide or substitute for managerial or legal advi
 
 ##### Publication Date
 
-October 9, 2020
+December 15, 2025
 
 | Revision | Date | Author(s) | Description |
 |----------|------|-----------|-------------|
 |1|10/09/2020|Valen Support|Initial version for Customer Specific OpenAPI 3 documentation for the new API 2/3 json interface|
+|2|12/15/2025|Predict Support|Minor Updates|
+
 
