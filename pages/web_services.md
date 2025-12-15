@@ -647,22 +647,6 @@ Given a valid xml file (see the example request in [Appendix A](#_Appendix_A_-))
 
 `curl –u \[username\]:\[password\]` `-X POST -d @valid-request.xml -H 'Content-Type: application/xml'` `https://insureright.valen.com/solutions/insureright/scoring`
 
-###### Postman
-
-We have a library of sample requests at <https://www.getpostman.com/collections/da164d2bbcfb55623635>
-
-Import the library into Postman, click on the Authorization tab then follow these steps.
-
-1.  Enter the username and password for your Insurity Predict webservices user
-    account
-
-2.  Hit Update Request
-
-3.  Click the “Body” tab
-
-While on the “Body” Tab, enter valid values into the xml (you may need to select the “Raw” radio tab to see the xml).
-
-Hit Send.
 
 ### Appendix F – Testing Insurity Predict Future Dated Releases
 Insurity Predict supports future dated releases in the insureright.valen.com environment.  This allows two different releases to be available at the same time in this production environment. The future date refers to a date and time that the release will automatically become the release available to all users of the customer.
