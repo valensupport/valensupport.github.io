@@ -1,5 +1,5 @@
 ---
-title: Public Documentation for Valen Analytics
+title: Public Documentation for Insurity Predict
 keywords: documents home
 sidebar: nav_sidebar
 permalink: index.html
