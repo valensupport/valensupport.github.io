@@ -9,13 +9,13 @@ summary: A guide for building requests to take advantage of Insurity Predict's b
 
 ## CoreRun Application Overview
 
-The CoreRun Application allows clients to transmit data to Valen for scoring with the Predict predictive analytic models. Data is provided using a pre-defined format, contained in separate delimited files. The Predict CoreRun Application may be accessed using the InsureRight Graphical User Interface (GUI) or directly via API.
+The CoreRun Application allows clients to transmit data to Valen for scoring with the Predict predictive analytic models. Data is provided using a pre-defined format, contained in separate delimited files. The Predict CoreRun Application may be accessed using the Predict Graphical User Interface (GUI) or directly via API.
 
 Once initiated, the CoreRun Application validates the transmission, parses the input data from the delimited flat files, scores the data, and creates the resulting scoring data, which includes scores from each of the models and explains for the predictions in terms of influential data elements.
 
 ##### Audience
 
-This guide is intended for use by developers who wish to integrate batch services. It is assumed the audience will be able to create the required data in the specified format and have been assigned the correct access credentials to process the InsureRight Batch Application
+This guide is intended for use by developers who wish to integrate batch services. It is assumed the audience will be able to create the required data in the specified format and have been assigned the correct access credentials to process the Predict CoreRun Application
 
 ### CoreRun Application Flow
 
@@ -78,7 +78,6 @@ The generalized form looks like this: `https://insureright.valen.com/api/2/batch
 A sample batch request url for a submission to workers compensation would look like this: `https://insureright.valen.com/api/2/batch/insureright/scoring`
 
 A sample batch request url for a contributory submission to workers compensation would look like this: `https://insureright.valen.com/api/2/batch/profile`
-For contributory batch submission, InsureRight will pick the correct solution based on the schema of the supplied data in the zip file.
 
 ##### Request Requirements
 
@@ -239,7 +238,7 @@ The data is presented in comma delimited (`.csv`) format. In order to accomodate
 
 Insurity Predict supports future dated releases in the insureright.valen.com environment.  This allows two different releases to be available at the same time in this production environment. The future date refers to a date and time that the release will automatically become the release available to all users of the customer.
 
-A common use case involves some customer acceptance testing of a release before it becomes available to all end users of the customer. A future dated release is only available via the Web services interface. The User Interface for InsureRight is not capable of accessing a future dated release.
+A common use case involves some customer acceptance testing of a release before it becomes available to all end users of the customer. A future dated release is only available via the Web services interface. The User Interface for Predict is not capable of accessing a future dated release.
 
 To access a future dated release via a web service:
 
