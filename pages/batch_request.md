@@ -9,7 +9,7 @@ summary: A guide for building requests to take advantage of Insurity Predict's b
 
 ## CoreRun Application Overview
 
-The CoreRun Application allows clients to transmit data to Valen for scoring with the Predict predictive analytic models. Data is provided using a pre-defined format, contained in separate delimited files. The Predict Batch Application may be accessed using the InsureRight Graphical User Interface (GUI) or directly via API.
+The CoreRun Application allows clients to transmit data to Valen for scoring with the Predict predictive analytic models. Data is provided using a pre-defined format, contained in separate delimited files. The Predict CoreRun Application may be accessed using the InsureRight Graphical User Interface (GUI) or directly via API.
 
 Once initiated, the CoreRun Application validates the transmission, parses the input data from the delimited flat files, scores the data, and creates the resulting scoring data, which includes scores from each of the models and explains for the predictions in terms of influential data elements.
 
@@ -19,9 +19,9 @@ This guide is intended for use by developers who wish to integrate batch service
 
 ### CoreRun Application Flow
 
-The input data for the Batch Application can be transmitted via the GUI or API, as a compressed “.zip” file format.
+The input data for the CoreRun Application can be transmitted via the GUI or API, as a compressed “.zip” file format.
 
-Each carrier can define their own naming convention according to their system requirements and constraints, provided the format is “.zip”. (See: Batch Application Processing Requirements ). 
+Each carrier can define their own naming convention according to their system requirements and constraints, provided the format is “.zip”. (See: CoreRun Application Processing Requirements ). 
 
 The zip file cannot be password protected. It cannot contain subfolders and should contain one file per relation, see below.
 
@@ -86,7 +86,7 @@ A batch request requires a username and password, a content-type:multipart/form-
 As stated above, the zip file cannot be password protected and cannot contain subdirectories. If they do, the system will return an error. The files contained in the zip must be psv, csv, or tsv format. If they are not, the system will return an error.
 
 ##### Response Structure
-The response will contain a GUID. This is a unique identifier for the submitted batch and can be used to retrieve the batch for scoring. Note that for contributory data, there is no support for retrieving the batch. However, you may login to InsureRight and go to the Batch->Profile->History tab to see the results of a Batch Contributory submission.
+The response will contain a GUID. This is a unique identifier for the submitted batch and can be used to retrieve the batch for scoring. Note that for contributory data, there is no support for retrieving the batch. However, you may login to Predict and go to the CoreRun->Profile->History tab to see the results of a Batch Contributory submission.
 
 ### Batch Workflow
 In order to submit a compressed batch file containing delimited data for scoring, first you must `POST` the file to a web-service endpoint and retrieve a GUID which can the be used to poll for the results.
@@ -130,15 +130,6 @@ A warning: large batches can take quite a while to finish processing.
 
 In order to submit a batch, you must submit an `HTTPS` `POST` to the following endpoint:
  
- Important Note:  The following URL is being depracated.  This will be supported until the existing customer base converts to the new API, which is targetted to be August 1, 2023.
- 
-  `POST`: `multipart-form-data`
-  `https://insureright.valen.com/api/2/batch/[submission]` ( deprecated API)
-      The submission is encoded as part of the path.
- 
-  `POST`: `multipart-form-data`
-  `https://insureright.valen.com/api/2/batch/profile`
- 
       
   Important Note:  For all Contributory Batch submissions, use the following URL syntax supported as of June 15, 2023. Please note the content of the zip file for a data contribution has not changed.
   
@@ -150,15 +141,15 @@ In order to submit a batch, you must submit an `HTTPS` `POST` to the following e
        
    Examples:
   
-      For Workers' Compensation the new URL is:
+      For Workers' Compensation the URL is:
 
           https://insureright.valen.com/api/2/batch/wc/consortium 
 
-      For Commercial Auto the new URL is:
+      For Commercial Auto the URL is:
 
            https://insureright.valen.com/api/2/batch/ca/consortium 
 
-      For General Liability the new URL is: 
+      For General Liability the URL is: 
 
            https://insureright.valen.com/api/2/batch/gl/consortium 
 	   
