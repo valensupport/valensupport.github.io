@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Postman and Testing
-date:   12/15/2025
+date:   2025/12/15
 sidebar: nav_sidebar
 permalink: postman_post.html
 ---
