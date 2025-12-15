@@ -10,7 +10,7 @@ summary: A collection of example integrations with Insurity Predict
 
 Here is a collection of sample integrations for insurity Predict's Web Services. 
 
-### InsureRight (Workers Comp) score submission
+### InsureRight (Workers' Comp) score submission
 
 {:.tests}
 |Test|Request|Expected Response|
