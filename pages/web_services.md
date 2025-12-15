@@ -520,7 +520,7 @@ In the response to a valid submission there is a Score ID.
 3.  Use a standard base64 decoder to translate the response text to binary which can be saved in PDF format. See the python implementations below for more details.
 
 
-##### PWS Predict Report Download Requirements
+##### PWS Predict Pulse Report Download Requirements
 
 Requests to the PWS are designed as RESTful requests. Responses contain the report data in binary format.
 
@@ -585,11 +585,11 @@ for item in id_list:
         fout.write(base64.b64decode(root[0].text))
 ```
 
-### Appendix E – *Predict* Report Download ( Current API recommended for new development )
+### Appendix E – *Predict Pulse* Report Download ( Current API recommended for new development )
 
 It is possible to pull Predict Pulse Reports from the Insurity Predict system and store them locally in PDF format.   A full 1 or 2 page report is available using the 'predict' option, and an abberviated report is available using the 'lite' option using the 'api/3/reports' URL. The 'lite' option is only available for Workers' Compensation and Commercial Auto lines of business. Visit the API documentation located under the Tools option at insureright.valen.com for more examples on using the reports API.
 
-##### PWS Predict Report Download Flow
+##### PWS Predict Pulse Report Download Flow
 
 In the response to a valid submission there is a score_id or score_key.
 
@@ -599,7 +599,7 @@ In the response to a valid submission there is a score_id or score_key.
 
 3.  Use a standard base64 decoder to translate the response text to binary which can be saved in PDF format.
 
-##### PWS Predict Report Download Requirements
+##### PWS Predict Pulse Report Download Requirements
 
 Requests to the PWS are designed as RESTful requests. Responses contain the report data in binary format.
 
@@ -647,7 +647,7 @@ Given a valid xml file (see the example request in [Appendix A](#_Appendix_A_-))
 
 `curl –u \[username\]:\[password\]` `-X POST -d @valid-request.xml -H 'Content-Type: application/xml'` `https://insureright.valen.com/solutions/insureright/scoring`
 
-###### PostmFn
+###### Postman
 
 We have a library of sample requests at <https://www.getpostman.com/collections/da164d2bbcfb55623635>
 
