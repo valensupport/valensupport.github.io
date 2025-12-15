@@ -28,7 +28,7 @@ Here is a collection of sample integrations for insurity Predict's Web Services.
 |Basic Batch Retrieve|`curl -X GET` `--url "https://insureright.valen.com/api/2/batch/ca/scoring/[GUID]"` `-u "[username]":"[password]"`|404 or 200 OK and Zip File|
 
 
-### Workers Comp Claims score submission
+### Workers' Comp Claims score submission
 
 {:.tests}
 |Test|Request|Expected Response|
