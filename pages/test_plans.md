@@ -4,11 +4,11 @@ title: Collected test plans
 permalink: test_plans.html
 sidebar: nav_sidebar
 toc: false
-last_updated: May, 2023
-summary: A collection of example integrations with Valen Analytics
+last_updated: December, 2025
+summary: A collection of example integrations with Insurity Predict
 ---
 
-Here is a collection of sample integrations for Valen's Web Services. 
+Here is a collection of sample integrations for insurity Predict's Web Services. 
 
 ### InsureRight (Workers Comp) score submission
 
@@ -19,7 +19,7 @@ Here is a collection of sample integrations for Valen's Web Services.
 |Retrieve PDF|`curl -X GET -u "[username]":"[password]" -H "accept: application/octet-stream" https://insureright.valen.com/api/2/reports/insureright/scoring/[scoreID]/predict`| 200 OK: PDF contents will be returned in native PDF format|
 
 
-### CA Batch score submission
+### Commercial Auto Batch score submission
 
 {:.tests}
 |Test|Request|Expected Response|
