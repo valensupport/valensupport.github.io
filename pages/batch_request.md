@@ -3,21 +3,21 @@ layout: page
 title: Batch requests
 permalink: batch_request.html
 sidebar: nav_sidebar
-last_updated: July 2017
-summary: A guide for building requests to take advantage of Valen's batch processing APIs
+last_updated: December 2025
+summary: A guide for building requests to take advantage of Insurity Predict's batch processing APIs
 ---
 
-## Batch Application Overview
+## CoreRun Application Overview
 
-The Batch Application allows clients to transmit data to Valen for scoring with the Predict predictive analytic models. Data is provided using a pre-defined format, contained in separate delimited files. The Predict Batch Application may be accessed using the InsureRight Graphical User Interface (GUI) or directly via API.
+The CoreRun Application allows clients to transmit data to Valen for scoring with the Predict predictive analytic models. Data is provided using a pre-defined format, contained in separate delimited files. The Predict Batch Application may be accessed using the InsureRight Graphical User Interface (GUI) or directly via API.
 
-Once initiated, the Batch Application validates the transmission, parses the input data from the delimited flat files, scores the data, and creates the resulting scoring data, which includes scores from each of the models and explains for the predictions in terms of influential data elements.
+Once initiated, the CoreRun Application validates the transmission, parses the input data from the delimited flat files, scores the data, and creates the resulting scoring data, which includes scores from each of the models and explains for the predictions in terms of influential data elements.
 
 ##### Audience
 
 This guide is intended for use by developers who wish to integrate batch services. It is assumed the audience will be able to create the required data in the specified format and have been assigned the correct access credentials to process the InsureRight Batch Application
 
-### Batch Application Flow
+### CoreRun Application Flow
 
 The input data for the Batch Application can be transmitted via the GUI or API, as a compressed “.zip” file format.
 
@@ -246,7 +246,7 @@ The data is presented in comma delimited (`.csv`) format. In order to accomodate
 
 ### Appendix A – Testing Valen Future Dated Releases using Batch Scoring
 
-Valen supports future dated releases in the insureright.valen.com environment.  This allows two different releases to be available at the same time in this production environment. The future date refers to a date and time that the release will automatically become the release available to all users of the customer.
+Insurity Predict supports future dated releases in the insureright.valen.com environment.  This allows two different releases to be available at the same time in this production environment. The future date refers to a date and time that the release will automatically become the release available to all users of the customer.
 
 A common use case involves some customer acceptance testing of a release before it becomes available to all end users of the customer. A future dated release is only available via the Web services interface. The User Interface for InsureRight is not capable of accessing a future dated release.
 
@@ -260,4 +260,4 @@ To access the current active release available to all users:
 	
 All of the URL's referenced in this document can take the optional parameter of solutionVersion. If you are testing a future dated release, it is a best practive to authenticate with a test user so any scores created are not considered production scores.
 	
-Your Valen customer engagement manager will provide the version to use, as well as inform you of the date a future dated release will become active for all of your users.
+Your Insurity Predict customer engagement manager will provide the version to use, as well as inform you of the date a future dated release will become active for all of your users.
