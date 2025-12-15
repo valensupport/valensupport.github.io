@@ -11,7 +11,7 @@ toc: false
 
 [Batch Submission Guide](batch_request.html)
 
-[Valen Test Plan](test_plans.html)
+[Insurity Predict Test Plan](test_plans.html)
 
 [OpenAPI 3 Definitions for Customer Specific API: For existing customers using xml based interfaces](customer_specific_apis.html)
 
