@@ -504,7 +504,7 @@ Refer to [OpenAPI 3 Definitions for Customer Specific API](customer_specific_api
 
 
 
-### Appendix D – *Predict* Report Download ( Legacy API, see Appendix E for the current API )
+### Appendix D – *Predict Pulse* Report Download ( Legacy API, see Appendix E for the current API )
 
 It is possible to pull Predict Pulse Reports from the Insurity Predict system and store them locally in PDF format.
 
