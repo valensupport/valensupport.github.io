@@ -1,23 +1,23 @@
 ---
 layout: page
-title: InsureRight® Predict Web Services
+title: Insurity Predict Web Services
 permalink: web_services.html
 sidebar: nav_sidebar
-last_updated: November, 2016
-summary: The webservices guide for making scoring requests to the 3.0 platform.
+last_updated: December, 2025
+summary: The webservices guide for making scoring requests to the Insurity Predict platform.
 ---
 
-# Valen WebServices Implementation Guide
+# Insurity WebServices Implementation Guide
 
-### Integrating webservices for Predict on InsureRight® Platform 3.0
+### Integrating webservices for Predict on Insurity Predict Platform
 
-The InsureRight® Predict Web Service (PWS) allows clients to send input data, in the form of a prediction request, to the InsureRight platform for scoring with Valen’s models. Once received, the system validates the XML and data content of the transmission, scores the data, then returns a prediction response.
+The Insurity Predict Web Service (PWS) allows clients to send input data, in the form of a prediction request, to the Insurity Predict platform for scoring with Insurity Predict’s models. Once received, the system validates the XML and data content of the transmission, scores the data, then returns a prediction response.
 
-In addition to the score results, the system also returns information to explain the predictions in terms of influential data elements. Optionally, Valen can incorporate custom business rules to provide support for automated decision making based on the prediction results.
+In addition to the score results, the system also returns information to explain the predictions in terms of influential data elements. Optionally, Insurity Predict can incorporate custom business rules to provide support for automated decision making based on the prediction results.
 
 ##### Audience
 
-This guide is intended for use by developers who are building web-enabled applications that will use the PWS to invoke an application to score a set of input data. To use the PWS, clients are required to have a valid  account with Valen. Please contact <support@valen.com> to ensure that access is properly configured.
+This guide is intended for use by developers who are building web-enabled applications that will use the PWS to invoke an application to score a set of input data. To use the PWS, clients are required to have a valid account with Insurity Predict. Please contact <support@valen.com> to ensure that access is properly configured.
 
 ##### Required Knowledge and Skills
 
@@ -41,7 +41,7 @@ Submitting data that is invalid or improperly formatted will return an error mes
 #### Application Processing Requirements
 Requests to the PWS are designed as RESTful requests. Responses are provided for all models supported, i.e.*,* risk, misclassification and premium impact. The user cannot select independent models to be scored and or partial responses to be returned.
 
-Web service requests are submitted as a POST request to the following URI in the Valen Domain:
+Web service requests are submitted as a POST request to the following URI in the Insurity Domain:
 
 `[server]/solutions/[solution]/[submission]`
 
@@ -49,7 +49,7 @@ For example:
 `https://insureright.valen.com/solutions/insureright/scoring` - _a submission for workers compensation_
 `https://insureright.valen.com/solutions/ca/scoring` - _a submission for commercial auto_
 
-In the first example the **solution** is InsureRight. A number of different types of submissions may be made to the InsureRight solution, but in this case we are making a **scoring** submission, which will score the inputs against all InsureRight Predict models.
+In the first example the **solution** is InsureRight, which is our workers' compensation. In this case we are making a **scoring** submission, which will score the inputs against all Workers' Compensation Predict models.
 
 #### Request Contents
 
@@ -58,7 +58,7 @@ Two headers are required for successful request.
 -   Content-Type – this can be either application/xml or text/xml
 -   Authorization – username and password
 
-The body of the request must conform to the standards defined in the Data Dictionary available in the Batch->Prepare page of your Valen account . This section describes the input data names, types, and constraints. The *Field Name* is used as a unique identifier when sending input data.
+The body of the request must conform to the standards defined in the Data Dictionary available in the Batch->Prepare page of your Insurity Predict account . This section describes the input data names, types, and constraints. The *Field Name* is used as a unique identifier when sending input data.
 
 If the XML is a well-formed, UTF-8 request, the request will be validated.
 
@@ -88,7 +88,7 @@ Authorization: username/password in base64
 
 The PWS Application requires data for each required relation inside an **inputs** node. For example, in Workers Compensation, we look for Insured and Class information. In order to handle multiple classes, the class information is nested inside the **input_child** node. A full example is provided in [Appendix A](#appendixA). More information about the fields is provided in the Data Dictionary available in the Batch->Prepare page of your Valen account. The basic layout for Request and Response packets is this:
 
-##### InsureRight Request Requirements
+##### Insurity Predict Request Requirements
 ```xml
 <inputs level="insured">
 	<inputChildren level="class">
@@ -114,7 +114,7 @@ The PWS Application requires data for each required relation inside an **inputs*
 
 ##### Predict RESTful Request Example: 
 
-The following example describes a valid Valen® PWS request.
+The following example describes a valid Insurity Predict PWS request.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -292,7 +292,7 @@ If the request is well-formed, the input values can be converted to the required
 		<reportData level="insured">
 			
 			**** Note that Class Code Comparison corresponds to the section of the 
-			**** InsureRight Predict report labeled "Companion Class Results"
+			**** Insurity Predict Pulse report labeled "Companion Class Results"
 			
 			<classCodeComparison xmlns="http://www.valentech.com/2013/11/prediction/comparison">
 				<class type="governing" sortOrder="0">
@@ -354,7 +354,7 @@ If the request is well-formed, the input values can be converted to the required
 			</classCodeComparison>
 			
 			**** Note that governingClassSwapResults corresponds to the section of the 
-			**** InsureRight Predict report labeled "Governing Class Swap Results"
+			**** Insurity Predict Pulse report labeled "Governing Class Swap Results"
 			<governingClassSwapResults xmlns="http://www.valentech.com/2013/11/prediction/swap">
 				<class type="governing" sortOrder="0">
 					<agencyCode>NCCI</agencyCode>
@@ -506,7 +506,7 @@ Refer to [OpenAPI 3 Definitions for Customer Specific API](customer_specific_api
 
 ### Appendix D – *Predict* Report Download ( Legacy API, see Appendix E for the current API )
 
-It is possible to pull Predict Reports from the InsureRight system and store them locally in PDF format.
+It is possible to pull Predict Pulse Reports from the Insurity Predict system and store them locally in PDF format.
 
 ##### PWS Predict Report Download Flow
 
@@ -532,7 +532,7 @@ For example:
 
 `https://insureright.valen.com/solutions/insureright/scoring/12345?format=pdf`
 
-In this example the **solution** is InsureRight. A number of different types of submissions may be made to the InsureRight solution, but in this case we are making a **scoring** submission, which requires the ‘reportID’ or ‘scoreID’ be sent to the production system.
+In the first example the **solution** is InsureRight, which is our workers' compensation. In this case we are making a Predict Pulse report retrieval submission, which requires the ‘reportID’ or ‘scoreID’ be sent to the production system.
 
 ##### Request Data
 
@@ -587,7 +587,7 @@ for item in id_list:
 
 ### Appendix E – *Predict* Report Download ( Current API recommended for new development )
 
-It is possible to pull Predict Reports from the InsureRight system and store them locally in PDF format.   A full 1 or 2 page report is available using the 'predict' option, and an abberviated report is available using the 'lite' option using the 'api/3/reports' URL. The 'lite' option is only available for Workers' Compensation and Commercial Auto lines of business. Visit the API documentation located under the Tools option at insureright.valen.com for more examples on using the reports API.
+It is possible to pull Predict Pulse Reports from the Insurity Predict system and store them locally in PDF format.   A full 1 or 2 page report is available using the 'predict' option, and an abberviated report is available using the 'lite' option using the 'api/3/reports' URL. The 'lite' option is only available for Workers' Compensation and Commercial Auto lines of business. Visit the API documentation located under the Tools option at insureright.valen.com for more examples on using the reports API.
 
 ##### PWS Predict Report Download Flow
 
@@ -612,7 +612,8 @@ For example:
 
 `https://insureright.valen.com/api/2/reports/insureright/scoring/12345/predict`
 
-In this example the **solution** is InsureRight. A number of different types of submissions may be made to the InsureRight solution, but in this case we are making a **scoring** submission, which requires the ‘score_id’ be sent to the production system.
+In this example the **solution** is InsureRight, which is our workers' compensation. In this case we are making a Predict Pulse report retrieval submission, which requires the ‘scoreID’ or ‘score_key’ be sent to the production system.
+
 
 ##### Request Data
 
@@ -652,7 +653,7 @@ We have a library of sample requests at <https://www.getpostman.com/collections/
 
 Import the library into Postman, click on the Authorization tab then follow these steps.
 
-1.  Enter the username and password for your Valen webservices user
+1.  Enter the username and password for your Insurity Predict webservices user
     account
 
 2.  Hit Update Request
@@ -663,11 +664,10 @@ While on the “Body” Tab, enter valid values into the xml (you may need to se
 
 Hit Send.
 
-### Appendix F – Testing Valen Future Dated Releases
+### Appendix F – Testing Insurity Predict Future Dated Releases
+Insurity Predict supports future dated releases in the insureright.valen.com environment.  This allows two different releases to be available at the same time in this production environment. The future date refers to a date and time that the release will automatically become the release available to all users of the customer.
 
-Valen supports future dated releases in the insureright.valen.com environment.  This allows two different releases to be available at the same time in this production environment. The future date refers to a date and time that the release will automatically become the release available to all users of the customer.
-
-A common use case involves some customer acceptance testing of a release before it becomes available to all end users of the customer. A future dated release is only available via the Web services interface. The User Interface for InsureRight is not capable of accessing a future dated release.
+A common use case involves some customer acceptance testing of a release before it becomes available to all end users of the customer. A future dated release is only available via the Web services interface. The User Interface for Insurity Predict is not capable of accessing a future dated release.
 
 To access a future dated release via a web service:
 
@@ -683,9 +683,9 @@ Your Valen customer engagement manager will provide the version to use, as well 
 
 ### Appendix G - Disclaimers
 
-InsureRight® Platform Predict Web Service Implementation Guide – Valen® Analytics, February 2015
+Insurity Predict Platform Predict Web Service Implementation Guide, December 2025
 
-All rights reserved. The copyright and trade secret laws of the United States and other countries protect this material. No part of this material or software covered by the copyrights herein may be reproduced, distributed or altered in any fashion without prior contractual or written consent of Valen® Analytics. Content is subject to change without notification.
+All rights reserved. The copyright and trade secret laws of the United States and other countries protect this material. No part of this material or software covered by the copyrights herein may be reproduced, distributed or altered in any fashion without prior contractual or written consent of Insurity Predict. Content is subject to change without notification.
 
 ##### Accuracy
 
@@ -695,7 +695,6 @@ Every effort was made to ensure the material contained in this document was comp
 
 All products, trademarks, registered trademarks, trade names, service marks and company names mentioned herein are the property of their respective owners.
 
--   InsureRight® Platform is a trademark of Valen® Analytics.
 -   Linux® is the registered trademark of Linus Torvalds in the U.S. and other countries.
 -   Microsoft®, Windows is a registered trademark of Microsoft
     Corporation in the United States and/or other countries.
@@ -720,4 +719,5 @@ November 13, 2018
 |1.3|11/14/2016|Valen Support|Converted to web document|
 |1.4|7/7/2017|Valen Support|Updated the sample responses|
 |1.5|11/13/2018|Valen Support|Added WC Claims and Future Dated Releases|
-|1.6|6/16/2020|Valen Support|Referring to OpenAPI 3 online docs for current https status codes|
+|1.7|12/15/2025|insurity Support|Minor Updates|
+
