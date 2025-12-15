@@ -122,5 +122,5 @@ December 15, 2025
 | Revision | Date | Author(s) | Description |
 |----------|------|-----------|-------------|
 |1|04/07/2020|Valen Support|Initial version for Customer Specific OpenAPI 3 documentation|
-|2|12/15/2050|Predict Support|Minor updates|
+|2|12/15/2025|Predict Support|Minor updates|
 
