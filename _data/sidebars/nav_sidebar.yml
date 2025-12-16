@@ -22,9 +22,6 @@ entries:
     output: web
     type: frontmatter
     folderitems:
-    - title: Valen
-      url: https://www.insurity.com/solutions/insurity-data-analytics-solutions/valen-solutions/
-      output: web
     - title: Support Blog
       url: /blog
       output: web
