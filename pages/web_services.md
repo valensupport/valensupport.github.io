@@ -7,7 +7,7 @@ last_updated: December, 2025
 summary: The webservices guide for making scoring requests to the Insurity Predict platform.
 ---
 
-# Insurity WebServices Implementation Guide
+# Insurity Predict WebServices Implementation Guide
 
 ### Integrating webservices for Predict on Insurity Predict Platform
 
@@ -23,7 +23,7 @@ This guide is intended for use by developers who are building web-enabled applic
 
 Use of this guide assumes you are familiar with the following:
 
--   XML
+-   JSON or XML
 -   Basic understanding of Web Services
 -   Representational State Transfer (RESTful) architecture
 -   A programming language for consuming a web service and any related
@@ -46,7 +46,7 @@ Web service requests are submitted as a POST request to the following URI in the
 `[server]/solutions/[solution]/[submission]`
 
 For example:
-`https://insureright.valen.com/solutions/insureright/scoring` - _a submission for workers compensation_
+`https://insureright.valen.com/solutions/insureright/scoring` - _a submission for workers' compensation_
 `https://insureright.valen.com/solutions/ca/scoring` - _a submission for commercial auto_
 
 In the first example the **solution** is InsureRight, which is our workers' compensation model. In this case we are making a **scoring** submission, which will score the inputs against all Workers' Compensation Predict models.
@@ -508,7 +508,7 @@ Refer to [OpenAPI 3 Definitions for Customer Specific API](customer_specific_api
 
 It is possible to pull Predict Pulse Reports from the Insurity Predict system and store them locally in PDF format.
 
-##### PWS Predict Report Download Flow
+##### PWS Predict Pulse Report Download Flow
 
 In the response to a valid submission there is a Score ID.
 
