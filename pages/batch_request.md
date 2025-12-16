@@ -9,7 +9,7 @@ summary: A guide for building requests to take advantage of Insurity Predict's b
 
 ## CoreRun Application Overview
 
-The CoreRun Application allows clients to transmit data to Valen for scoring with the Predict predictive analytic models. Data is provided using a pre-defined format, contained in separate delimited files. The Predict CoreRun Application may be accessed using the Predict Graphical User Interface (GUI) or directly via API.
+The CoreRun Application allows clients to transmit data to Insurity Predict for scoring with the Predict predictive analytic models. Data is provided using a pre-defined format, contained in separate delimited files. The Predict CoreRun Application may be accessed using the Predict Graphical User Interface (GUI) or directly via API.
 
 Once initiated, the CoreRun Application validates the transmission, parses the input data from the delimited flat files, scores the data, and creates the resulting scoring data, which includes scores from each of the models and explains for the predictions in terms of influential data elements.
 
@@ -196,7 +196,7 @@ An example of Workers Compensation files can found above. Here are other samples
 
 The data is presented in comma delimited (`.csv`) format. In order to accomodate commas in the address or insured name, values may be surrounded by double quotes. It is also possible to avoid this by using pipes or tabs to separate the values. The files in this case would be `insured.csv` and `class.csv`. Again, this data can be used as valid test data.
 
-**NOTE**: _It is possible to escape characters within the delimeters with quotation marks. An insured name with commas inside a csv might look like this: `datavalue1, "insured name, containing commas", datavalue2`. This would resolve correctly in the Valen system._
+**NOTE**: _It is possible to escape characters within the delimeters with quotation marks. An insured name with commas inside a csv might look like this: `datavalue1, "insured name, containing commas", datavalue2`. This would resolve correctly in the Insurity Predict system._
 
 ##### Insured
 
@@ -234,7 +234,7 @@ The data is presented in comma delimited (`.csv`) format. In order to accomodate
 >20140007263,12345,6/6/14,Bob,WC - Med Only,M1,Columbia,MO,2003444,M,70,175,55,0066,Burn,V72.81,9600,working by stove,N,Y, N, Y,Y,N,21345,200,200,0
 
 
-### Appendix A – Testing Valen Future Dated Releases using Batch Scoring
+### Appendix A – Testing Insurity Predict Future Dated Releases using Batch Scoring
 
 Insurity Predict supports future dated releases in the insureright.valen.com environment.  This allows two different releases to be available at the same time in this production environment. The future date refers to a date and time that the release will automatically become the release available to all users of the customer.
 
