@@ -17,11 +17,3 @@ entries:
       url: /test_plans.html
       output: web
       type: frontmatter
-
-  - title: Valen Links
-    output: web
-    type: frontmatter
-    folderitems:
-    - title: Support Blog
-      url: /blog
-      output: web
