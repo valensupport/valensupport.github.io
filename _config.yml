@@ -2,13 +2,13 @@
 output: web
 # this property is useful for conditional filtering of content that is separate from the PDF.
 
-topnav_title: Valen Support
+topnav_title: Insurity Predict Support
 # this appears on the top navigation bar next to the home button
 
-site_title: Valen Analytics Documentation
+site_title: Insurity Predict Documentation
 # this appears in the html browser tab for the site title (seen mostly by search engines, not users)
 
-company_name: Valen Analytics
+company_name: Insurity Predict
 # this appears in the footer
 
 host: 127.0.0.1
@@ -28,7 +28,7 @@ exclude:
 github_username: valensupport
 twitter_username: ValenAnalytics
 
-support_subject_line: Request for Valen Support
+support_subject_line: Request for Insurity Predict Support
 
 support_email: support@valen.com
 # used as a contact email for the Feedback link in the top navigation bar

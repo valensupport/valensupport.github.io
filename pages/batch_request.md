@@ -3,25 +3,25 @@ layout: page
 title: Batch requests
 permalink: batch_request.html
 sidebar: nav_sidebar
-last_updated: July 2017
-summary: A guide for building requests to take advantage of Valen's batch processing APIs
+last_updated: December 2025
+summary: A guide for building requests to take advantage of Insurity Predict's batch processing APIs
 ---
 
-## Batch Application Overview
+## CoreRun Application Overview
 
-The Batch Application allows clients to transmit data to Valen for scoring with the Predict predictive analytic models. Data is provided using a pre-defined format, contained in separate delimited files. The Predict Batch Application may be accessed using the InsureRight Graphical User Interface (GUI) or directly via API.
+The CoreRun Application allows clients to transmit data to Insurity Predict for scoring with the Predict predictive analytic models. Data is provided using a pre-defined format, contained in separate delimited files. The Predict CoreRun Application may be accessed using the Predict Graphical User Interface (GUI) or directly via API.
 
-Once initiated, the Batch Application validates the transmission, parses the input data from the delimited flat files, scores the data, and creates the resulting scoring data, which includes scores from each of the models and explains for the predictions in terms of influential data elements.
+Once initiated, the CoreRun Application validates the transmission, parses the input data from the delimited flat files, scores the data, and creates the resulting scoring data, which includes scores from each of the models and explains for the predictions in terms of influential data elements.
 
 ##### Audience
 
-This guide is intended for use by developers who wish to integrate batch services. It is assumed the audience will be able to create the required data in the specified format and have been assigned the correct access credentials to process the InsureRight Batch Application
+This guide is intended for use by developers who wish to integrate batch services. It is assumed the audience will be able to create the required data in the specified format and have been assigned the correct access credentials to process the Predict CoreRun Application
 
-### Batch Application Flow
+### CoreRun Application Flow
 
-The input data for the Batch Application can be transmitted via the GUI or API, as a compressed “.zip” file format.
+The input data for the CoreRun Application can be transmitted via the GUI or API, as a compressed “.zip” file format.
 
-Each carrier can define their own naming convention according to their system requirements and constraints, provided the format is “.zip”. (See: Batch Application Processing Requirements ). 
+Each carrier can define their own naming convention according to their system requirements and constraints, provided the format is “.zip”. (See: CoreRun Application Processing Requirements ). 
 
 The zip file cannot be password protected. It cannot contain subfolders and should contain one file per relation, see below.
 
@@ -78,7 +78,6 @@ The generalized form looks like this: `https://insureright.valen.com/api/2/batch
 A sample batch request url for a submission to workers compensation would look like this: `https://insureright.valen.com/api/2/batch/insureright/scoring`
 
 A sample batch request url for a contributory submission to workers compensation would look like this: `https://insureright.valen.com/api/2/batch/profile`
-For contributory batch submission, InsureRight will pick the correct solution based on the schema of the supplied data in the zip file.
 
 ##### Request Requirements
 
@@ -86,7 +85,7 @@ A batch request requires a username and password, a content-type:multipart/form-
 As stated above, the zip file cannot be password protected and cannot contain subdirectories. If they do, the system will return an error. The files contained in the zip must be psv, csv, or tsv format. If they are not, the system will return an error.
 
 ##### Response Structure
-The response will contain a GUID. This is a unique identifier for the submitted batch and can be used to retrieve the batch for scoring. Note that for contributory data, there is no support for retrieving the batch. However, you may login to InsureRight and go to the Batch->Profile->History tab to see the results of a Batch Contributory submission.
+The response will contain a GUID. This is a unique identifier for the submitted batch and can be used to retrieve the batch for scoring. Note that for contributory data, there is no support for retrieving the batch. However, you may login to Predict and go to the CoreRun->Profile->History tab to see the results of a Batch Contributory submission.
 
 ### Batch Workflow
 In order to submit a compressed batch file containing delimited data for scoring, first you must `POST` the file to a web-service endpoint and retrieve a GUID which can the be used to poll for the results.
@@ -127,16 +126,34 @@ A warning: large batches can take quite a while to finish processing.
 ### Contributory Batch Submission
 
 
+
 In order to submit a batch, you must submit an `HTTPS` `POST` to the following endpoint:
  
-  `POST`: `multipart-form-data`
-  `https://insureright.valen.com/api/2/batch/[submission]`
+      
+  Important Note:  For all Contributory Batch submissions, use the following URL syntax supported as of June 15, 2023. Please note the content of the zip file for a data contribution has not changed.
+  
+  `https://insureright.valen.com/api/2/batch/[LineOfBusiness]/consortium` 
+       Supported LineOfBusiness:
+       "wc":   Workers' Compensation
+       "ca":   Commercial Auto
+       "gl":   General Liability
+       
+   Examples:
+  
+      For Workers' Compensation the URL is:
 
-The submission is encoded as part of the path.
+          https://insureright.valen.com/api/2/batch/wc/consortium 
 
-  `POST`: `multipart-form-data`
-  `https://insureright.valen.com/api/2/batch/profile`
- 
+      For Commercial Auto the URL is:
+
+           https://insureright.valen.com/api/2/batch/ca/consortium 
+
+      For General Liability the URL is: 
+
+           https://insureright.valen.com/api/2/batch/gl/consortium 
+	   
+
+
 The content type of the body must be `multipart/form-data` where one part has the name `batch-file`. If there is no such part, or if the `content-type` of the scoring request is not `multipart-form-data` the request will fail with a status code `400`.
 
 If the request is successful, a GUID will be returned in the response. This GUID is used as the batch-key but at this point in time*cannot* be used to get the status of the batch job.
@@ -179,7 +196,7 @@ An example of Workers Compensation files can found above. Here are other samples
 
 The data is presented in comma delimited (`.csv`) format. In order to accomodate commas in the address or insured name, values may be surrounded by double quotes. It is also possible to avoid this by using pipes or tabs to separate the values. The files in this case would be `insured.csv` and `class.csv`. Again, this data can be used as valid test data.
 
-**NOTE**: _It is possible to escape characters within the delimeters with quotation marks. An insured name with commas inside a csv might look like this: `datavalue1, "insured name, containing commas", datavalue2`. This would resolve correctly in the Valen system._
+**NOTE**: _It is possible to escape characters within the delimeters with quotation marks. An insured name with commas inside a csv might look like this: `datavalue1, "insured name, containing commas", datavalue2`. This would resolve correctly in the Insurity Predict system._
 
 ##### Insured
 
@@ -217,11 +234,11 @@ The data is presented in comma delimited (`.csv`) format. In order to accomodate
 >20140007263,12345,6/6/14,Bob,WC - Med Only,M1,Columbia,MO,2003444,M,70,175,55,0066,Burn,V72.81,9600,working by stove,N,Y, N, Y,Y,N,21345,200,200,0
 
 
-### Appendix A – Testing Valen Future Dated Releases using Batch Scoring
+### Appendix A – Testing Insurity Predict Future Dated Releases using Batch Scoring
 
-Valen supports future dated releases in the insureright.valen.com environment.  This allows two different releases to be available at the same time in this production environment. The future date refers to a date and time that the release will automatically become the release available to all users of the customer.
+Insurity Predict supports future dated releases in the insureright.valen.com environment.  This allows two different releases to be available at the same time in this production environment. The future date refers to a date and time that the release will automatically become the release available to all users of the customer.
 
-A common use case involves some customer acceptance testing of a release before it becomes available to all end users of the customer. A future dated release is only available via the Web services interface. The User Interface for InsureRight is not capable of accessing a future dated release.
+A common use case involves some customer acceptance testing of a release before it becomes available to all end users of the customer. A future dated release is only available via the Web services interface. The User Interface for Predict is not capable of accessing a future dated release.
 
 To access a future dated release via a web service:
 
@@ -233,4 +250,4 @@ To access the current active release available to all users:
 	
 All of the URL's referenced in this document can take the optional parameter of solutionVersion. If you are testing a future dated release, it is a best practive to authenticate with a test user so any scores created are not considered production scores.
 	
-Your Valen customer engagement manager will provide the version to use, as well as inform you of the date a future dated release will become active for all of your users.
+Your Insurity Predict customer engagement manager will provide the version to use, as well as inform you of the date a future dated release will become active for all of your users.

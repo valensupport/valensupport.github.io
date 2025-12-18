@@ -1,5 +1,5 @@
 ---
-title: Valen's Support Blog
+title: Insurity Predict's Support Blog
 keywords: Support Blog
 sidebar: home_sidebar
 permalink: blog.html

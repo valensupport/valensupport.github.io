@@ -1,22 +1,22 @@
 ---
 layout: page
-title: InsureRight® Predict Web Services
+title: Insurity Predict Web Services
 permalink: webservices_guide.html
 sidebar: mydoc_sidebar
-last_updated: December, 2016
-summary: Intro to Valen Webservices integration
+last_updated: December, 2025
+summary: Intro to Insurity Predict Webservices integration
 ---
 
-# Valen WebServices Implementation Guide
+# Insurity Predict WebServices Implementation Guide
 
-### Integrating webservices for Predict on InsureRight® Platform 3.0
+### Integrating webservices for Insurity Predict using the Predict Platform
 
-The InsureRight® Predict Web Service (PWS) allows clients to
-send input data, in the form of a prediction request, to the InsureRight platform for scoring with Valen’s models. Once received, the system validates the XML and data content of the transmission, scores the data, then returns a prediction response.
+The Predict Web Service (PWS) allows clients to
+send input data, in the form of a prediction request, to the Predict platform for scoring with Insurity Predict’s models. Once received, the system validates the XML and data content of the transmission, scores the data, then returns a prediction response.
 
 In addition to the score results the system also returns information to
 explain the predictions in terms of influential data elements and,
-optionally, Valen can incorporate custom business rules to provide
+optionally, Insurity can incorporate custom business rules to provide
 support for automated decision making based on the prediction results.
 
 ##### Audience
@@ -31,7 +31,7 @@ that access is properly configured.
 
 Use of this guide assumes you are familiar with the following:
 
--   XML
+-   XML or JSON
 -   Basic understanding of Web Services
 -   Representational State Transfer (RESTful) architecture
 -   A programming language for consuming a web service and any related
@@ -39,7 +39,7 @@ Use of this guide assumes you are familiar with the following:
 
 ### Web Services Application 
 
-Valen's web services address interoperability concerns by giving clients a way to easily send their data to the InsureRight production system and receive
+Predict's web services address interoperability concerns by giving clients a way to easily send their data to the InsureRight production system and receive
 scores and predictions generated using their data via HTTP.
 
 #### Web Services Application Flow
@@ -69,7 +69,7 @@ For example:
 `https://insureright.valen.com/solutions/ca/scoring`
 `https://insureright.valentech.com/solutions/batch/5/profile`
 
-In the first example the **solution** is InsureRight, our workers compensation product. A number of different
+In the first example the **solution** is InsureRight, our workers' compensation product. A number of different
 types of submissions may be made to the InsureRight solution, but in this case we are making a **scoring** submission, which will score the inputs against all InsureRight Predict models.
 
 The second example is similar in that it's a scoring request, but the **solution** is our Commercial Auto product.
@@ -352,7 +352,7 @@ We have a libraries of sample requests that can be found under the different sol
 Import the library into Postman, click on the Authorization tab then
 follow these steps.
 
-1.  Enter the username and password for your Valen webservices user
+1.  Enter the username and password for your Insurity Predict webservices user
     account
 
 2.  Hit Update Request
@@ -366,10 +366,9 @@ Hit Send.
 
 ### Appendix B - Disclaimers and Legalese
 
-InsureRight® Platform Predict Web Service Implementation Guide – Valen®
-Analytics, February 2015
+Insurity Predict Web Service Implementation Guide February 2025
 
-All rights reserved. The copyright and trade secret laws of the United States and other countries protect this material. No part of this material or software covered by the copyrights herein may be reproduced, distributed or altered in any fashion without prior contractual or written consent of Valen® Analytics. Content is subject to change without notification.
+All rights reserved. The copyright and trade secret laws of the United States and other countries protect this material. No part of this material or software covered by the copyrights herein may be reproduced, distributed or altered in any fashion without prior contractual or written consent of Insurity. Content is subject to change without notification.
 
 ##### Accuracy
 
@@ -383,7 +382,6 @@ All products, trademarks, registered trademarks, trade names, service
 marks and company names mentioned herein are the property of their
 respective owners.
 
--   InsureRight® Platform is a trademark of Valen® Analytics.
 -   Linux® is the registered trademark of Linus Torvalds in the U.S. and other countries.
 -   Microsoft®, Windows is a registered trademark of Microsoft
     Corporation in the United States and/or other countries.
