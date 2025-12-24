@@ -46,8 +46,8 @@ Web service requests are submitted as a POST request to the following URI in the
 `[server]/solutions/[solution]/[submission]`
 
 For example:
-`https://insureright.valen.com/solutions/insureright/scoring` - _a submission for workers' compensation_
-`https://insureright.valen.com/solutions/ca/scoring` - _a submission for commercial auto_
+`https://predict.insurity.com/solutions/insureright/scoring` - _a submission for workers' compensation_
+`https://predict.insurity.com/solutions/ca/scoring` - _a submission for commercial auto_
 
 In the first example the **solution** is InsureRight, which is our workers' compensation model. In this case we are making a **scoring** submission, which will score the inputs against all Workers' Compensation Predict models.
 
@@ -78,7 +78,7 @@ A list of responses to common errors. Detailed information about the response me
 
 PWS Requests are **POST** requests to the URL constructed above.
 
-The URL example as a reminder - `https://insureright.valen.com/solutions/insureright/scoring`
+The URL example as a reminder - `https://predict.insurity.com/solutions/insureright/scoring`
 
 Two headers are required:
 ```http
@@ -530,7 +530,7 @@ Web service requests are submitted as an HTTP GET to the following URL:
 
 For example:
 
-`https://insureright.valen.com/solutions/insureright/scoring/12345?format=pdf`
+`https://predict.insurity.com/solutions/insureright/scoring/12345?format=pdf`
 
 In the first example the **solution** is InsureRight, which is our workers' compensation model. In this case we are making a Predict Pulse report retrieval submission, which requires the ‘reportID’ or ‘scoreID’ be sent to the production system.
 
@@ -540,7 +540,7 @@ The PWS request must conform to the following standards:
 
 Method = GET
 
-Endpoint = `<https://insureright.valen.com>`
+Endpoint = `<https://predict.insurity.com>`
 
 Resource = /solutions/insureright/scoring/{scoreID}
 
@@ -571,7 +571,7 @@ pwd = sys.argv[2]
 id_list = sys.argv[3:]
 
 for item in id_list:
-    req_url = 'https://insureright.valen.com/solutions/insureright/scoring/%s?format=pdf' % item
+    req_url = 'https://predict.insurity.com/solutions/insureright/scoring/%s?format=pdf' % item
     filename = "retrieved_%s.pdf" % item
 
     r = requests.get(req_url, auth=(user, pwd))
@@ -587,7 +587,7 @@ for item in id_list:
 
 ### Appendix E – *Predict Pulse* Report Download ( Current API recommended for new development )
 
-It is possible to pull Predict Pulse Reports from the Insurity Predict system and store them locally in PDF format.   A full 1 or 2 page report is available using the 'predict' option, and an abberviated report is available using the 'lite' option using the 'api/3/reports' URL. The 'lite' option is only available for Workers' Compensation and Commercial Auto lines of business. Visit the API documentation located under the Tools option at insureright.valen.com for more examples on using the reports API.
+It is possible to pull Predict Pulse Reports from the Insurity Predict system and store them locally in PDF format.   A full 1 or 2 page report is available using the 'predict' option, and an abberviated report is available using the 'lite' option using the 'api/3/reports' URL. The 'lite' option is only available for Workers' Compensation and Commercial Auto lines of business. Visit the API documentation located under the Tools option at predict.insurity.com for more examples on using the reports API.
 
 ##### PWS Predict Pulse Report Download Flow
 
@@ -610,7 +610,7 @@ Web service requests are submitted as an HTTP GET to the following URL:
 
 For example:
 
-`https://insureright.valen.com/api/2/reports/insureright/scoring/12345/predict`
+`https://predict.insurity.com/api/2/reports/insureright/scoring/12345/predict`
 
 In this example the **solution** is InsureRight, which is our workers' compensation model. In this case we are making a Predict Pulse report retrieval submission, which requires the ‘scoreID’ or ‘score_key’ be sent to the production system.
 
@@ -621,7 +621,7 @@ The PWS request must conform to the following standards:
 
 Method = GET
 
-Endpoint = `<https://insureright.valen.com>`
+Endpoint = `<https://predict.insurity.com>`
 
 Resources = `/solutions/insureright/scoring/{score_id}/lite` OR
             `/solutions/insureright/scoring/{score_key}/predict`
@@ -645,21 +645,21 @@ Postman is an app for Chrome or Mac and can be found at <https://www.getpostman.
 
 Given a valid xml file (see the example request in [Appendix A](#_Appendix_A_-)), this is a sample request.
 
-`curl –u \[username\]:\[password\]` `-X POST -d @valid-request.xml -H 'Content-Type: application/xml'` `https://insureright.valen.com/solutions/insureright/scoring`
+`curl –u \[username\]:\[password\]` `-X POST -d @valid-request.xml -H 'Content-Type: application/xml'` `https://predict.insurity.com/solutions/insureright/scoring`
 
 
 ### Appendix F – Testing Insurity Predict Future Dated Releases
-Insurity Predict supports future dated releases in the insureright.valen.com environment.  This allows two different releases to be available at the same time in this production environment. The future date refers to a date and time that the release will automatically become the release available to all users of the customer.
+Insurity Predict supports future dated releases in the predict.insurity.com environment.  This allows two different releases to be available at the same time in this production environment. The future date refers to a date and time that the release will automatically become the release available to all users of the customer.
 
 A common use case involves some customer acceptance testing of a release before it becomes available to all end users of the customer. A future dated release is only available via the Web services interface. The User Interface for Insurity Predict is not capable of accessing a future dated release.
 
 To access a future dated release via a web service:
 
-`curl -u \[username\]:\[password\]` `-X POST -d @valid-request.xml -H 'Content-Type: application/xml'` `https://insureright.valen.com/solutions/insureright/scoring?solutionVersion=1.0.7`
+`curl -u \[username\]:\[password\]` `-X POST -d @valid-request.xml -H 'Content-Type: application/xml'` `https://predict.insurity.com/solutions/insureright/scoring?solutionVersion=1.0.7`
 	
 To access the current active release available to all users:
 
-`curl –u \[username\]:\[password\]` `-X POST -d @valid-request.xml -H 'Content-Type: application/xml'` `https://insureright.valen.com/solutions/insureright/scoring`
+`curl –u \[username\]:\[password\]` `-X POST -d @valid-request.xml -H 'Content-Type: application/xml'` `https://predict.insurity.com/solutions/insureright/scoring`
 	
 All of the URL's referenced in this document can take the optional parameter of solutionVersion. If you are testing a future dated release, it is a best practive to authenticate with a test user so any scores created are not considered production scores.
 	
