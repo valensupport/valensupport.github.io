@@ -72,12 +72,12 @@ The batch API will return a zip file of results in response to a request once pr
 
 Batch requests are POSTs using multi-part form data.
 
-To construct the URI we start with our base URL, `https://insureright.valen.com/api/`. We append the version, the action, and solution, for example: `2/batch/ca` or `2/batch/insureright`
+To construct the URI we start with our base URL, `https://predict.insurity.com/api/`. We append the version, the action, and solution, for example: `2/batch/ca` or `2/batch/insureright`
 
-The generalized form looks like this: `https://insureright.valen.com/api/2/batch/[solution]/[submission]`
-A sample batch request url for a submission to workers compensation would look like this: `https://insureright.valen.com/api/2/batch/insureright/scoring`
+The generalized form looks like this: `https://predict.insurity.com/api/2/batch/[solution]/[submission]`
+A sample batch request url for a submission to workers compensation would look like this: `https://predict.insurity.com/api/2/batch/insureright/scoring`
 
-A sample batch request url for a contributory submission to workers compensation would look like this: `https://insureright.valen.com/api/2/batch/profile`
+A sample batch request url for a contributory submission to workers compensation would look like this: `https://predict.insurity.com/api/2/batch/profile`
 
 ##### Request Requirements
 
@@ -94,12 +94,12 @@ In order to submit a compressed batch file containing delimited data for scoring
 In order to submit a batch, you must submit an `HTTPS` `POST` to the following endpoint:
  
   `POST`: `multipart-form-data`
-  `https://insureright.valen.com/api/2/batch/[solution]/[submission]`
+  `https://predict.insurity.com/api/2/batch/[solution]/[submission]`
 
 The solution and submission are encoded as part of the path.
 
   `POST`: `multipart-form-data`
-  `https://insureright.valen.com/api/2/batch/[solution]/scoring`
+  `https://predict.insurity.com/api/2/batch/[solution]/scoring`
  
 The content type of the body must be `multipart/form-data` where one part has the name `batch-file`. If there is no such part, or if the `content-type` of the scoring request is not `multipart-form-data` the request will fail with a status code `400`.
 
@@ -116,7 +116,7 @@ Using the GUID returned from the submission, you will poll for the results a the
 endpoint:
 
   `GET`
-  `https://insureright.valen.com/api/2/batch/insureright/scoring/[GUID]`
+  `https://predict.insurity.com/api/2/batch/insureright/scoring/[GUID]`
 
 The `GET` will either return a `404`, a zip file containing results, or an error code. The `404` response is expected and may mean the batch is still processing or the GUID is invalid. If a `404` is received, continue making the request again on an interval of 5 minutes between requests.
 
@@ -132,7 +132,7 @@ In order to submit a batch, you must submit an `HTTPS` `POST` to the following e
       
   Important Note:  For all Contributory Batch submissions, use the following URL syntax supported as of June 15, 2023. Please note the content of the zip file for a data contribution has not changed.
   
-  `https://insureright.valen.com/api/2/batch/[LineOfBusiness]/consortium` 
+  `https://predict.insurity.com/api/2/batch/[LineOfBusiness]/consortium` 
        Supported LineOfBusiness:
        "wc":   Workers' Compensation
        "ca":   Commercial Auto
@@ -142,15 +142,15 @@ In order to submit a batch, you must submit an `HTTPS` `POST` to the following e
   
       For Workers' Compensation the URL is:
 
-          https://insureright.valen.com/api/2/batch/wc/consortium 
+          https://predict.insurity.com/api/2/batch/wc/consortium 
 
       For Commercial Auto the URL is:
 
-           https://insureright.valen.com/api/2/batch/ca/consortium 
+           https://predict.insurity.com/api/2/batch/ca/consortium 
 
       For General Liability the URL is: 
 
-           https://insureright.valen.com/api/2/batch/gl/consortium 
+           https://predict.insurity.com/api/2/batch/gl/consortium 
 	   
 
 
@@ -183,9 +183,9 @@ Status codes returned from a batch results retrieval request may include:
 
 |Test|Request|Expected Response|
 |----|-------|-----------------|
-|Basic Batch Submit Scoring|`curl -X POST -u "[username]":"[password]"`` -H "content-type: multipart/form-data"` `--form "batch-file=@[filename]"` `--url "https://insureright.valen.com/api/2/batch/insureright/scoring"`|200 OK GUID|
-|Basic Batch Retrieve Scoring|`curl -X GET` `--url "https://insureright.valen.com/api/2/batch/insureright/scoring/[GUID]"` `-u "[username]":"[password]"`|404 or 200 OK and Zip File|
-|Basic Batch Submit Contributory Data|`curl -X POST -u "[username]":"[password]"` `-H "content-type: multipart/form-data"` `--form "batch-file=@[filename]"` `--url "https://insureright.valen.com/api/2/batch/profile"`|200 OK GUID|
+|Basic Batch Submit Scoring|`curl -X POST -u "[username]":"[password]"`` -H "content-type: multipart/form-data"` `--form "batch-file=@[filename]"` `--url "https://predict.insurity.com/api/2/batch/insureright/scoring"`|200 OK GUID|
+|Basic Batch Retrieve Scoring|`curl -X GET` `--url "https://predict.insurity.com/api/2/batch/insureright/scoring/[GUID]"` `-u "[username]":"[password]"`|404 or 200 OK and Zip File|
+|Basic Batch Submit Contributory Data|`curl -X POST -u "[username]":"[password]"` `-H "content-type: multipart/form-data"` `--form "batch-file=@[filename]"` `--url "https://predict.insurity.com/api/2/batch/profile"`|200 OK GUID|
 
 
 ### Sample Files
@@ -236,17 +236,17 @@ The data is presented in comma delimited (`.csv`) format. In order to accomodate
 
 ### Appendix A – Testing Insurity Predict Future Dated Releases using Batch Scoring
 
-Insurity Predict supports future dated releases in the insureright.valen.com environment.  This allows two different releases to be available at the same time in this production environment. The future date refers to a date and time that the release will automatically become the release available to all users of the customer.
+Insurity Predict supports future dated releases in the predict.insurity.com environment.  This allows two different releases to be available at the same time in this production environment. The future date refers to a date and time that the release will automatically become the release available to all users of the customer.
 
 A common use case involves some customer acceptance testing of a release before it becomes available to all end users of the customer. A future dated release is only available via the Web services interface. The User Interface for Predict is not capable of accessing a future dated release.
 
 To access a future dated release via a web service:
 
-`curl -X POST -u "[username]":"[password]"` `-H "content-type: multipart/form-data" --form "batch-file=@[filename]"` `--url "https://insureright.valen.com/api/2/batch/insureright/scoring?solutionVersion=1.0.7"`
+`curl -X POST -u "[username]":"[password]"` `-H "content-type: multipart/form-data" --form "batch-file=@[filename]"` `--url "https://predict.insurity.com/api/2/batch/insureright/scoring?solutionVersion=1.0.7"`
 	
 To access the current active release available to all users:
 
-`curl -X POST -u "[username]":"[password]"` `-H "content-type: multipart/form-data" --form "batch-file=@[filename]"` `-–url "https://insureright.valen.com/api/2/batch/insureright/scoring"`
+`curl -X POST -u "[username]":"[password]"` `-H "content-type: multipart/form-data" --form "batch-file=@[filename]"` `-–url "https://predict.insurity.com/api/2/batch/insureright/scoring"`
 	
 All of the URL's referenced in this document can take the optional parameter of solutionVersion. If you are testing a future dated release, it is a best practive to authenticate with a test user so any scores created are not considered production scores.
 	
