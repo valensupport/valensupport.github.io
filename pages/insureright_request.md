@@ -22,7 +22,7 @@ The update is the same as the create method and functions in the form of an upse
 
 PWS Requests are **POST** requests to the URL constructed above.
 
-The example from the previous page as a reminder - `https://insureright.valen.com/solutions/insureright/scoring`
+The example from the previous page as a reminder - `https://predict.insurity.com/solutions/insureright/scoring`
 
 The PWS Application requires data in an **input node**. Inside the input node are two required nodes, **insured** and **class**. In order to handle multiple classes, the class information is nested inside an **input_child** node. Each node has specific fields that contain the necessary data.
 
@@ -250,5 +250,5 @@ Here is a test plan for integration of Valen's InsureRight Scoring API. Each req
 {:.tests}
 |Test|Request|Expected Response|
 |----|-------|-----------------|
-|Basic Scoring|`curl --request POST --url 'https://insureright.valen.com/solutions/insureright/scoring' –u **[username]:[password]** --header "content-type: application/xml" --data [data here]`| 200 OK: Scoring Response here|
-|Retrieve PDF|`curl --request GET --url 'https://insureright.valen.com/solutions/insureright/scoring/[scoreID]?format=pdf' –u [username]:[password] --header 'content-type: application/xml'`| 200 OK: PDF contents will be returned in Base 64 format which will require conversion|
+|Basic Scoring|`curl --request POST --url 'https://predict.insurity.com/solutions/insureright/scoring' –u **[username]:[password]** --header "content-type: application/xml" --data [data here]`| 200 OK: Scoring Response here|
+|Retrieve PDF|`curl --request GET --url 'https://predict.insurity.com/solutions/insureright/scoring/[scoreID]?format=pdf' –u [username]:[password] --header 'content-type: application/xml'`| 200 OK: PDF contents will be returned in Base 64 format which will require conversion|
