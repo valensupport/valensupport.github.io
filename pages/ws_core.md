@@ -65,8 +65,8 @@ URL:
 `[server]/solutions/[solution]/[submission]`
 
 For example:
-`https://insureright.valen.com/solutions/insureright/scoring`
-`https://insureright.valen.com/solutions/ca/scoring`
+`https://predict.insurity.com/solutions/insureright/scoring`
+`https://predict.insurity.com/solutions/ca/scoring`
 `https://insureright.valentech.com/solutions/batch/5/profile`
 
 In the first example the **solution** is InsureRight, our workers' compensation product. A number of different
@@ -342,7 +342,7 @@ Given a valid xml file (see the example request above), this is a sample request
 
 curl –u \[username\]:\[password\] -X POST -d @valid-request.xml -H
 'Content-Type: application/xml'
-[https://insureright.valen.com/solutions/&lt;customer&gt;insureright/scoring](https://insureright.valen.com/solutions/%3ccustomer%3einsureright/scoring)
+[https://predict.insurity.com/solutions/&lt;customer&gt;insureright/scoring](https://predict.insurity.com/solutions/%3ccustomer%3einsureright/scoring)
 
 ###### Postman
 
