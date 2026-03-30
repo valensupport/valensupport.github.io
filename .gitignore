@@ -1,6 +1,5 @@
 _site/
-*
-.sass-cache/
+*.sass-cache/
 
 *.jekyll-metadata
 _pdf
@@ -11,3 +10,6 @@ _pdf
 *.sublime-workspace
 
 *.sublime-project
+.vscode/
+node_modules/
+*.code-workspace
